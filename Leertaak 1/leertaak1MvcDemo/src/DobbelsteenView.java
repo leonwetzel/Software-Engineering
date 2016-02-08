@@ -19,6 +19,7 @@ public class DobbelsteenView extends JPanel implements ActionListener
 	    repaint();
 	    
 	}
+
 	public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
@@ -65,7 +66,8 @@ public class DobbelsteenView extends JPanel implements ActionListener
             g.fillOval(60,34,10,10);
         }
         else; // meer waarden zijn er niet
-    }    
+    }
+
 	public Dimension getPreferredSize()
 	{
 	    return new Dimension(80,80);

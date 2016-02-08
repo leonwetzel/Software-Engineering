@@ -17,7 +17,8 @@ public class DobbelsteenModel
     public int getWaarde()
     {
         return waarde;
-    }    
+    }
+
 	public void verhoog()
 	{
 		waarde++;
@@ -28,13 +29,15 @@ public class DobbelsteenModel
 	    // aan de ActionListener. Dan hoeft de ActionListener niet met e.getSource() weer naar
 	    // het model toe te gaan.
 	    processEvent( new ActionEvent( this, ActionEvent.ACTION_PERFORMED, null));
-	} 
+	}
+
 	public void verlaag()
 	{
 	    waarde--;
 	    if (waarde<1) waarde=6;
 	    processEvent( new ActionEvent( this, ActionEvent.ACTION_PERFORMED, null));
-	} 
+	}
+
 	public void gooi(){
 	    waarde= (int)(Math.random()*6+1);
 	    processEvent( new ActionEvent( this, ActionEvent.ACTION_PERFORMED, null));
