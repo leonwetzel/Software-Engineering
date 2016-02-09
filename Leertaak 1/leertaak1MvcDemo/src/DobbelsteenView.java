@@ -17,7 +17,6 @@ public class DobbelsteenView extends JPanel implements ActionListener
 	    d = (DobbelsteenModel) e.getSource();
 	    waarde = d.getWaarde();
 	    repaint();
-	    
 	}
 
 	public void paintComponent(Graphics g)
