@@ -1,4 +1,5 @@
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +12,7 @@ public class StatistiekenView extends JPanel implements ActionListener
     
     public StatistiekenView(DobbelsteenModel dobbelsteen)
     {
-        this.setLayout(new FlowLayout());
+        this.setLayout(new GridLayout());
         this.add(steenRoodVeld);
         this.d = dobbelsteen;
         setField();

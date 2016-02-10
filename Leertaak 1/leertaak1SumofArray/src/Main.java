@@ -13,6 +13,12 @@
  * Changelog:
  * 1.0:
  */
+
+/**
+ * Contains a method which calculates the sum of values of two arrays.
+ * @author Leon Wetzel
+ *
+ */
 public class Main {
     public static void main(String[] args) {
         try {
@@ -29,8 +35,8 @@ public class Main {
 
     /**
      * Get an array that contains the sum of values of two arrays.
-     * @param a: array containing an amount of integers
-     * @param b: array containing an amount of integers
+     * @param a array containing an amount of integers
+     * @param b array containing an amount of integers
      * @return An array that contains the sum of values of a and b.
      */
     public static int[] getArraySum(int[] a, int[] b) throws ArraySizeException {

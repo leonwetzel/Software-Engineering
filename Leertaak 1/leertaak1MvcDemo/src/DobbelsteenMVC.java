@@ -3,11 +3,11 @@ import java.awt.*;
 
 public class DobbelsteenMVC extends JApplet
 {
-	DobbelsteenModel model;             //het model
-	TekstView tekstView;              // view
-	DobbelsteenView dobbelsteenView;  // view
+	DobbelsteenModel model;             // model
+	TekstView tekstView;              	// view
+	DobbelsteenView dobbelsteenView;  	// view
 	StatistiekenView statistiekenView;	// view
-	DobbelsteenController controller;             // Controller
+	DobbelsteenController controller;   // Controller
 	
 	public void init()
 	{
