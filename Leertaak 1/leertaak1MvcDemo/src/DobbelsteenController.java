@@ -18,6 +18,8 @@ public class DobbelsteenController extends JPanel implements ActionListener
         lager.addActionListener(this);
         this.add(gooi);
         gooi.addActionListener(this);
+        
+        
 	}
 
     public void actionPerformed(ActionEvent e)
@@ -33,7 +35,8 @@ public class DobbelsteenController extends JPanel implements ActionListener
         if (e.getSource() == gooi)
         {
             dob.gooi();
-        } 
+        }
+       
 	}
 
 	public Dimension getPreferredSize()
