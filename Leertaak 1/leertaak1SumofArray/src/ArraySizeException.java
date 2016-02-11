@@ -13,6 +13,12 @@
  * Changelog:
  * 1.0:
  */
+
+/**
+ * Thrown if array lengths do not match.
+ * @author Leon Wetzel
+ *
+ */
 public class ArraySizeException extends Exception {
     public ArraySizeException(String message) {
         super(message);
