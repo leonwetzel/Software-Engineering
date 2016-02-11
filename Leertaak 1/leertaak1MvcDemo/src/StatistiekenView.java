@@ -9,6 +9,7 @@ public class StatistiekenView extends JPanel implements ActionListener
     private JTextArea steenRoodVeld = new JTextArea();
     DobbelsteenModel d;
     
+
     public StatistiekenView(DobbelsteenModel dobbelsteen)
     {
         this.setLayout(new FlowLayout());
@@ -17,6 +18,8 @@ public class StatistiekenView extends JPanel implements ActionListener
         setField();
     }
     
+    
+
     private void setField()
     {
     	String stats = new String();

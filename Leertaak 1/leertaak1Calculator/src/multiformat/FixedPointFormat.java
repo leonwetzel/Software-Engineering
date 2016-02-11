@@ -18,7 +18,8 @@
  */
 package multiformat;
 
-public class FixedPointFormat extends Format {
+public class FixedPointFormat
+extends Format {
 
   static final int MAX_PRECISION = 10;  // max # of number after point
 

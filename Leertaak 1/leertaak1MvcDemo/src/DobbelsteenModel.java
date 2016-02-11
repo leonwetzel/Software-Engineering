@@ -46,9 +46,6 @@ public class DobbelsteenModel
 		return stats;
 	}
 	
-	/**
-	 * Increments the amount of dice rolls of a key.
-	 */
 	private void addRecordsToStats()
 	{
 		int temp;
@@ -66,6 +63,11 @@ public class DobbelsteenModel
 	    
 	    addRecordsToStats();
 	    processEvent( new ActionEvent( this, ActionEvent.ACTION_PERFORMED, null));
+	}
+	
+	public void somethingHappend(ActionEvent e)
+	{
+		
 	}
 	
 	public void addActionListener( ActionListener l){
