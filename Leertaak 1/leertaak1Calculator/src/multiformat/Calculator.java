@@ -51,11 +51,10 @@ public class Calculator {
     	if(operand_0.getNumerator() == 0)
     	{
     		throw new Exception("Je mag niet door 0 delen");
-    	}else{
+    	} else {
     		operand_0 = operand_1.div(operand_0);
             operand_1 = new Rational();
     	}
-        
     }
     
     public void delete() {
