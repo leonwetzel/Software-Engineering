@@ -43,6 +43,10 @@ public class Rational {
 	public Rational() {
 	}
 
+	/**
+		* Constructor
+		* @param double number
+	*/
 	public Rational(double number) {
 		numerator = number;
 		denominator = 1.0;
@@ -127,10 +131,11 @@ public class Rational {
 			denominator * other.denominator);
 	}
 
-	public Rational div(Rational other) {
+	public Rational div(Rational other) throws Exception {
+	
 		return new Rational(
-			numerator * other.denominator,
-			denominator * other.numerator);
+				numerator * other.denominator,
+				denominator * other.numerator);
 	}
 
 	public void copyOf(Rational other) {
@@ -146,6 +151,10 @@ public class Rational {
 	public double getDenominator() {
 		return denominator;
 	}
+	/**
+	 * 
+	 * @param double num
+	 */
 	public void setNumerator(double num){
 		numerator = num;
 	}

@@ -47,10 +47,17 @@ public class Calculator {
         operand_0 = operand_1.mul(operand_0);
         operand_1 = new Rational();
     }
-    public void divide() {
-        operand_0 = operand_1.div(operand_0);
-        operand_1 = new Rational();
+    public void divide()throws Exception {
+    	if(operand_0.getNumerator() == 0)
+    	{
+    		throw new Exception("Je mag niet door 0 delen");
+    	}else{
+    		operand_0 = operand_1.div(operand_0);
+            operand_1 = new Rational();
+    	}
+        
     }
+    
     public void delete() {
         operand_0 = operand_1;
         operand_1 = new Rational();
