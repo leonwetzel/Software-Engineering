@@ -25,7 +25,7 @@ package multiformat;
 public class Rational {
 	static final double PRECISION=10;
 	static final double EPSILON = Math.pow(10,-PRECISION);
-	
+
 	double numerator = 0.0; // teller
 	double denominator = 1.0; // noemer
 
@@ -44,9 +44,9 @@ public class Rational {
 	}
 
 	/**
-		* Constructor
-		* @param double number
-	*/
+	 * Constructor
+	 * @param double number
+	 */
 	public Rational(double number) {
 		numerator = number;
 		denominator = 1.0;
@@ -106,14 +106,14 @@ public class Rational {
 	public Rational plus(Rational other) {
 		if (denominator == other.denominator)
 			return new Rational(numerator + other.numerator
-								,other.denominator);
+					,other.denominator);
 		else
 			// a/x + b/y = 
 			// (breuken gelijknamig maken)
 			// a*y/x*y + b*x/x*y = (a*y + b*x)/x*y
 			return new Rational(numerator * other.denominator + 
-										denominator * other.numerator
-								,denominator * other.denominator);
+					denominator * other.numerator
+					,denominator * other.denominator);
 	}
 
 	public Rational minus(Rational other) {
@@ -121,18 +121,17 @@ public class Rational {
 			return new Rational(numerator - other.numerator, denominator);
 		else
 			return new Rational(numerator * other.denominator - 
-									denominator * other.numerator
-								,denominator * other.denominator);
+					denominator * other.numerator
+					,denominator * other.denominator);
 	}
 
 	public Rational mul(Rational other) {
 		return new Rational(
-			numerator * other.numerator,
-			denominator * other.denominator);
+				numerator * other.numerator,
+				denominator * other.denominator);
 	}
 
 	public Rational div(Rational other) throws Exception {
-	
 		return new Rational(
 				numerator * other.denominator,
 				denominator * other.numerator);
@@ -142,23 +141,28 @@ public class Rational {
 		this.numerator = other.numerator;
 		this.denominator = other.denominator;
 	}
-	
+
 	// Added getters and setters for unittesting purposes.
 	public double getNumerator(){
 		return numerator;
 	}
-	
+
 	public double getDenominator() {
 		return denominator;
 	}
+
 	/**
-	 * 
-	 * @param double num
+	 * Sets a new value for the numerator.
+	 * @param num The new value of the numerator
 	 */
 	public void setNumerator(double num){
 		numerator = num;
 	}
-	
+
+	/**
+	 * Sets a new value for the denominator.
+	 * @param den The new value of the denominator
+	 */
 	public void setDenominator(double den) {
 		denominator = den;
 	}

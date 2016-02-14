@@ -18,10 +18,21 @@
  */
 package multiformat;
 
-public class FormatException extends Exception {
- 	private static final long serialVersionUID = 1L;
+public class FixedPointFormat extends Format {
 
-public FormatException(String msg) {
-    super(msg);
+  static final int MAX_PRECISION = 10;  // max # of number after point
+
+  public String getName() { return "fixed"; }
+
+  public String toString(Rational number, Base base) {
+    double value = (double)number.numerator / (double)number.denominator;
+    String result = base.toString(Math.abs(value));
+    if(result.equals("0")) result += ".0";
+    if(value<0) result = "-" + result;
+    return result;
+  }
+
+  public Rational parse(String number, Base base) {
+    return new Rational(base.parse(number));
   }
 }

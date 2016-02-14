@@ -12,15 +12,13 @@ public class DobbelsteenView extends JPanel implements ActionListener
 		kleur=c;
 	}
     
-    public void actionPerformed( ActionEvent e )
-	{
+    public void actionPerformed( ActionEvent e ) {
 	    d = (DobbelsteenModel) e.getSource();
 	    waarde = d.getWaarde();
 	    repaint();
 	}
 
-	public void paintComponent(Graphics g)
-    {
+	public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(kleur);
         g.fillRoundRect(5,5,70,70,10,10);

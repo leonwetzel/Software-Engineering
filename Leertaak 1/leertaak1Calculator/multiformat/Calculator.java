@@ -39,18 +39,20 @@ public class Calculator {
         operand_0 = operand_1.plus(operand_0);
         operand_1 = new Rational();
     }
+    
     public void subtract() {
         operand_0 = operand_1.minus(operand_0);
         operand_1 = new Rational();
     }
+    
     public void multiply() {
         operand_0 = operand_1.mul(operand_0);
         operand_1 = new Rational();
     }
-    public void divide()throws Exception {
-    	if(operand_0.getNumerator() == 0)
-    	{
-    		throw new Exception("Je mag niet door 0 delen");
+    
+    public void divide() throws Exception {
+    	if(operand_0.getNumerator() == 0) {
+    		throw new Exception("Cannot divide by 0!");
     	} else {
     		operand_0 = operand_1.div(operand_0);
             operand_1 = new Rational();
@@ -65,6 +67,7 @@ public class Calculator {
     public String firstOperand(){
         return format.toString(operand_1,base);
     }
+    
     public String secondOperand(){
         return format.toString(operand_0,base);
     }
@@ -72,12 +75,15 @@ public class Calculator {
     public void setBase(Base newBase){
         base = newBase;
     }
+    
     public Base getBase(){
         return base;
     }
+    
     public void setFormat(Format newFormat){
         format = newFormat;
     }
+    
     public Format getFormat(){
         return format;
     }
