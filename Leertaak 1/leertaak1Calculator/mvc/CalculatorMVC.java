@@ -2,7 +2,6 @@ package mvc;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.event.ActionListener;
 
 import javax.swing.JApplet;
@@ -16,7 +15,8 @@ public class CalculatorMVC extends JApplet {
 	/**
 	 * Setup the application
 	 */
-	public void init() {
+	@Override
+    public void init() {
 		model = new CalculatorModel();
 		controller = new CalculatorController(model);
 		
@@ -30,7 +30,7 @@ public class CalculatorMVC extends JApplet {
         getContentPane().add(inputView,BorderLayout.NORTH);
         
         // Registreer de views bij het model
-        model.addActionListener((ActionListener) keyboardView);
-        model.addActionListener((ActionListener) inputView);
+        model.addActionListener(keyboardView);
+        model.addActionListener(inputView);
 	}
 }

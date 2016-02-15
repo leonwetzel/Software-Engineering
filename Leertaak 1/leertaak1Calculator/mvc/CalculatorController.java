@@ -1,6 +1,6 @@
 package mvc;
 
-import java.awt.Dimension;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,7 +16,6 @@ public class CalculatorController extends JPanel implements ActionListener {
     private JButton enter = new JButton("enter");
 	
 	public CalculatorController(CalculatorModel model) {
-		// TODO Auto-generated constructor stub
 		this.model = model;
 		
 		this.add(add);
@@ -27,6 +26,33 @@ public class CalculatorController extends JPanel implements ActionListener {
         divide.addActionListener(this);
         this.add(multiply);
         multiply.addActionListener(this);
+        this.add(enter);
+        enter.addActionListener(this);
+
+        this.setLayout(new GridLayout(0, 4));
+        this.add(new JButton("+"));
+        this.add(new JButton("-"));
+        this.add(new JButton("*"));
+        this.add(new JButton("/"));
+
+        this.add(new JButton("bin"));
+        this.add(new JButton("dec"));
+        this.add(new JButton("hex"));
+        this.add(new JButton("oct"));
+
+        this.add(new JButton("fixed"));
+        this.add(new JButton("floating"));
+        this.add(new JButton("rational"));
+        this.add(new JButton("help"));
+
+        for(int i = 0; i < 10; i++) {
+            this.add(new JButton("" + i + ""));
+        }
+
+        String hexLetters = "ABCDEF";
+        for(char letter : hexLetters.toCharArray()) {
+            this.add(new JButton("" + letter + ""));
+        }
 	}
 	
 	/**

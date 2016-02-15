@@ -2,24 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cdcce36-e367-4ee4-b65d-5e4f6544af1e" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Leon\Documents\GitHub\Software-Engineering\Leertaak 1\leertaak1Calculator\.idea\encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Leon\Documents\GitHub\Software-Engineering\Leertaak 1\leertaak1Calculator\out\production\leertaak1Calculator\.idea\encodings.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/leertaak1Calculator/multiformat/Calculator.class" afterPath="$PROJECT_DIR$/out/production/leertaak1Calculator/multiformat/Calculator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/leertaak1Calculator/mvc/CalculatorController.class" afterPath="$PROJECT_DIR$/out/production/leertaak1Calculator/mvc/CalculatorController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/leertaak1Calculator/mvc/CalculatorModel.class" afterPath="$PROJECT_DIR$/out/production/leertaak1Calculator/mvc/CalculatorModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/multiformat/Calculator.java" afterPath="$PROJECT_DIR$/multiformat/Calculator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mvc/CalculatorController.java" afterPath="$PROJECT_DIR$/mvc/CalculatorController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mvc/CalculatorModel.java" afterPath="$PROJECT_DIR$/mvc/CalculatorModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/leertaak1Calculator/.idea/compiler.xml" afterPath="$PROJECT_DIR$/out/production/leertaak1Calculator/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leertaak1Calculator.iml" afterPath="$PROJECT_DIR$/leertaak1Calculator.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/leertaak1Calculator/leertaak1Calculator.iml" afterPath="$PROJECT_DIR$/out/production/leertaak1Calculator/leertaak1Calculator.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/leertaak1Calculator/.idea/misc.xml" afterPath="$PROJECT_DIR$/out/production/leertaak1Calculator/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/leertaak1Calculator/.idea/modules.xml" afterPath="$PROJECT_DIR$/out/production/leertaak1Calculator/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mvc/CalculatorMVC.java" afterPath="$PROJECT_DIR$/mvc/CalculatorMVC.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mvc/KeyboardView.java" afterPath="$PROJECT_DIR$/mvc/KeyboardView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/leertaak1Calculator/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/leertaak1Calculator/.idea/workspace.xml" />
     </list>
     <ignored path="leertaak1Calculator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,17 +69,39 @@
         <entry file="file://$PROJECT_DIR$/mvc/CalculatorMVC.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+              <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KeyboardView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mvc/KeyboardView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="48" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CalculatorModel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="InputView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mvc/InputView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CalculatorModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mvc/CalculatorModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.9247313">
-              <caret line="96" column="26" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1657#1658#0" expanded="true" />
@@ -138,11 +146,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CalculatorController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CalculatorController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mvc/CalculatorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.8849315">
+              <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -155,6 +163,9 @@
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
     <option name="FORCE_PUSH_ALLOWED" value="true" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -165,9 +176,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/test/TestRational.java" />
-        <option value="$PROJECT_DIR$/mvc/CalculatorController.java" />
         <option value="$PROJECT_DIR$/multiformat/Calculator.java" />
         <option value="$PROJECT_DIR$/mvc/CalculatorModel.java" />
+        <option value="$PROJECT_DIR$/mvc/CalculatorMVC.java" />
+        <option value="$PROJECT_DIR$/mvc/KeyboardView.java" />
+        <option value="$PROJECT_DIR$/mvc/CalculatorController.java" />
       </list>
     </option>
   </component>
@@ -565,12 +578,19 @@
       <created>1455546283759</created>
       <option name="number" value="Default" />
       <updated>1455546283759</updated>
-      <workItem from="1455546285468" duration="1069000" />
+      <workItem from="1455546285468" duration="2004000" />
     </task>
+    <task id="LOCAL-00001" summary="Yes!">
+      <created>1455547370774</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1455547370774</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1069000" />
+    <option name="totallyTimeSpent" value="2004000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -580,11 +600,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32935154" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -606,6 +626,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Yes!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Yes!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -634,14 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mvc/CalculatorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui/Command.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -661,14 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mvc/CalculatorMVC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/TestCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -684,8 +692,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mvc/CalculatorModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.9247313">
-          <caret line="96" column="26" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1657#1658#0" expanded="true" />
@@ -703,6 +711,40 @@
             <element signature="e#4814#4815#0" expanded="true" />
             <element signature="e#4853#4854#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/CalculatorMVC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/InputView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/KeyboardView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="48" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/CalculatorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8849315">
+          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -28,20 +28,25 @@ public class KeyboardView extends JPanel implements ActionListener {
 		this.add(new JButton("-"));
 		this.add(new JButton("*"));
 		this.add(new JButton("/"));
-		
+
 		this.add(new JButton("bin"));
 		this.add(new JButton("dec"));
 		this.add(new JButton("hex"));
 		this.add(new JButton("oct"));
-		
+
 		this.add(new JButton("fixed"));
 		this.add(new JButton("floating"));
 		this.add(new JButton("rational"));
 		this.add(new JButton("help"));
 
 		for(int i = 0; i < 10; i++) {
-			this.add(new JButton("" + i + ""));			
+			this.add(new JButton("" + i + ""));
 		}
+
+        String hexLetters = "ABCDEF";
+        for(char letter : hexLetters.toCharArray()) {
+            this.add(new JButton("" + letter + ""));
+        }
 		
 	}
 	
