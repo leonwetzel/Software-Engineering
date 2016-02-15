@@ -11,13 +11,19 @@ public class CalculatorModel {
 	private ArrayList<ActionListener> actionListenerList = new ArrayList<>();
 	private Rational operand_0 = new Rational();
 	private Rational operand_1 = new Rational();
+    private InputView inputView;
 	
 	/**
 	 * Constructor for a CalculatorModel object.
 	 */
-	public CalculatorModel() {
-		
+	public CalculatorModel(InputView newView) {
+		this.inputView = newView;
 	}
+
+    public InputView getInputView()
+    {
+        return inputView;
+    }
 
 	// The current format of the calculator
 	private Format format = new FixedPointFormat();

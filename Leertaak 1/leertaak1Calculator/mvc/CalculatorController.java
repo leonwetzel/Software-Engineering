@@ -1,5 +1,7 @@
 package mvc;
 
+import multiformat.FormatException;
+
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,13 +37,12 @@ public class CalculatorController extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == add) {
         	model.add();
-        }  
-        
-        if (e.getSource() == subtract) {
+        }
+
+		if (e.getSource() == subtract) {
         	model.subtract();
-        } 
-        
-        if (e.getSource() == divide) {
+        }
+		if (e.getSource() == divide) {
         	try {
         	model.divide();
         	} catch (Exception exception) {
@@ -52,12 +53,23 @@ public class CalculatorController extends JPanel implements ActionListener {
         if(e.getSource() == multiply) {
         	model.multiply();
         }
-        
+
+		if(e.getSource() == enter)
+		{
+			try {
+				model.addOperand(model.getInputView().getInputContext().toString());
+			} catch (FormatException e1) {
+				e1.getMessage();
+			}
+		}
+
         for(int i = 0; i < 10; i++) {
         	if(e.getSource() == new JButton("" + i + "")) {
-        		
+
         	}
         }
+
+
 	}
 
 	public Dimension getPreferredSize() {
