@@ -3,8 +3,8 @@
   <component name="CompilerConfiguration">
     <excludeFromCompile>
       <file url="file://$PROJECT_DIR$/test/TestCalculator.java" />
-      <file url="file://$PROJECT_DIR$/test/TestRational.java" />
       <file url="file://$PROJECT_DIR$/test/TestFormat.java" />
+      <file url="file://$PROJECT_DIR$/test/TestRational.java" />
     </excludeFromCompile>
     <resourceExtensions />
     <wildcardResourcePatterns>

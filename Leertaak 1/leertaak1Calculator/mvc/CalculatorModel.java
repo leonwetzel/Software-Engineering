@@ -4,15 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import multiformat.Base;
-import multiformat.DecimalBase;
-import multiformat.FixedPointFormat;
-import multiformat.Format;
-import multiformat.FormatException;
-import multiformat.Rational;
+import exceptions.NumberBaseException;
+import multiformat.*;
 
 public class CalculatorModel {
-	private ArrayList<ActionListener> actionListenerList = new ArrayList<ActionListener>();
+	private ArrayList<ActionListener> actionListenerList = new ArrayList<>();
 	private Rational operand_0 = new Rational();
 	private Rational operand_1 = new Rational();
 	
@@ -28,10 +24,19 @@ public class CalculatorModel {
 	// The current numberbase of the calculator
 	private Base base = new DecimalBase();
 
-	public void addOperand(String newOperand) throws FormatException {
-		operand_1 = operand_0;
-		operand_0 = format.parse(newOperand, base);
-	}
+    public void addOperand(String newOperand) throws FormatException {
+        try
+        {
+            if(checkNewOperandForPossibleErrors(newOperand))
+            {
+                operand_1 = operand_0;
+                operand_0 = format.parse(newOperand, base);
+            }
+        }catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
 
 	public void add(){
 		operand_0 = operand_1.plus(operand_0);
@@ -86,20 +91,129 @@ public class CalculatorModel {
 	public Format getFormat(){
 		return format;
 	}
-	
+
+    public boolean checkNewOperandForPossibleErrors(String newOperand) throws NumberBaseException
+    {
+        newOperand.trim();
+        if(base instanceof HexBase)
+        {
+            if( hexBasedCheck(newOperand))
+            {
+                return true;
+            }
+            throw new  NumberBaseException("Verkeerde input, hex is 0-9 en ABCDEF");
+        }
+        else if (base instanceof OctalBase)
+        {
+            if( octalBaseCheck(newOperand))
+            {
+                return true;
+            }
+            throw new   NumberBaseException("Verkeerde input, Octaal is 0-7");
+        }
+        else if(base instanceof DecimalBase)
+        {
+            if(decimalBaseCheck(newOperand))
+            {
+                return true;
+            }
+            throw new   NumberBaseException("Verkeerde input, decimaal is 0-9");
+        }
+        return false;
+    }
+
+    private boolean hexBasedCheck(String operand)
+    {
+        for(int i=0; i< operand.length();i++)
+        {
+            char c = operand.charAt(i);
+            switch(c)
+            {
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                case 'A':
+                case 'B':
+                case 'C':
+                case 'D':
+                case 'E':
+                case 'F':
+                    break;
+                default:
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean octalBaseCheck(String operand)
+    {
+        for(int i=0;i< operand.length();i++)
+        {
+            char c = operand.charAt(i);
+            switch(c)
+            {
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                    break;
+                default:
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean decimalBaseCheck(String operand)
+    {
+        for(int i=0; i<operand.length();i++)
+        {
+            char c = operand.charAt(i);
+            switch(c)
+            {
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                    break;
+                default:
+                    return false;
+            }
+        }
+        return true;
+    }
+
 	public void addActionListener(ActionListener listener) {
 		actionListenerList.add(listener);
 	}
 
 	public void removeActionListener(ActionListener listener) {
 		if (actionListenerList.contains(listener)) {
-			actionListenerList.remove(listener);	
+			actionListenerList.remove(listener);
 		}
 	}
-	
+
 	private void processEvent(ActionEvent event) {
 		for(ActionListener listeners : actionListenerList) {
-			listeners.actionPerformed( event );	
+			listeners.actionPerformed( event );
 		}
 	}
 }

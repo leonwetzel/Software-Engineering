@@ -13,6 +13,7 @@ public class CalculatorController extends JPanel implements ActionListener {
     private JButton subtract = new JButton("extract");
     private JButton divide = new JButton("divide");
     private JButton multiply = new JButton("multiply");
+    private JButton enter = new JButton("enter");
 	
 	public CalculatorController(CalculatorModel model) {
 		// TODO Auto-generated constructor stub

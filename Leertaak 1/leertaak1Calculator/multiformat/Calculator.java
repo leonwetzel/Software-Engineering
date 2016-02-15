@@ -75,8 +75,6 @@ public class Calculator {
         operand_1 = new multiformat.Rational();
     }
 
-
-
     public String firstOperand(){
         return format.toString(operand_1,base);
     }
