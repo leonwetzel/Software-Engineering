@@ -18,6 +18,8 @@
  */
 package multiformat;
 
+import exceptions.NumberBaseException;
+
 /**
  * The multiformat calculator
  */
@@ -31,8 +33,17 @@ public class Calculator {
     private Base base = new DecimalBase();
 
     public void addOperand(String newOperand) throws FormatException {
-        operand_1 = operand_0;
-        operand_0 = format.parse(newOperand, base);
+        try
+        {
+            if(checkNewOperandForPossibleErrors(newOperand))
+            {
+                operand_1 = operand_0;
+                operand_0 = format.parse(newOperand, base);
+            }
+        }catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void add(){
@@ -61,8 +72,10 @@ public class Calculator {
     
     public void delete() {
         operand_0 = operand_1;
-        operand_1 = new Rational();
+        operand_1 = new multiformat.Rational();
     }
+
+
 
     public String firstOperand(){
         return format.toString(operand_1,base);
@@ -86,5 +99,114 @@ public class Calculator {
     
     public Format getFormat(){
         return format;
+    }
+
+    public boolean checkNewOperandForPossibleErrors(String newOperand) throws NumberBaseException
+    {
+        newOperand.trim();
+        if(base instanceof HexBase)
+        {
+            if( hexBasedCheck(newOperand))
+            {
+                return true;
+            }
+            throw new  NumberBaseException("Verkeerde input, hex is 0-9 en ABCDEF");
+        }
+        else if (base instanceof OctalBase)
+        {
+            if( octalBaseCheck(newOperand))
+            {
+                return true;
+            }
+            throw new   NumberBaseException("Verkeerde input, Octaal is 0-7");
+        }
+        else if(base instanceof DecimalBase)
+        {
+            if(decimalBaseCheck(newOperand))
+            {
+                return true;
+            }
+            throw new   NumberBaseException("Verkeerde input, decimaal is 0-9");
+        }
+        return false;
+    }
+
+    private boolean hexBasedCheck(String operand)
+    {
+        for(int i=0; i< operand.length();i++)
+        {
+            char c = operand.charAt(i);
+            switch(c)
+            {
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                case 'A':
+                case 'B':
+                case 'C':
+                case 'D':
+                case 'E':
+                case 'F':
+                    break;
+                default:
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean octalBaseCheck(String operand)
+    {
+        for(int i=0;i< operand.length();i++)
+        {
+            char c = operand.charAt(i);
+            switch(c)
+            {
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                    break;
+                default:
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean decimalBaseCheck(String operand)
+    {
+        for(int i=0; i<operand.length();i++)
+        {
+            char c = operand.charAt(i);
+            switch(c)
+            {
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                    break;
+                default:
+                    return false;
+            }
+        }
+        return true;
     }
 }
