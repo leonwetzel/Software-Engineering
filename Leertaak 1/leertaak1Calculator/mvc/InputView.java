@@ -13,17 +13,21 @@ import javax.swing.JTextField;
  *
  */
 public class InputView extends JPanel implements ActionListener {
-	private JTextField inputField = new JTextField(50);
+    private JTextField inputField = new JTextField(50);
 	private CalculatorModel model;
 	
 	public InputView() {
 	    this.setLayout(new BorderLayout());
-	    this.add(inputField);
+        this.add(inputField);
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
 	    model = (CalculatorModel) event.getSource();
 	}
+
+    public JTextField getInputField() {
+        return inputField;
+    }
 
 }

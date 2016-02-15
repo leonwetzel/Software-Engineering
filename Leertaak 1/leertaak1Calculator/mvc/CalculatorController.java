@@ -1,67 +1,218 @@
 package mvc;
 
-import java.awt.Dimension;
+import multiformat.*;
+
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class CalculatorController extends JPanel implements ActionListener {
-	private CalculatorModel model;
-	private JButton add = new JButton("add");
-    private JButton subtract = new JButton("extract");
-    private JButton divide = new JButton("divide");
-    private JButton multiply = new JButton("multiply");
+    private CalculatorModel model;
+    private JButton add = new JButton("+");
+    private JButton subtract = new JButton("-");
+    private JButton divide = new JButton("/");
+    private JButton multiply = new JButton("*");
     private JButton enter = new JButton("enter");
-	
-	public CalculatorController(CalculatorModel model) {
-		// TODO Auto-generated constructor stub
-		this.model = model;
-		
-		this.add(add);
-		add.addActionListener(this);
+
+    private JButton decimal = new JButton("dec");
+    private JButton binary = new JButton("bin");
+    private JButton octal = new JButton("oct");
+    private JButton hex = new JButton("hex");
+
+    private JButton floating = new JButton("floating");
+    private JButton fixed = new JButton("fixed");
+    private JButton rational = new JButton("rational");
+    private JButton help = new JButton("help");
+
+    private static final String HEXADECIMAL_CHARS = "ABCDEF";
+    private static ArrayList<JButton> numberButtons = new ArrayList<>();
+
+    public CalculatorController(CalculatorModel model) {
+        this.setLayout(new GridLayout(0, 4));
+        this.model = model;
+
+        setOperators();
+        setBases();
+        setFormats();
+
+        for (int i = 0; i < 10; i++) {
+            JButton number = new JButton("" + i + "");
+            this.add(number);
+            number.addActionListener(this);
+            numberButtons.add(number);
+        }
+
+        for (char character : HEXADECIMAL_CHARS.toCharArray()) {
+            JButton letter = new JButton("" + character + "");
+            this.add(letter);
+            letter.addActionListener(this);
+            numberButtons.add(letter);
+        }
+    }
+
+    /**
+     * Catches events and calls corresponding methods.
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        triggerOperator(e);
+        triggerBase(e);
+        triggerOperand(e);
+        triggerFormat(e);
+    }
+
+    /**
+     * Setter for size of window.
+     * @return Dimension object
+     */
+    @Override
+    public Dimension getPreferredSize() {
+        return new Dimension(50,50);
+    }
+
+    /**
+     * Setter for all the formats.
+     */
+    private void setFormats() {
+        this.add(floating);
+        floating.addActionListener(this);
+        this.add(fixed);
+        fixed.addActionListener(this);
+        this.add(rational);
+        rational.addActionListener(this);
+        this.add(help);
+        help.addActionListener(this);
+    }
+
+    /**
+     * Setter for all the operators.
+     */
+    private void setOperators() {
+        this.add(add);
+        add.addActionListener(this);
         this.add(subtract);
         subtract.addActionListener(this);
         this.add(divide);
         divide.addActionListener(this);
         this.add(multiply);
         multiply.addActionListener(this);
-	}
-	
-	/**
-	 * Catches events and calls corresponding methods.
-	 */
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == add) {
-        	model.add();
-        }  
-        
-        if (e.getSource() == subtract) {
-        	model.subtract();
-        } 
-        
-        if (e.getSource() == divide) {
-        	try {
-        	model.divide();
-        	} catch (Exception exception) {
-        		System.out.println(exception.getMessage());
-        	}
-        }
-       
-        if(e.getSource() == multiply) {
-        	model.multiply();
-        }
-        
-        for(int i = 0; i < 10; i++) {
-        	if(e.getSource() == new JButton("" + i + "")) {
-        		
-        	}
-        }
-	}
+        this.add(enter);
+        enter.addActionListener(this);
+    }
 
-	public Dimension getPreferredSize() {
-	    return new Dimension(50,50);
-	} 
+    /**
+     * Setter for all the base types.
+     */
+    private void setBases() {
+        this.add(decimal);
+        decimal.addActionListener(this);
+        this.add(octal);
+        octal.addActionListener(this);
+        this.add(hex);
+        hex.addActionListener(this);
+        this.add(binary);
+        binary.addActionListener(this);
+    }
+
+    /**
+     * Triggers a method if the event is corrsponding.
+     * @param e Event which occured.
+     */
+    private void triggerOperator(ActionEvent e) {
+        if (e.getSource() == add) {
+            System.out.println("Optellen!");
+            model.add();
+        }
+        else if (e.getSource() == subtract)
+        {
+            System.out.println("Aftrekken!");
+            model.subtract();
+        }
+        else if (e.getSource() == divide)
+        {
+            try {
+                System.out.println("Delen!");
+                model.divide();
+            } catch (Exception exception) {
+                System.out.println(exception.getMessage());
+            }
+        }
+        else if(e.getSource() == multiply)
+        {
+            System.out.println("Vermenigvuldigen!");
+            model.multiply();
+        }
+        else if(e.getSource() == enter)
+        {
+            try {
+                model.addOperand(model.getInputView().getInputField().getText());
+                model.getInputView().getInputField().setText(model.firstOperand() + " | " + model.secondOperand());
+            } catch (FormatException fe) {
+                System.out.println(fe.getMessage());
+            }
+        }
+    }
+
+    /**
+     * Triggers a method if the event is corrsponding.
+     * @param e Event which occured.
+     */
+    private void triggerBase(ActionEvent e) {
+        if(e.getSource() == binary) {
+            model.setBase(new BinaryBase());
+        } else if(e.getSource() == hex) {
+            model.setBase(new HexBase());
+        } else if(e.getSource() == octal) {
+            model.setBase(new OctalBase());
+        } else if(e.getSource() == decimal) {
+            model.setBase(new DecimalBase());
+        }
+    }
+
+    /**
+     * Triggers a method if the event is corrsponding.
+     * @param e Event which occured.
+     */
+    private void triggerOperand(ActionEvent e) {
+        int limit;
+        if(model.getBase() instanceof BinaryBase) {
+            limit = 2;
+        } else if(model.getBase() instanceof HexBase) {
+            limit = 16;
+        } else if(model.getBase() instanceof OctalBase) {
+            limit = 8;
+        } else {
+            limit = 10;
+        }
+
+        for(int i = 0; i < limit; i++) {
+            if(e.getSource() == numberButtons.get(i)) {
+                try {
+                    System.out.println(i);
+                    model.addOperand("" + i + "");
+                } catch (FormatException fe) {
+                    System.out.println(fe.getMessage());
+                }
+            }
+        }
+    }
+
+    /**
+     * Triggers a method if the event is corrsponding.
+     * @param e Event which occured.
+     */
+    private void triggerFormat(ActionEvent e) {
+        if(e.getSource() == rational) {
+            model.setFormat(new RationalFormat());
+        } else if(e.getSource() == fixed) {
+            model.setFormat(new FixedPointFormat());
+        } else if(e.getSource() == floating) {
+            model.setFormat(new FloatingPointFormat());
+        }
+    }
 
 }

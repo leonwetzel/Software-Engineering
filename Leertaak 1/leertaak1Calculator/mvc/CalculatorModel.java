@@ -37,6 +37,7 @@ public class CalculatorModel {
             {
                 operand_1 = operand_0;
                 operand_0 = format.parse(newOperand, base);
+                inputView.getInputField().setText(newOperand);
             }
         }catch(Exception e)
         {
@@ -103,11 +104,11 @@ public class CalculatorModel {
         newOperand.trim();
         if(base instanceof HexBase)
         {
-            if( hexBasedCheck(newOperand))
+            if(hexBasedCheck(newOperand))
             {
                 return true;
             }
-            throw new  NumberBaseException("Verkeerde input, hex is 0-9 en ABCDEF");
+            throw new NumberBaseException("Verkeerde input, hex is 0-9 en ABCDEF");
         }
         else if (base instanceof OctalBase)
         {
@@ -115,7 +116,7 @@ public class CalculatorModel {
             {
                 return true;
             }
-            throw new   NumberBaseException("Verkeerde input, Octaal is 0-7");
+            throw new NumberBaseException("Verkeerde input, Octaal is 0-7");
         }
         else if(base instanceof DecimalBase)
         {
@@ -123,7 +124,7 @@ public class CalculatorModel {
             {
                 return true;
             }
-            throw new   NumberBaseException("Verkeerde input, decimaal is 0-9");
+            throw new NumberBaseException("Verkeerde input, decimaal is 0-9");
         }
         return false;
     }

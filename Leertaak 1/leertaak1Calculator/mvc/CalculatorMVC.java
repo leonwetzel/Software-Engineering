@@ -17,17 +17,14 @@ public class CalculatorMVC extends JApplet {
 	 */
 	@Override
     public void init() {
-		model = new CalculatorModel();
-		controller = new CalculatorController(model);
-		
-        // Maak de views
-		keyboardView = new KeyboardView();
-		keyboardView.setBackground(Color.lightGray);
-        getContentPane().add(keyboardView,BorderLayout.CENTER);
-        
         inputView = new InputView();
         inputView.setBackground(Color.lightGray);
-        getContentPane().add(inputView,BorderLayout.NORTH);
+        getContentPane().add(inputView, BorderLayout.NORTH);
+
+		model = new CalculatorModel(inputView);
+		controller = new CalculatorController(model);
+		
+        getContentPane().add(controller, BorderLayout.CENTER);
         
         // Registreer de views bij het model
         model.addActionListener(keyboardView);
