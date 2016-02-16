@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3cdcce36-e367-4ee4-b65d-5e4f6544af1e" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Leon\Documents\GitHub\Software-Engineering\Leertaak 1\leertaak1Calculator\out\production\leertaak1Calculator\mvc\info" afterPath="" />
-      <change type="MODIFICATION" beforePath="C:\Users\Leon\Documents\GitHub\Software-Engineering\Leertaak 1\leertaak1Calculator\out\production\leertaak1Calculator\mvc\CalculatorController.class" afterPath="C:\Users\Leon\Documents\GitHub\Software-Engineering\Leertaak 1\leertaak1Calculator\out\production\leertaak1Calculator\mvc\CalculatorController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/leertaak1Calculator/mvc/CalculatorMVC.class" afterPath="$PROJECT_DIR$/out/production/leertaak1Calculator/mvc/CalculatorMVC.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/leertaak1Calculator/mvc/CalculatorModel.class" afterPath="$PROJECT_DIR$/out/production/leertaak1Calculator/mvc/CalculatorModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/leertaak1Calculator/mvc/InputView.class" afterPath="$PROJECT_DIR$/out/production/leertaak1Calculator/mvc/InputView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/leertaak1Calculator/mvc/KeyboardView.class" afterPath="$PROJECT_DIR$/out/production/leertaak1Calculator/mvc/KeyboardView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mvc/CalculatorController.java" afterPath="$PROJECT_DIR$/mvc/CalculatorController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mvc/CalculatorMVC.java" afterPath="$PROJECT_DIR$/mvc/CalculatorMVC.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mvc/CalculatorModel.java" afterPath="$PROJECT_DIR$/mvc/CalculatorModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mvc/InputView.java" afterPath="$PROJECT_DIR$/mvc/InputView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mvc/KeyboardView.java" afterPath="$PROJECT_DIR$/mvc/KeyboardView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/leertaak1Calculator/.idea/misc.xml" afterPath="$PROJECT_DIR$/out/production/leertaak1Calculator/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/leertaak1Calculator/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/leertaak1Calculator/.idea/workspace.xml" />
     </list>
     <ignored path="leertaak1Calculator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,59 +27,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Calculator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/multiformat/Calculator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HexBase.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/multiformat/HexBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KeyboardView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mvc/KeyboardView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InputView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mvc/InputView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-              <folding>
-                <element signature="e#640#641#0" expanded="true" />
-                <element signature="e#673#674#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FormatException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/multiformat/FormatException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CalculatorMVC.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mvc/CalculatorMVC.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -106,30 +41,16 @@
         <entry file="file://$PROJECT_DIR$/mvc/CalculatorModel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="118" column="33" selection-start-line="118" selection-start-column="33" selection-end-line="118" selection-end-column="33" />
+              <caret line="80" column="35" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#checkNewOperandForPossibleErrors#0;class#CalculatorModel#0" expanded="false" />
+                <element signature="method#hexBasedCheck#0;class#CalculatorModel#0" expanded="false" />
+                <element signature="method#octalBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+                <element signature="method#decimalBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+                <element signature="method#removeActionListener#0;class#CalculatorModel#0" expanded="false" />
+                <element signature="method#processEvent#0;class#CalculatorModel#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Command.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui/Command.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BinaryBase.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/multiformat/BinaryBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -137,12 +58,15 @@
       <file leaf-file-name="CalculatorController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mvc/CalculatorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.70183486">
-              <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.33715597">
+              <caret line="165" column="42" selection-start-line="165" selection-start-column="42" selection-end-line="165" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2164#2165#0" expanded="true" />
-                <element signature="e#2207#2208#0" expanded="true" />
+                <element signature="method#CalculatorController#0;class#CalculatorController#0" expanded="false" />
+                <element signature="e#2295#2296#0" expanded="true" />
+                <element signature="e#2338#2339#0" expanded="true" />
+                <element signature="e#7266#7267#0" expanded="true" />
+                <element signature="e#7349#7350#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -213,6 +137,7 @@
     <panes>
       <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -275,7 +200,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -289,6 +213,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager" selected="Applet.CalculatorMVC">
     <configuration default="false" name="Command" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -590,12 +515,20 @@
       <option name="number" value="Default" />
       <updated>1455546283759</updated>
       <workItem from="1455546285468" duration="1069000" />
-      <workItem from="1455559657352" duration="8677000" />
+      <workItem from="1455559657352" duration="8926000" />
+      <workItem from="1455614349574" duration="5587000" />
     </task>
+    <task id="LOCAL-00001" summary="Big changes concerning business logic and GUI">
+      <created>1455568360974</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1455568360974</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9746000" />
+    <option name="totallyTimeSpent" value="15582000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -629,15 +562,27 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Big changes concerning business logic and GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Big changes concerning business logic and GUI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="41" />
+      <option name="time" value="44" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -646,6 +591,104 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/multiformat/Calculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/multiformat/HexBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/KeyboardView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/InputView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding>
+            <element signature="e#640#641#0" expanded="true" />
+            <element signature="e#673#674#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/multiformat/FormatException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/CalculatorMVC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/CalculatorModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="118" column="33" selection-start-line="118" selection-start-column="33" selection-end-line="118" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#checkNewOperandForPossibleErrors#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#hexBasedCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#octalBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#decimalBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#removeActionListener#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#processEvent#0;class#CalculatorModel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/multiformat/BinaryBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/CalculatorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#CalculatorController#0;class#CalculatorController#0" expanded="false" />
+            <element signature="e#2295#2296#0" expanded="true" />
+            <element signature="e#2338#2339#0" expanded="true" />
+            <element signature="e#7266#7267#0" expanded="true" />
+            <element signature="e#7349#7350#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/TestCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -671,9 +714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -691,6 +731,12 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#checkNewOperandForPossibleErrors#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#hexBasedCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#octalBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#decimalBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#removeActionListener#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#processEvent#0;class#CalculatorModel#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -717,8 +763,11 @@
           <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2164#2165#0" expanded="true" />
-            <element signature="e#2207#2208#0" expanded="true" />
+            <element signature="method#CalculatorController#0;class#CalculatorController#0" expanded="false" />
+            <element signature="e#2295#2296#0" expanded="true" />
+            <element signature="e#2338#2339#0" expanded="true" />
+            <element signature="e#7266#7267#0" expanded="true" />
+            <element signature="e#7349#7350#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -748,9 +797,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -766,7 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -794,18 +839,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/multiformat/FormatException.java">
+    <entry file="file://$PROJECT_DIR$/multiformat/BinaryBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3325688">
+          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/multiformat/FormatException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.116972476">
           <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/multiformat/BinaryBase.java">
+    <entry file="file://$PROJECT_DIR$/mvc/KeyboardView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.4678899">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -818,36 +879,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui/Command.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mvc/CalculatorModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="118" column="33" selection-start-line="118" selection-start-column="33" selection-end-line="118" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mvc/KeyboardView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mvc/InputView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.33715597">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
           <folding>
             <element signature="e#640#641#0" expanded="true" />
             <element signature="e#673#674#0" expanded="true" />
@@ -863,14 +898,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mvc/CalculatorController.java">
+    <entry file="file://$PROJECT_DIR$/ui/Command.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70183486">
-          <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.66284406">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/CalculatorModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="80" column="35" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2164#2165#0" expanded="true" />
-            <element signature="e#2207#2208#0" expanded="true" />
+            <element signature="method#checkNewOperandForPossibleErrors#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#hexBasedCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#octalBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#decimalBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#removeActionListener#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#processEvent#0;class#CalculatorModel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/CalculatorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33715597">
+          <caret line="165" column="42" selection-start-line="165" selection-start-column="42" selection-end-line="165" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#CalculatorController#0;class#CalculatorController#0" expanded="false" />
+            <element signature="e#2295#2296#0" expanded="true" />
+            <element signature="e#2338#2339#0" expanded="true" />
+            <element signature="e#7266#7267#0" expanded="true" />
+            <element signature="e#7349#7350#0" expanded="true" />
           </folding>
         </state>
       </provider>

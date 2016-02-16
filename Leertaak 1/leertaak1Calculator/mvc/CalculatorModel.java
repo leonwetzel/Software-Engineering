@@ -75,6 +75,12 @@ public class CalculatorModel {
 		operand_1 = new Rational();
 	}
 
+    public void clear()
+    {
+        operand_0 = new Rational();
+        operand_1 = new Rational();
+    }
+
 	public String firstOperand(){
 		return format.toString(operand_1,base);
 	}

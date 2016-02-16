@@ -5,6 +5,7 @@ import multiformat.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -26,7 +27,10 @@ public class CalculatorController extends JPanel implements ActionListener {
     private JButton floating = new JButton("floating");
     private JButton fixed = new JButton("fixed");
     private JButton rational = new JButton("rational");
+
     private JButton help = new JButton("help");
+    private JButton clear = new JButton("clear");
+    private JButton delete = new JButton("delete");
 
     private static final String HEXADECIMAL_CHARS = "ABCDEF";
     private static ArrayList<JButton> numberButtons = new ArrayList<>();
@@ -102,6 +106,10 @@ public class CalculatorController extends JPanel implements ActionListener {
         multiply.addActionListener(this);
         this.add(enter);
         enter.addActionListener(this);
+        this.add(clear);
+        clear.addActionListener(this);
+        this.add(delete);
+        delete.addActionListener(this);
     }
 
     /**
@@ -126,17 +134,20 @@ public class CalculatorController extends JPanel implements ActionListener {
         if (e.getSource() == add) {
             System.out.println("Optellen!");
             model.add();
+            setInputField();
         }
         else if (e.getSource() == subtract)
         {
             System.out.println("Aftrekken!");
             model.subtract();
+            setInputField();
         }
         else if (e.getSource() == divide)
         {
             try {
                 System.out.println("Delen!");
                 model.divide();
+                setInputField();
             } catch (Exception exception) {
                 System.out.println(exception.getMessage());
             }
@@ -145,16 +156,25 @@ public class CalculatorController extends JPanel implements ActionListener {
         {
             System.out.println("Vermenigvuldigen!");
             model.multiply();
+            setInputField();
         }
         else if(e.getSource() == enter)
         {
             try {
                 model.addOperand(model.getInputView().getInputField().getText());
-                model.getInputView().getInputField().setText(model.firstOperand() + " | " + model.secondOperand());
+                model.getInputView().getInputField().setText("");
             } catch (FormatException fe) {
                 System.out.println(fe.getMessage());
             }
+        }else if(e.getSource() == clear)
+        {
+            model.getInputView().getInputField().setText("");
+            model.clear();
+        }else if(e.getSource() == delete)
+        {
+            model.delete();
         }
+
     }
 
     /**
@@ -181,21 +201,24 @@ public class CalculatorController extends JPanel implements ActionListener {
         int limit;
         if(model.getBase() instanceof BinaryBase) {
             limit = 2;
-        } else if(model.getBase() instanceof HexBase) {
-            limit = 16;
         } else if(model.getBase() instanceof OctalBase) {
             limit = 8;
+        } else if(model.getBase() instanceof HexBase) {
+            limit = 16;
         } else {
             limit = 10;
         }
 
-        for(int i = 0; i < limit; i++) {
-            if(e.getSource() == numberButtons.get(i)) {
-                try {
-                    System.out.println(i);
-                    model.addOperand("" + i + "");
-                } catch (FormatException fe) {
-                    System.out.println(fe.getMessage());
+        for (int i = 0; i < limit; i++) {
+            String old = model.getInputView().getInputField().getText();
+            if (e.getSource() == numberButtons.get(i)) {
+                if (i < 10) {
+                    System.out.println(old);
+                    model.getInputView().getInputField().setText(old + "" + i);
+                } else {
+                    char hexNumber = HEXADECIMAL_CHARS.toCharArray()[i - 10];
+                    System.out.println(hexNumber);
+                    model.getInputView().getInputField().setText(old + "" + hexNumber);
                 }
             }
         }
@@ -214,5 +237,13 @@ public class CalculatorController extends JPanel implements ActionListener {
             model.setFormat(new FloatingPointFormat());
         }
     }
+
+    /**
+     * Sets textfield for input.
+     */
+    private void setInputField() {
+        model.getInputView().getInputField().setText(model.secondOperand());
+    }
+
 
 }
