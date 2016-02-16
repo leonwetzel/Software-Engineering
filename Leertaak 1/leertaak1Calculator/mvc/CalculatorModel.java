@@ -7,17 +7,21 @@ import java.util.ArrayList;
 import exceptions.NumberBaseException;
 import multiformat.*;
 
+import javax.swing.*;
+
 public class CalculatorModel {
 	private ArrayList<ActionListener> actionListenerList = new ArrayList<>();
 	private Rational operand_0 = new Rational();
 	private Rational operand_1 = new Rational();
     private InputView inputView;
+    private JTextArea historyField;
 	
 	/**
 	 * Constructor for a CalculatorModel object.
 	 */
-	public CalculatorModel(InputView newView) {
+	public CalculatorModel(InputView newView, JTextArea newHistoryField) {
 		this.inputView = newView;
+        this.historyField = newHistoryField;
 	}
 
     public InputView getInputView()
@@ -37,7 +41,6 @@ public class CalculatorModel {
             {
                 operand_1 = operand_0;
                 operand_0 = format.parse(newOperand, base);
-                System.out.println("Hisdjsdjfsdjlfljsd!!!!! :)");
                 inputView.getInputField().setText(newOperand);
             } else {
                 throw new FormatException("Hoi Rovbert");
@@ -49,18 +52,30 @@ public class CalculatorModel {
     }
 
 	public void add(){
+        String history = makeHistory();
+        history = history + "+";
 		operand_0 = operand_1.plus(operand_0);
 		operand_1 = new Rational();
+        history = history + "=" + String.valueOf(operand_0.getNumerator());
+        addHistory(history);
 	}
 
 	public void subtract() {
+        String history = makeHistory();
+        history = history + "-";
 		operand_0 = operand_1.minus(operand_0);
 		operand_1 = new Rational();
+        history = history + "=" + String.valueOf(operand_0.getNumerator());
+        addHistory(history);
 	}
 
 	public void multiply() {
+        String history = makeHistory();
+        history = history + "*";
 		operand_0 = operand_1.mul(operand_0);
 		operand_1 = new Rational();
+        history = history + "=" + String.valueOf(operand_0.getNumerator());
+        addHistory(history);
 	}
 
 	public void divide() throws Exception {
@@ -68,8 +83,12 @@ public class CalculatorModel {
 		{
 			throw new Exception("Cannot divide by 0!");
 		} else {
+            String history = makeHistory();
+            history = history + "/";
 			operand_0 = operand_1.div(operand_0);
 			operand_1 = new Rational();
+            history = history + "=" + String.valueOf(operand_0.getNumerator());
+            addHistory(history);
 		}
 	}
 
@@ -94,6 +113,7 @@ public class CalculatorModel {
 
 	public void setBase(Base newBase){
 		base = newBase;
+        addHistory("Changing base to" + base.getName());
 	}
 
 	public Base getBase(){
@@ -102,6 +122,7 @@ public class CalculatorModel {
 
 	public void setFormat(Format newFormat){
 		format = newFormat;
+        addHistory("Changing format to " + format.getName());
 	}
 
 	public Format getFormat(){
@@ -275,4 +296,19 @@ public class CalculatorModel {
 			listeners.actionPerformed( event );
 		}
 	}
+
+    private String makeHistory()
+    {
+        String temp = String.valueOf(operand_0.getNumerator());
+        temp = temp + ",";
+        temp = temp + String.valueOf(operand_1.getNumerator());
+        temp = temp + ",";
+        return temp;
+    }
+
+    private void addHistory(String newHistory)
+    {
+        String old = historyField.getText();
+        historyField.setText(newHistory + " " + old);
+    }
 }

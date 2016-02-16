@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3cdcce36-e367-4ee4-b65d-5e4f6544af1e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="3cdcce36-e367-4ee4-b65d-5e4f6544af1e" name="Default" comment="added historyView">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/leertaak1Calculator/mvc/CalculatorMVC.class" afterPath="$PROJECT_DIR$/out/production/leertaak1Calculator/mvc/CalculatorMVC.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/leertaak1Calculator/mvc/CalculatorModel.class" afterPath="$PROJECT_DIR$/out/production/leertaak1Calculator/mvc/CalculatorModel.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mvc/CalculatorMVC.java" afterPath="$PROJECT_DIR$/mvc/CalculatorMVC.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mvc/CalculatorModel.java" afterPath="$PROJECT_DIR$/mvc/CalculatorModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/leertaak1Calculator/.idea/misc.xml" afterPath="$PROJECT_DIR$/out/production/leertaak1Calculator/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/leertaak1Calculator/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/leertaak1Calculator/.idea/workspace.xml" />
     </list>
     <ignored path="leertaak1Calculator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,11 +31,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="CalculatorMVC.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CalculatorMVC.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mvc/CalculatorMVC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.72439027">
-              <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CalculatorModel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mvc/CalculatorModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.019572955">
+              <caret line="123" column="27" selection-start-line="123" selection-start-column="27" selection-end-line="123" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#addOperand#0;class#CalculatorModel#0" expanded="false" />
+                <element signature="method#add#0;class#CalculatorModel#0" expanded="false" />
+                <element signature="method#subtract#0;class#CalculatorModel#0" expanded="false" />
+                <element signature="method#multiply#0;class#CalculatorModel#0" expanded="false" />
+                <element signature="method#divide#0;class#CalculatorModel#0" expanded="false" />
+                <element signature="method#delete#0;class#CalculatorModel#0" expanded="false" />
+                <element signature="method#hexBasedCheck#0;class#CalculatorModel#0" expanded="false" />
+                <element signature="method#octalBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+                <element signature="method#decimalBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+                <element signature="method#binaryBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+                <element signature="method#removeActionListener#0;class#CalculatorModel#0" expanded="false" />
+                <element signature="method#processEvent#0;class#CalculatorModel#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CalculatorController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mvc/CalculatorController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="192" column="9" selection-start-line="192" selection-start-column="9" selection-end-line="192" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -58,10 +96,10 @@
         <option value="$PROJECT_DIR$/mvc/KeyboardView.java" />
         <option value="$PROJECT_DIR$/mvc/InputView.java" />
         <option value="$PROJECT_DIR$/multiformat/Calculator.java" />
-        <option value="$PROJECT_DIR$/mvc/CalculatorController.java" />
-        <option value="$PROJECT_DIR$/mvc/CalculatorModel.java" />
         <option value="$PROJECT_DIR$/multiformat/Base.java" />
         <option value="$PROJECT_DIR$/mvc/CalculatorMVC.java" />
+        <option value="$PROJECT_DIR$/mvc/CalculatorController.java" />
+        <option value="$PROJECT_DIR$/mvc/CalculatorModel.java" />
       </list>
     </option>
   </component>
@@ -473,7 +511,13 @@
       <option name="project" value="LOCAL" />
       <updated>1455620134426</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="hello world">
+      <created>1455625158753</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1455625158753</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -485,14 +529,15 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3136612" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.313416" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21757771" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.92699116" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -504,7 +549,6 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -528,14 +572,16 @@
     </ignored-roots>
     <MESSAGE value="Big changes concerning business logic and GUI" />
     <MESSAGE value="Hex based works, decimal base works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hex based works, decimal base works" />
+    <MESSAGE value="hello world" />
+    <MESSAGE value="added historyView" />
+    <option name="LAST_COMMIT_MESSAGE" value="added historyView" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="61" />
+      <option name="time" value="62" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -558,6 +604,16 @@
           <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#addOperand#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#add#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#subtract#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#multiply#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#divide#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#delete#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#hexBasedCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#octalBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#decimalBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#binaryBaseCheck#0;class#CalculatorModel#0" expanded="false" />
             <element signature="method#removeActionListener#0;class#CalculatorModel#0" expanded="false" />
             <element signature="method#processEvent#0;class#CalculatorModel#0" expanded="false" />
           </folding>
@@ -593,8 +649,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
           <folding>
-            <element signature="e#1305#1306#0" expanded="true" />
-            <element signature="e#1354#1355#0" expanded="true" />
+            <element signature="e#1305#1306#0" expanded="false" />
+            <element signature="e#1354#1355#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -635,6 +691,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -642,6 +699,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -678,6 +736,16 @@
           <caret line="118" column="33" selection-start-line="118" selection-start-column="33" selection-end-line="118" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#addOperand#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#add#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#subtract#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#multiply#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#divide#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#delete#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#hexBasedCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#octalBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#decimalBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#binaryBaseCheck#0;class#CalculatorModel#0" expanded="false" />
             <element signature="method#removeActionListener#0;class#CalculatorModel#0" expanded="false" />
             <element signature="method#processEvent#0;class#CalculatorModel#0" expanded="false" />
           </folding>
@@ -696,6 +764,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -746,6 +815,16 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#addOperand#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#add#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#subtract#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#multiply#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#divide#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#delete#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#hexBasedCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#octalBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#decimalBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#binaryBaseCheck#0;class#CalculatorModel#0" expanded="false" />
             <element signature="method#removeActionListener#0;class#CalculatorModel#0" expanded="false" />
             <element signature="method#processEvent#0;class#CalculatorModel#0" expanded="false" />
           </folding>
@@ -805,6 +884,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -812,6 +892,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -819,6 +900,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -842,6 +924,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4678899">
           <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -880,18 +963,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mvc/CalculatorModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.025761124">
-          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#removeActionListener#0;class#CalculatorModel#0" expanded="false" />
-            <element signature="method#processEvent#0;class#CalculatorModel#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/multiformat/Rational.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.025761124">
@@ -921,8 +992,8 @@
         <state vertical-scroll-proportion="0.46370023">
           <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
           <folding>
-            <element signature="e#1305#1306#0" expanded="true" />
-            <element signature="e#1354#1355#0" expanded="true" />
+            <element signature="e#1305#1306#0" expanded="false" />
+            <element signature="e#1354#1355#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -943,19 +1014,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mvc/CalculatorController.java">
+    <entry file="file://$PROJECT_DIR$/mvc/CalculatorMVC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84543324">
-          <caret line="249" column="0" selection-start-line="249" selection-start-column="0" selection-end-line="249" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mvc/CalculatorMVC.java">
+    <entry file="file://$PROJECT_DIR$/mvc/CalculatorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72439027">
-          <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="192" column="9" selection-start-line="192" selection-start-column="9" selection-end-line="192" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mvc/CalculatorModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.019572955">
+          <caret line="123" column="27" selection-start-line="123" selection-start-column="27" selection-end-line="123" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#addOperand#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#add#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#subtract#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#multiply#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#divide#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#delete#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#hexBasedCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#octalBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#decimalBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#binaryBaseCheck#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#removeActionListener#0;class#CalculatorModel#0" expanded="false" />
+            <element signature="method#processEvent#0;class#CalculatorModel#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
