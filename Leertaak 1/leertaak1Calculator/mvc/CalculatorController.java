@@ -178,7 +178,7 @@ public class CalculatorController extends JPanel implements ActionListener {
     }
 
     /**
-     * Triggers a method if the event is corrsponding.
+     * Triggers a method if the event is corresponding.
      * @param e Event which occured.
      */
     private void triggerBase(ActionEvent e) {
@@ -194,7 +194,7 @@ public class CalculatorController extends JPanel implements ActionListener {
     }
 
     /**
-     * Triggers a method if the event is corrsponding.
+     * Triggers a method if the event is corresponding.
      * @param e Event which occured.
      */
     private void triggerOperand(ActionEvent e) {
@@ -225,7 +225,7 @@ public class CalculatorController extends JPanel implements ActionListener {
     }
 
     /**
-     * Triggers a method if the event is corrsponding.
+     * Triggers a method if the event is corresponding.
      * @param e Event which occured.
      */
     private void triggerFormat(ActionEvent e) {
