@@ -37,9 +37,12 @@ public class CalculatorModel {
             {
                 operand_1 = operand_0;
                 operand_0 = format.parse(newOperand, base);
+                System.out.println("Hisdjsdjfsdjlfljsd!!!!! :)");
                 inputView.getInputField().setText(newOperand);
+            } else {
+                throw new FormatException("Hoi Rovbert");
             }
-        }catch(Exception e)
+        } catch(NumberBaseException e)
         {
             System.out.println(e.getMessage());
         }
@@ -105,7 +108,7 @@ public class CalculatorModel {
 		return format;
 	}
 
-    public boolean checkNewOperandForPossibleErrors(String newOperand) throws NumberBaseException
+    private boolean checkNewOperandForPossibleErrors(String newOperand) throws NumberBaseException
     {
         newOperand.trim();
         if(base instanceof HexBase)
@@ -131,6 +134,14 @@ public class CalculatorModel {
                 return true;
             }
             throw new NumberBaseException("Verkeerde input, decimaal is 0-9");
+        }
+        else if(base instanceof BinaryBase)
+        {
+            if(binaryBaseCheck(newOperand))
+            {
+                return true;
+            }
+            throw new NumberBaseException("Verkeerde input, binair is 0-1");
         }
         return false;
     }
@@ -158,6 +169,10 @@ public class CalculatorModel {
                 case 'D':
                 case 'E':
                 case 'F':
+                case '.':
+                case '-':
+                case '/':
+                case '^':
                     break;
                 default:
                     return false;
@@ -181,6 +196,11 @@ public class CalculatorModel {
                 case '5':
                 case '6':
                 case '7':
+                case '.':
+                case '-':
+                case '/':
+                case '*':
+                case '^':
                     break;
                 default:
                     return false;
@@ -206,6 +226,32 @@ public class CalculatorModel {
                 case '7':
                 case '8':
                 case '9':
+                case '.':
+                case '-':
+                case '/':
+                case '*':
+                case '^':
+                    break;
+                default:
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean binaryBaseCheck(String operand)
+    {
+        for(int i=0; i<operand.length();i++)
+        {
+            char c = operand.charAt(i);
+            switch(c)
+            {
+                case '0':
+                case '1':
+                case '.':
+                case '-':
+                case '/':
+                case '*':
                     break;
                 default:
                     return false;

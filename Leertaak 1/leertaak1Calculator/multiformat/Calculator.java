@@ -35,11 +35,11 @@ public class Calculator {
     public void addOperand(String newOperand) throws FormatException {
         try
         {
-            if(checkNewOperandForPossibleErrors(newOperand))
-            {
+          //  if(checkNewOperandForPossibleErrors(newOperand))
+           // {
                 operand_1 = operand_0;
                 operand_0 = format.parse(newOperand, base);
-            }
+          //  }
         }catch(Exception e)
         {
             System.out.println(e.getMessage());
