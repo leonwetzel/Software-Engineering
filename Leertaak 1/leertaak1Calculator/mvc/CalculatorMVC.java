@@ -29,5 +29,6 @@ public class CalculatorMVC extends JApplet {
         // Registreer de views bij het model
         model.addActionListener(keyboardView);
         model.addActionListener(inputView);
+		System.out.println("Leon is baas");
 	}
 }
