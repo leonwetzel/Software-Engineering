@@ -2,8 +2,6 @@ package test;
 import classifier.*;
 import junit.framework.TestCase;
 
-
-
 public class TestClassifier extends TestCase {
 
 	public TestClassifier(String arg0) {
