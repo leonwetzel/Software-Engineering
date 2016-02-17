@@ -28,7 +28,6 @@ import java.util.Map;
  * interface, it can be used to classify items. 
  */
 public class DecisionTree implements Classifier {
-
 	private Node root;
 
 	public DecisionTree(Node tree){
