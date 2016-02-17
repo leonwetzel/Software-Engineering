@@ -31,8 +31,6 @@ public class CalculatorMVC extends JApplet {
 		controller = new CalculatorController(model);
 		
         getContentPane().add(controller, BorderLayout.CENTER);
-
-
         // Registreer de views bij het model
         model.addActionListener(keyboardView);
         model.addActionListener(inputView);

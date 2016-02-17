@@ -24,7 +24,7 @@ package classifier;
  * @see classifier.DecisionTree
  */
 
-public interface  Classifier {
+public interface Classifier {
 
   /**
    * Assign a category to the Item passed as argument.

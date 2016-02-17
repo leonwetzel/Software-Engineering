@@ -93,4 +93,9 @@ public class Node {
 		buffer.append("]\n");
 		return buffer.toString();
 	}
+
+    private void testMethod() {
+        System.out.println("Hello world");
+    }
+
 }
