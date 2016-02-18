@@ -40,7 +40,7 @@ public class Node {
 	// the current feature . For example:
 	// node "Airco" --"yes"--> node "High"
 	//              --"no"---> node "Low"
-	private Map<String, Node> arcs=new HashMap<String, Node>();
+	private Map<String, Node> arcs = new HashMap<>();
 
 	/**
 	 * @param label For internal nodes this label describes the feature.
@@ -58,6 +58,11 @@ public class Node {
 	public boolean isLeaf() { return arcs.size()==0; }
 
 	public String getLabel() { return label; }
+
+    public Map<String, Node> getChildren()
+    {
+        return arcs;
+    }
 
 	public Node follow(String arcLabel) {
 		return (Node)arcs.get(arcLabel);
