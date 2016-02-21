@@ -59,11 +59,6 @@ public class Node {
 
 	public String getLabel() { return label; }
 
-    public Map<String, Node> getChildren()
-    {
-        return arcs;
-    }
-
 	public Node follow(String arcLabel) {
 		return (Node)arcs.get(arcLabel);
 	}
@@ -78,7 +73,7 @@ public class Node {
 	 */
 	public String toString(){ return toString(""); }
 
-	private String toString(String indent){
+	public String toString(String indent){
 		String indentStep="    ";
 		StringBuffer buffer=new StringBuffer();
 		buffer.append("[").append(label);
@@ -98,9 +93,4 @@ public class Node {
 		buffer.append("]\n");
 		return buffer.toString();
 	}
-
-    private void testMethod() {
-        System.out.println("Hello world");
-    }
-
 }

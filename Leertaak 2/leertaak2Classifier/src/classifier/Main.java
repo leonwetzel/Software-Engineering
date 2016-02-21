@@ -21,8 +21,10 @@ package classifier;
  */
 public class Main {
     public static void main(String[] args) {
-        Node node = new Node("Robert");
-        Traverser traverser = new Traverser(node);
-        traverser.postorderTraversing();
+        try {
+            new Traverser(new Node("Robert")).inorderTraversing();
+        } catch(Exception e) {
+            System.err.println(e.getMessage());
+        }
     }
 }
