@@ -23,6 +23,8 @@ public class Main {
     public static void main(String[] args) {
         try {
             new Traverser(new Node("Robert")).inorderTraversing();
+            System.out.println("");
+            new Traverser(new Node("Robert")).preorderTraversing();
         } catch(Exception e) {
             System.err.println(e.getMessage());
         }

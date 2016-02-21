@@ -20,6 +20,10 @@ import java.util.Stack;
 public class Traverser {
     private Node root;
 
+    /**
+     * Constructs a tree of nodes.
+     * @param root The root node of the tree.
+     */
     public Traverser(Node root) {
         populateTree(root);
     }
@@ -55,6 +59,7 @@ public class Traverser {
         }
 
         Stack<Node> stack = new Stack<>();
+        System.out.println("Constructed stack for inorder traversal.");
         Node node = root;
 
         while (node != null) {
@@ -62,11 +67,10 @@ public class Traverser {
             node = node.follow("Left");
         }
 
-        int i = 0;
+        int i = 1;
         while (stack.size() > 0) {
-            i++;
             node = stack.pop();
-            System.out.println(i + ": " + node.getLabel());
+            System.out.println(i++ + ": " + node.getLabel());
 
             if (node.follow("Right") != null) {
                 node = node.follow("Right");
@@ -78,17 +82,28 @@ public class Traverser {
         }
     }
 
-    public void preoderTraversing() {
-    /*
-        // PREORDER
-        current = root; // Begin bij de root
-        while ( current is not NULL or stack is nonempty )
-        if ( current is not NULL ){
-            // zelf aanvullen, 3 regels
+    public void preorderTraversing() throws NoRootException {
+        if (root == null) {
+            throw new NoRootException("Boom bevat geen wortel!");
         }
-        else {
-            // zelf aanvullen, 2 regels
+
+        Stack<Node> stack = new Stack<>();
+        System.out.println("Constructed stack for preorder traversal.");
+        stack.push(root);
+
+        int i = 1;
+        while (!stack.empty()) {
+            // i++;
+            Node node = stack.peek();
+            System.out.println(i++ + ": " + node.getLabel());
+            stack.pop();
+
+            if (node.follow("Right") != null) {
+                stack.push(node.follow("Right"));
+            }
+            if (node.follow("Left") != null) {
+                stack.push(node.follow("Left"));
+            }
         }
-    */
     }
 }
