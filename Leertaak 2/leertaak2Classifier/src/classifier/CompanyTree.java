@@ -33,7 +33,6 @@ public class CompanyTree {
         print(root.postorderEnumeration());
         print(root.preorderEnumeration());
         print(root.breadthFirstEnumeration());
-
     }
 
     /**
@@ -59,7 +58,6 @@ public class CompanyTree {
 
     /**
      * Prints the items in specific order
-     * @param enumeration
      */
     private void print(Enumeration enumeration) {
         DefaultMutableTreeNode node;

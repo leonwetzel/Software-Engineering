@@ -9,19 +9,19 @@ public class GetalRij {
 	public GetalRij( int aantal, int max ){
 		// Belangrijke aanname: aantal < max, anders kunnen de getallen niet uniek zijn.
 		getallen = new int[aantal];
-		vulArrayMetUniekeWaarden( aantal, max );
+		vulArrayMetUniekeWaarden(aantal, max);
 	}
 
 	private void vulArrayMetUniekeWaarden(int aantal, int max) {
 		// Vul een hulplijst met getallen 0, ..., max
 		ArrayList hulpLijst = new ArrayList( max );
 		for ( int i=0; i<max; i++){
-			hulpLijst.add( i );
+			hulpLijst.add(i);
 		}
 		
 		// Stop 'aantal' random waarden in getallen
 		Random r = new Random();
-		for ( int i=0; i<aantal; i++){
+		for (int i = 0; i < aantal; i++){
 			// Het omzetten van Integer naar int gaat sinds Java 1.5 automatisch (unboxing).
 			int getal = (Integer) (hulpLijst.remove( r.nextInt( hulpLijst.size())));
 			getallen[i] = getal;
@@ -40,9 +40,19 @@ public class GetalRij {
 		return false;
 	}
 
-	public boolean zitErinD( int zoekWaarde ){
-		return false;
-	}
+	public boolean zitErinD( int zoekWaarde ) {
+        /*
+        int found = Arrays.binarySearch(getallen, zoekWaarde);
+        return found < 0;
+        */
+
+        for(int i : getallen) {
+            if(i == zoekWaarde) {
+                return true;
+            }
+        }
+        return false;
+    }
 	
 	public void sorteer(){
 		Arrays.sort( getallen);
