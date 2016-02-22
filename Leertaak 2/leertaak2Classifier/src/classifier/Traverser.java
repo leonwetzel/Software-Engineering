@@ -93,7 +93,6 @@ public class Traverser {
 
         int i = 1;
         while (!stack.empty()) {
-            // i++;
             Node node = stack.peek();
             System.out.println(i++ + ": " + node.getLabel());
             stack.pop();
