@@ -73,7 +73,7 @@ public class Node {
 	 */
 	public String toString(){ return toString(""); }
 
-	public String toString(String indent){
+	private String toString(String indent){
 		String indentStep="    ";
 		StringBuffer buffer=new StringBuffer();
 		buffer.append("[").append(label);

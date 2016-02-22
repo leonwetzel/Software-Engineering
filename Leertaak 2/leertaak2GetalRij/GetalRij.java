@@ -41,11 +41,11 @@ public class GetalRij {
 	}
 
 	public boolean zitErinD( int zoekWaarde ) {
-        /*
-        int found = Arrays.binarySearch(getallen, zoekWaarde);
-        return found < 0;
+        /* Binair zoeken
+        return Arrays.binarySearch(getallen, zoekWaarde) < 0;
         */
 
+        /* Lineair zoeken */
         for(int i : getallen) {
             if(i == zoekWaarde) {
                 return true;

@@ -82,6 +82,11 @@ public class Traverser {
         }
     }
 
+    /**
+     * Traverses the tree in order.
+     * Keys used in the node's map are 'Left' and 'Right', which allows
+     * dynamic access to the node's children.
+     */
     public void preorderTraversing() throws NoRootException {
         if (root == null) {
             throw new NoRootException("Boom bevat geen wortel!");

@@ -59,15 +59,14 @@ public class CompanyTree {
     /**
      * Prints the items in specific order
      */
-    private void print(Enumeration enumeration) {
+    private static void print(Enumeration enumeration) {
         DefaultMutableTreeNode node;
         int i = 1;
-        System.out.println("Next enum: ");
+        System.out.println("Next enumeration: ");
         while(enumeration.hasMoreElements()) {
             node = (DefaultMutableTreeNode)enumeration.nextElement();
             System.out.println(i + ": " + node.getUserObject().toString());
             i++;
         }
     }
-
 }
