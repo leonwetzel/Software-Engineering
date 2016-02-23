@@ -21,12 +21,17 @@ import java.util.Enumeration;
 public class CompanyTree {
     private static DefaultMutableTreeNode root;
 
+    /**
+     * Main application
+     * @param args Optional parameter
+     */
     public static void main(String[] args) {
         new CompanyTree();
     }
 
     /**
-     * Constructs the company tree.
+     * Constructs the company tree and prints nodes
+     * in different orders.
      */
     public CompanyTree() {
         populateTree();
@@ -36,10 +41,10 @@ public class CompanyTree {
     }
 
     /**
-     * Populates the tree.
+     * Populates the tree with nodes.
      */
     public static void populateTree() {
-        root = new DefaultMutableTreeNode(new Node("person"));
+        root = new DefaultMutableTreeNode(new DefaultMutableTreeNode("person"));
         DefaultMutableTreeNode employee = new DefaultMutableTreeNode("employee");
         DefaultMutableTreeNode customer = new DefaultMutableTreeNode("customer");
         root.add(employee);
@@ -68,5 +73,6 @@ public class CompanyTree {
             System.out.println(i + ": " + node.getUserObject().toString());
             i++;
         }
+        System.out.println("");
     }
 }
