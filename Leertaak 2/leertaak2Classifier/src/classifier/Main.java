@@ -21,6 +21,11 @@ package classifier;
  */
 public class Main {
     public static void main(String[] args) {
+        new TreeBuilder();
+    }
+
+    public void someAssingtment()
+    {
         try {
             new Traverser(new Node("Robert")).inorderTraversing();
             System.out.println("");
