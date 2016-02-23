@@ -28,7 +28,7 @@ import java.util.TreeSet;
  */
 public class FeatureType {
 
-    private TreeSet<String> allowed = new TreeSet<String>();
+    private TreeSet<String> allowed = new TreeSet<>();
     private String name;
         
 	public FeatureType(String name, String[] allowedValues) {
