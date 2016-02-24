@@ -1,14 +1,14 @@
 /**
  * Created by Robert on 24-2-2016.
  */
-public class guardtower {
+public class GuardTower {
     private int sightRange = 2;
     private int currentTowers;
     private int highestPoint;
     private int GuadtowerLocation;
-    private int[] places = {2,2,2,4,2,2 };
+    private int[] places = {2,4,3,2,2,2};
 
-    public guardtower( )
+    public GuardTower()
     {
         highestPoint = 0;
         for(int i : places)
@@ -20,8 +20,7 @@ public class guardtower {
         }
         GuadtowerLocation = highestPoint;
         currentTowers = 1;
-        determineNeededTowers()
-
+        determineNeededTowers();
     }
 
     private void determineNeededTowers()
