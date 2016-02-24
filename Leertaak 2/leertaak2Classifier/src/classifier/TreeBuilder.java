@@ -88,7 +88,6 @@ public class TreeBuilder {
     private void addCategorieText() {
         BufferedReader br = null;
         try {
-            int i = 0;
             String sCurrentLine;
             br = new BufferedReader(new FileReader("C:\\CatText.txt"));
             while ((sCurrentLine = br.readLine()) != null) {

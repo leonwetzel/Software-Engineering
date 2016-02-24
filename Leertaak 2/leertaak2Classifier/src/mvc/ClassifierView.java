@@ -37,7 +37,6 @@ import javax.swing.JTextField;
  *
  */
 public class ClassifierView extends JPanel implements ActionListener {
-    private JTextField inputField = new JTextField(50);
     private TreeBuilder tree = new TreeBuilder();
     private ClassifierModel model;
 
