@@ -24,23 +24,21 @@ public class TestTraining extends TestCase {
 	 */
 	private Item createItem(String ac, String abs){
 		Feature[] featureValues = new Feature[]{ 
-													new Feature("AC",ac,yn),
-													new Feature("ABS",abs,yn)
-		                                       };
-
+            new Feature("AC",ac,yn),
+            new Feature("ABS",abs,yn)
+        };
 		return new Item("car", featureValues);
 	}
 
-
 	public void testBuildDecisionTree(){
-		Map<Item, String> trainingsSet = new HashMap<Item, String>();
-		Map<String, FeatureType> features = new HashMap<String, FeatureType>();
+		Map<Item, String> trainingsSet = new HashMap<>();
+		Map<String, FeatureType> features = new HashMap<>();
 
 		features.put("AC",yn);
 		features.put("ABS",yn);
 
 		// Create an item that does have airco and abs.
-		Item item1 = createItem("yes","yes");
+		Item item1 = createItem("yes", "yes");
 		// Put this item in the trainingsset with category "high".
 		trainingsSet.put(item1,"high");
 

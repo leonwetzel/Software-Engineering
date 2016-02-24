@@ -1,15 +1,10 @@
 package classifier;
 
-import org.omg.CORBA.Object;
-
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Robert on 23-2-2016.
@@ -18,8 +13,11 @@ public class TreeBuilder {
     Map<Item, String> trainingsSet = new HashMap<>();
     Map<String, FeatureType> features = new HashMap<>();
 
+    ArrayList<String> categories = new ArrayList<>();
+
     // onderstaande is door Leon gemaakt
-    FeatureType ys = new FeatureType("YesNo", new String[] {"Yes", "No"});
+    FeatureType ys = new FeatureType("yesno", new String[] {"yes", "no"});
+
     DefaultMutableTreeNode root;
 
 
@@ -28,8 +26,11 @@ public class TreeBuilder {
      */
     public TreeBuilder()
     {
-        processText();
-        testTheTree();
+        processTextToTree();
+        addCategorieText();
+        classify();
+        printTree();
+
     }
 
     private DefaultMutableTreeNode getRoot()
@@ -37,87 +38,60 @@ public class TreeBuilder {
         return root;
     }
 
-    private void testTheTree()
-    {
-        Enumeration temp = root.breadthFirstEnumeration();
+    private void printTree() {
+        Enumeration nodes = root.breadthFirstEnumeration();
         System.out.println();
         System.out.println("TESTING");
-        while(temp.hasMoreElements())
-        {
-            DefaultMutableTreeNode temp2 = (DefaultMutableTreeNode)temp.nextElement();
+        while(nodes.hasMoreElements()) {
+            DefaultMutableTreeNode temp2 = (DefaultMutableTreeNode)nodes.nextElement();
             System.out.println(temp2.getUserObject().toString());
-
-
         }
 
     }
 
-    private void addCategories(Enumeration nodes)
-    {
-
-    }
-    private void processLine(String node)
+    /**
+     * Processes input and puts it into the tree.
+     * @param node Input string of file.
+     */
+    private void buildTree(String node)
     {
         if(root == null){
             root = new DefaultMutableTreeNode(new DefaultMutableTreeNode(node));
-        }else
-        {
+        } else {
             addNewLevelToTree(node, root.breadthFirstEnumeration());
         }
     }
 
     private String determineCategorie(int i)
     {
-       if(i >= 0 && i <= 51){
-        return "low";
-         }else if(i >= 52 && i <= 103)
-       {
-           return "Medium-Low";
-       }else if(i >= 104 && i <= 155)
-       {
-           return "Medium";
-       }else if(i >= 156 && i <= 207)
-       {
-           return "Medium-High";
-       }else{
-           return "High";
-       }
-
+        if(i >= 0 && i <= 51) {
+            return "low";
+        } else if(i >= 52 && i <= 103) {
+            return "Medium-Low";
+        } else if(i >= 104 && i <= 155) {
+            return "Medium";
+        } else if(i >= 156 && i <= 207) {
+            return "Medium-High";
+        } else {
+            return "High";
+        }
     }
 
-    private void addNewLevelToTree(String node, Enumeration nodes)
-    {
-        ArrayList<DefaultMutableTreeNode> tobeEdited = new ArrayList<DefaultMutableTreeNode>();
+    private void addNewLevelToTree(String node, Enumeration nodes) {
+        ArrayList<DefaultMutableTreeNode> treeNodes = new ArrayList<>();
         while (nodes.hasMoreElements()) {
             DefaultMutableTreeNode temp = (DefaultMutableTreeNode)nodes.nextElement();
-            if(temp.isLeaf())
-            {
-                tobeEdited.add(temp);
+            if(temp.isLeaf()) {
+                treeNodes.add(temp);
             }
         }
+
         //Done this way because of this documentation:
         //Modifying the tree by inserting, removing, or moving a node invalidates any enumerations created before the modification.
-        for(DefaultMutableTreeNode addingIn: tobeEdited)
-        {
-            DefaultMutableTreeNode newNode = new DefaultMutableTreeNode(node);
-            addingIn.add(newNode);
-            DefaultMutableTreeNode newNode2 = new DefaultMutableTreeNode(node);
-            addingIn.add(newNode2);
+        for(DefaultMutableTreeNode addingIn: treeNodes) {
+            addingIn.add(new DefaultMutableTreeNode(node));
+            addingIn.add(new DefaultMutableTreeNode(node));
         }
-    }
-
-    private Item createItem(String turbo, String enginPower, String sportBumber, String sportRing, String cruissControll, String metalic, String ac, String abs){
-        Feature[] featureValues = new Feature[]{
-                new Feature("Turbo", turbo, ys),
-                new Feature("EnginPower", enginPower, ys),
-                new Feature("SportRing", sportRing, ys),
-                new Feature("SportBumber", sportBumber, ys),
-                new Feature("CruisControll", cruissControll, ys),
-                new Feature("Metalic", metalic, ys),
-                new Feature("AC",ac, ys),
-                new Feature("ABS",abs, ys)
-        };
-        return new Item("car", featureValues);
     }
 
     private void addCategorieText()
@@ -128,14 +102,8 @@ public class TreeBuilder {
             String sCurrentLine;
             br = new BufferedReader(new FileReader("C:\\CatText.txt"));
             while ((sCurrentLine = br.readLine()) != null) {
-                if(sCurrentLine == "Medium-Low" && i == 5)
-                {
-                    break;
-                }
-
-                i++;
+                categories.add(sCurrentLine);
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -147,17 +115,39 @@ public class TreeBuilder {
         }
     }
 
-    private void processText()
-    {
+    /**
+     * Classifies items and puts them into category.
+     */
+    private void classify() {
+        ArrayList<DefaultMutableTreeNode> treeNodes = new ArrayList<>();
+        Enumeration tree = root.breadthFirstEnumeration();
+        while(tree.hasMoreElements()) {
+            DefaultMutableTreeNode temp = (DefaultMutableTreeNode)tree.nextElement();
+            if(temp.isLeaf()) treeNodes.add(temp);
+        }
+
+        System.out.println();
+        System.out.println("TESTING classify");
+        int i = 0;
+        int j = 0;
+        for(DefaultMutableTreeNode addingIn : treeNodes) {
+            addingIn.add(new DefaultMutableTreeNode(categories.get(i)));
+            if(j % 25 == 0 && j != 0 && j < 120) {
+                i++;
+            }
+            j++;
+        }
+        System.out.println(j);
+    }
+
+    private void processTextToTree() {
         BufferedReader br = null;
         try {
             String sCurrentLine;
             br = new BufferedReader(new FileReader("C:\\OptiesText.txt"));
             while ((sCurrentLine = br.readLine()) != null) {
-                System.out.println(sCurrentLine);
-                processLine(sCurrentLine);
+                buildTree(sCurrentLine);
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -167,42 +157,5 @@ public class TreeBuilder {
                 ex.printStackTrace();
             }
         }
-    }
-
-    /**
-     * By Leon Wetzel.
-     * Attempt to solve puzzle.
-     */
-    private void build() {
-        BufferedReader br = null;
-        try {
-            String sCurrentLine;
-            DefaultMutableTreeNode node = root;
-
-            br = new BufferedReader(new FileReader("C:\\testing.txt"));
-            while ((sCurrentLine = br.readLine()) != null) {
-                // doe magie hier!
-                node.add(convertStringToNode(sCurrentLine));
-
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (br != null) {
-                    br.close();
-                }
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
-
-    /**
-     * By Leon Wetzel.
-     * Attempt to solve puzzle.
-     */
-    private DefaultMutableTreeNode convertStringToNode(String line) {
-        return new DefaultMutableTreeNode(line);
     }
 }
