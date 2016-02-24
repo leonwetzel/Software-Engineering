@@ -6,9 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-/**
- * Created by Robert on 23-2-2016.
- */
 public class TreeBuilder {
     Map<Item, String> trainingsSet = new HashMap<>();
     Map<String, FeatureType> features = new HashMap<>();
@@ -20,17 +17,14 @@ public class TreeBuilder {
 
     DefaultMutableTreeNode root;
 
-
     /**
-     * Constructs a trebuilder.
+     * Constructs a treebuilder.
      */
-    public TreeBuilder()
-    {
+    public TreeBuilder() {
         processTextToTree();
         addCategorieText();
         classify();
         printTree();
-
     }
 
     private DefaultMutableTreeNode getRoot()
@@ -94,8 +88,7 @@ public class TreeBuilder {
         }
     }
 
-    private void addCategorieText()
-    {
+    private void addCategorieText() {
         BufferedReader br = null;
         try {
             int i = 0;
@@ -157,5 +150,9 @@ public class TreeBuilder {
                 ex.printStackTrace();
             }
         }
+    }
+
+    public ArrayList<String> getCategories() {
+        return categories;
     }
 }
