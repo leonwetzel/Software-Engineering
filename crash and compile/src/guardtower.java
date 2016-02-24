@@ -5,7 +5,7 @@ public class GuardTower {
     private int sightRange = 2;
     private int currentTowers;
     private int highestPoint;
-    private int GuadtowerLocation;
+    private int guardTowerLocation;
     private int[] places = {2,4,3,2,2,2};
 
     public GuardTower()
@@ -18,7 +18,7 @@ public class GuardTower {
                 highestPoint = i;
             }
         }
-        GuadtowerLocation = highestPoint;
+        guardTowerLocation = highestPoint;
         currentTowers = 1;
         determineNeededTowers();
     }
@@ -30,11 +30,20 @@ public class GuardTower {
         System.out.println(currentTowers);
     }
 
+    private void checkRight() {
+        int top = 0;
+        for(int place : places) {
+            if(place > top) {
+                top = place;
+            }
+        }
+    }
+
     private void searchLeft()
     {
-        for(int i = GuadtowerLocation-1; i > 0 ;i--)
+        for(int i = guardTowerLocation -1; i > 0 ;i--)
         {
-            if(GuadtowerLocation < places[i])
+            if(guardTowerLocation < places[i])
             {
                 currentTowers++;
             }
@@ -43,9 +52,9 @@ public class GuardTower {
 
     private void searchRight()
     {
-        for(int i = GuadtowerLocation; i < places.length ;i++)
+        for(int i = guardTowerLocation; i < places.length ;i++)
         {
-            if(GuadtowerLocation < places[i])
+            if(guardTowerLocation < places[i])
             {
                 currentTowers++;
             }
