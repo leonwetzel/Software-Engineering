@@ -19,7 +19,9 @@ public class ClassifierController extends JPanel implements ActionListener {
             JRadioButton button = new JRadioButton(item);
             button.setActionCommand(item);
             group.add(button);
+            this.add(button);
         }
+
     }
 
     /**
