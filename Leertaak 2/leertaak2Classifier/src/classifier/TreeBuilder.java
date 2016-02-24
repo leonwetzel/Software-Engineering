@@ -11,7 +11,7 @@ public class TreeBuilder {
     Map<String, FeatureType> features = new HashMap<>();
 
     ArrayList<String> categories = new ArrayList<>();
-
+    ArrayList<String> modules = new ArrayList<>();
     // onderstaande is door Leon gemaakt
     FeatureType ys = new FeatureType("yesno", new String[] {"yes", "no"});
 
@@ -34,11 +34,8 @@ public class TreeBuilder {
 
     private void printTree() {
         Enumeration nodes = root.breadthFirstEnumeration();
-        System.out.println();
-        System.out.println("TESTING");
         while(nodes.hasMoreElements()) {
             DefaultMutableTreeNode temp2 = (DefaultMutableTreeNode)nodes.nextElement();
-            System.out.println(temp2.getUserObject().toString());
         }
 
     }
@@ -118,9 +115,6 @@ public class TreeBuilder {
             DefaultMutableTreeNode temp = (DefaultMutableTreeNode)tree.nextElement();
             if(temp.isLeaf()) treeNodes.add(temp);
         }
-
-        System.out.println();
-        System.out.println("TESTING classify");
         int i = 0;
         int j = 0;
         for(DefaultMutableTreeNode addingIn : treeNodes) {
@@ -130,7 +124,6 @@ public class TreeBuilder {
             }
             j++;
         }
-        System.out.println(j);
     }
 
     private void processTextToTree() {
@@ -140,6 +133,7 @@ public class TreeBuilder {
             br = new BufferedReader(new FileReader("C:\\OptiesText.txt"));
             while ((sCurrentLine = br.readLine()) != null) {
                 buildTree(sCurrentLine);
+                modules.add(sCurrentLine);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -150,6 +144,11 @@ public class TreeBuilder {
                 ex.printStackTrace();
             }
         }
+    }
+
+    public  ArrayList<String> getModules()
+    {
+        return modules;
     }
 
     public ArrayList<String> getCategories() {

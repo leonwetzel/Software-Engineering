@@ -15,7 +15,7 @@ public class ClassifierController extends JPanel implements ActionListener {
         this.model = model;
 
         ButtonGroup group = new ButtonGroup();
-        for(String item : tree.getCategories()) {
+        for(String item : tree.getModules()) {
             JRadioButton button = new JRadioButton(item);
             button.setActionCommand(item);
             group.add(button);
