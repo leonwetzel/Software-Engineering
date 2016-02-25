@@ -35,8 +35,6 @@ public class Problem
             {
                 index = 0;
             }
-
-
         }
 }
 
