@@ -39,6 +39,10 @@ public class Candidate
     {
        return ""+cardChar+"("+available+") ";
     }
+
+    public void test() {
+        System.out.println("test");
+    }
     
 
 }
