@@ -20,6 +20,7 @@ public class Solution extends Stack<Candidate>
     private int[] row    = { 0, 1, 1, 1, 2, 2, 2, 3 };
     private int[] column = { 2, 0, 1, 2, 1, 2, 3, 2 };
 	private Integer [][] adjacent = new Integer [8][4];
+	private char[] occupiedCardNames = new char[8];
     //
     // array with adjacent card positions lower than the card that is placed
     //                        0   1   2       3    4       5    6   7
@@ -48,7 +49,7 @@ public class Solution extends Stack<Candidate>
     // @return Boolean indicating if cardChar is found.
     // can be used in the methods fits and isCorrect
     private boolean bordersCard(int row, int column, char cardChar){
-        //TODO
+
         return true;
     }
 
@@ -75,14 +76,20 @@ public class Solution extends Stack<Candidate>
 				}
 			}
 			if(availble.length == 2)
-			{
-				//Do adjacent check
+			{	//Do adjacent check
+				if (bordersCard(availble[0], availble[1], candidate.getCardChar()))
+				{
+					occupiedCardNames[k] = candidate.getCardChar();
+					occupied[k] = availble;
+				}
 
 			}
+
 			k++;
 		}
         return true;
 	}
+
 
     public void record(Candidate candidate)
     {
