@@ -36,7 +36,7 @@ public class Solution extends Stack<Candidate>
     //                 0   1  2   3   4     5   6    7
     int [][] check = {{},{},{1},{0},{2},{3,4},{6},{5,7}};
 
-    private int[][] occupied = {{}, {}, {}, {}, {}, {}, {}, {}};
+    private int[][] occupied = new int[8][2];
 
     public Solution(){
     }
