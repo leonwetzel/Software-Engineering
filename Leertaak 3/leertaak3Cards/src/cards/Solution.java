@@ -19,7 +19,7 @@ public class Solution extends Stack<Candidate>
     // {0,2}, {1,0}. {1,1}
     private int[] row    = { 0, 1, 1, 1, 2, 2, 2, 3 };
     private int[] column = { 2, 0, 1, 2, 1, 2, 3, 2 };
-	private int[][] adjacent = new int[8][4];
+	private Integer [][] adjacent = new Integer [8][4];
     //
     // array with adjacent card positions lower than the card that is placed
     //                        0   1   2       3    4       5    6   7
@@ -36,7 +36,7 @@ public class Solution extends Stack<Candidate>
     //                 0   1  2   3   4     5   6    7
     int [][] check = {{},{},{1},{0},{2},{3,4},{6},{5,7}};
 
-    private int[][] occupied = new int[8][2];
+    private Integer [][] occupied = new Integer [8][2];
 
     public Solution(){
     }
@@ -61,9 +61,28 @@ public class Solution extends Stack<Candidate>
      * next free position.
      */
     public boolean fits(Candidate candidate){
+		Integer[] availble = new Integer[2];
+		int k =0;
+		for(Integer [] i: occupied)
+		{
 
+			for(Integer  j : i)
+			{
+				if(j !=null)
+				{
+					availble = i;
+					break;
+				}
+			}
+			if(availble.length == 2)
+			{
+				//Do adjacent check
+
+			}
+			k++;
+		}
         return true;
-    }
+	}
 
     public void record(Candidate candidate)
     {
