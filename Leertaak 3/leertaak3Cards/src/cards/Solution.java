@@ -34,8 +34,9 @@ public class Solution extends Stack<Candidate>
     //  indices cards that must be checked.
     //  e.g. when the 5th card is placed the cards 3&4 can be checked
     //                 0   1  2   3   4     5   6    7
-    int [] [] check = {{},{},{1},{0},{2},{3,4},{6},{5,7}};
+    int [][] check = {{},{},{1},{0},{2},{3,4},{6},{5,7}};
 
+    private int[][] occupied = {{}, {}, {}, {}, {}, {}, {}, {}};
 
     public Solution(){
     }

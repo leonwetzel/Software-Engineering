@@ -12,7 +12,7 @@ public class Problem
         //System.out.println(candidates);
         //System.out.println(solution);
         //reader.nextLine();
-        int index=0;
+        int index = 0;
         while (index<candidates.size())
         {
             if (solution.fits(candidates.get(index)))
@@ -38,7 +38,7 @@ public class Problem
 
 
         }
-    }
+}
 
 }
         
