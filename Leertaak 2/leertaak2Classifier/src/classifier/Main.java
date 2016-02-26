@@ -20,11 +20,15 @@ package classifier;
  * Test enviroment for Traverser
  */
 public class Main {
+    /*
+        This main is used for the Treebuilder;
+     */
     public static void main(String[] args) {
         new TreeBuilder();
+        //someAssingtment();
     }
 
-    public void someAssingtment()
+    public static void someAssingtment()
     {
         try {
             new Traverser(new Node("Robert")).inorderTraversing();

@@ -1,5 +1,4 @@
 package cards;
-import cards.Candidate;
 import java.util.Stack;
 /** the solution is a sequence of cards placed on the board according to the card positions
  example without border
@@ -21,6 +20,9 @@ public class Solution extends Stack<Candidate>
     private int[] column = { 2, 0, 1, 2, 1, 2, 3, 2 };
 	private Integer [][] adjacent = new Integer [8][4];
 	private char[] occupiedCardNames = new char[8];
+	int [][] check = {{},{},{1},{0},{2},{3,4},{6},{5,7}};
+
+	private Integer [][] occupied = new Integer [8][2];
     //
     // array with adjacent card positions lower than the card that is placed
     //                        0   1   2       3    4       5    6   7
@@ -35,12 +37,8 @@ public class Solution extends Stack<Candidate>
     //  indices cards that must be checked.
     //  e.g. when the 5th card is placed the cards 3&4 can be checked
     //                 0   1  2   3   4     5   6    7
-    int [][] check = {{},{},{1},{0},{2},{3,4},{6},{5,7}};
-
-    private Integer [][] occupied = new Integer [8][2];
-
-    public Solution(){
-    }
+	public Solution(){
+     }
 
 
     // Checks whether a candidate with card CardChar is in
@@ -49,6 +47,29 @@ public class Solution extends Stack<Candidate>
     // @return Boolean indicating if cardChar is found.
     // can be used in the methods fits and isCorrect
     private boolean bordersCard(int row, int column, char cardChar){
+		char ruleCard = mustBeAdjacentTo(cardChar);
+        Candidate current = board[row][column];
+        int coordinateOne = row -1;
+        int coordinateTwo = row + 1;
+        int coordinateThree = column -1;
+        int coordinateFour = column +1;
+        if(coordinateOne >= 0)
+        {
+            Candidate left = board[coordinateOne][column];
+        }
+        if(coordinateTwo >= 0)
+        {
+            Candidate right = board[coordinateTwo][column];
+        }
+        if(coordinateThree >= 0)
+        {
+            Candidate down = board[row][coordinateThree];
+        }
+        if(coordinateFour >= 0)
+        {
+            Candidate top = board[row][coordinateFour];
+        }
+
 
         return true;
     }
@@ -66,8 +87,7 @@ public class Solution extends Stack<Candidate>
 		int k =0;
 		for(Integer [] i: occupied)
 		{
-
-			for(Integer  j : i)
+            for(Integer  j : i)
 			{
 				if(j !=null)
 				{
@@ -82,10 +102,8 @@ public class Solution extends Stack<Candidate>
 					occupiedCardNames[k] = candidate.getCardChar();
 					occupied[k] = availble;
 				}
-
-			}
-
-			k++;
+            }
+            k++;
 		}
         return true;
 	}

@@ -80,6 +80,7 @@ public class TreeBuilder {
         //Done this way because of this documentation:
         //Modifying the tree by inserting, removing, or moving a node invalidates any enumerations created before the modification.
         for(DefaultMutableTreeNode addingIn: treeNodes) {
+            System.out.println(node +": added node");
             addingIn.add(new DefaultMutableTreeNode(node));
             addingIn.add(new DefaultMutableTreeNode(node));
         }
@@ -133,6 +134,7 @@ public class TreeBuilder {
             while ((sCurrentLine = br.readLine()) != null) {
                 buildTree(sCurrentLine);
                 modules.add(sCurrentLine);
+                System.out.println("The "+ sCurrentLine + " tree layer has been made");
             }
         } catch (IOException e) {
             e.printStackTrace();
