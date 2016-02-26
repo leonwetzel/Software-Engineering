@@ -1,4 +1,5 @@
 package cards;
+import java.util.ArrayList;
 import java.util.Stack;
 /** the solution is a sequence of cards placed on the board according to the card positions
  example without border
@@ -23,6 +24,9 @@ public class Solution extends Stack<Candidate>
 	int [][] check = {{},{},{1},{0},{2},{3,4},{6},{5,7}};
 
 	private Integer [][] occupied = new Integer [8][2];
+
+    private int[][] test = new int[][] {{row[0], column[0]}};
+
     //
     // array with adjacent card positions lower than the card that is placed
     //                        0   1   2       3    4       5    6   7
@@ -38,7 +42,12 @@ public class Solution extends Stack<Candidate>
     //  e.g. when the 5th card is placed the cards 3&4 can be checked
     //                 0   1  2   3   4     5   6    7
 	public Solution(){
-     }
+    }
+
+    public static void main(String[] args) {
+        new Solution().bordersCard(1, 1, 'a');
+    }
+
 
 
     // Checks whether a candidate with card CardChar is in
@@ -47,31 +56,35 @@ public class Solution extends Stack<Candidate>
     // @return Boolean indicating if cardChar is found.
     // can be used in the methods fits and isCorrect
     private boolean bordersCard(int row, int column, char cardChar){
-		char ruleCard = mustBeAdjacentTo(cardChar);
-        Candidate current = board[row][column];
-        int coordinateOne = row -1;
-        int coordinateTwo = row + 1;
-        int coordinateThree = column -1;
-        int coordinateFour = column +1;
-        if(coordinateOne >= 0)
+        ArrayList<Candidate> neighbours = new ArrayList<>();
+        int limit = board[row].length;
+        if(row-1 >= 0)
         {
-            Candidate left = board[coordinateOne][column];
+            Candidate left = board[row-1][column];
+            neighbours.add(left);
         }
-        if(coordinateTwo >= 0)
+        if(row+1 < limit)
         {
-            Candidate right = board[coordinateTwo][column];
+            Candidate right = board[row+1][column];
+            neighbours.add(right);
         }
-        if(coordinateThree >= 0)
+        if(column-1 >= 0)
         {
-            Candidate down = board[row][coordinateThree];
+            Candidate down = board[row][column-1];
+            neighbours.add(down);
         }
-        if(coordinateFour >= 0)
+        if(column+1 < limit)
         {
-            Candidate top = board[row][coordinateFour];
+            Candidate top = board[row][column+1];
+            neighbours.add(top);
         }
 
-
-        return true;
+        for(Candidate item : neighbours) {
+            if(item.getCardChar() == cardChar) {
+                return true;
+            }
+        }
+        return false;
     }
 
 

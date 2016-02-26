@@ -12,10 +12,12 @@ public class TreeBuilder {
 
     ArrayList<String> categories = new ArrayList<>();
     ArrayList<String> modules = new ArrayList<>();
-    // onderstaande is door Leon gemaakt
     FeatureType ys = new FeatureType("yesno", new String[] {"yes", "no"});
-
     DefaultMutableTreeNode root;
+
+    public static void main(String[] args) {
+        new TreeBuilder();
+    }
 
     /**
      * Constructs a treebuilder.
