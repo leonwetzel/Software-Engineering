@@ -7,6 +7,11 @@ public class Problem
     private Solution   solution     = new Solution();
     private Scanner    reader       = new Scanner(System.in);
 
+    public static void main(String[] args) {
+        new Problem().solve();
+    }
+
+
     public void solve()
     {
         //System.out.println(candidates);
