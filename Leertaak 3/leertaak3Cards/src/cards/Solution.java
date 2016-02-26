@@ -96,7 +96,7 @@ public class Solution extends Stack<Candidate>
      * next free position.
      */
     public boolean fits(Candidate candidate){
-		Integer[] availble = new Integer[2];
+		Integer[] available = new Integer[2];
 		int k =0;
 		for(Integer [] i: occupied)
 		{
@@ -104,16 +104,16 @@ public class Solution extends Stack<Candidate>
 			{
 				if(j !=null)
 				{
-					availble = i;
+					available = i;
 					break;
 				}
 			}
-			if(availble.length == 2)
+			if(available.length == 2)
 			{	//Do adjacent check
-				if (bordersCard(availble[0], availble[1], candidate.getCardChar()))
+				if (bordersCard(available[0], available[1], candidate.getCardChar()))
 				{
 					occupiedCardNames[k] = candidate.getCardChar();
-					occupied[k] = availble;
+					occupied[k] = available;
 				}
             }
             k++;
