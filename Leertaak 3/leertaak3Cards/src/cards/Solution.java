@@ -100,7 +100,10 @@ public class Solution extends Stack<Candidate>
 		{
           if(mustBeAdjacentTo(currentCard) == occupiedCardNames[i])
           {
-              return bordersCard(row[i], column[i],currentCard );
+              if(bordersCard(row[i], column[i],currentCard ))
+              {
+                  return true;
+              }
           }
 
 		}
