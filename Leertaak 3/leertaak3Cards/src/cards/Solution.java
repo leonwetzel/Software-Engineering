@@ -1,11 +1,13 @@
 package cards;
+
 import java.util.ArrayList;
 import java.util.Stack;
-/** the solution is a sequence of cards placed on the board according to the card positions
- example without border
+
+/**
+ * the solution is a sequence of cards placed on the board according to the card positions
+ * example without border
  */
-public class Solution extends Stack<Candidate>
-{
+public class Solution extends Stack<Candidate> {
     // The board is an 2D array.
     // 0123
     // 0..-.
@@ -17,13 +19,13 @@ public class Solution extends Stack<Candidate>
     // card positions on the board
     // the first card position on the board are
     // {0,2}, {1,0}. {1,1}
-    private int[] row    = { 0, 1, 1, 1, 2, 2, 2, 3 };
-    private int[] column = { 2, 0, 1, 2, 1, 2, 3, 2 };
-	private Integer [][] adjacent = new Integer [8][4];
-	private char[] occupiedCardPositions = new char[8];
-	int [][] check = {{},{},{1},{0},{2},{3,4},{6},{5,7}};
+    private int[] row = {0, 1, 1, 1, 2, 2, 2, 3};
+    private int[] column = {2, 0, 1, 2, 1, 2, 3, 2};
+    private Integer[][] adjacent = new Integer[8][4];
+    private char[] occupiedCardPositions = new char[8];
+    int[][] check = {{}, {}, {1}, {0}, {2}, {3, 4}, {6}, {5, 7}};
 
-	private Integer [][] occupied = new Integer [8][2];
+
 
     //
     // array with adjacent card positions lower than the card that is placed
@@ -39,36 +41,39 @@ public class Solution extends Stack<Candidate>
     //  indices cards that must be checked.
     //  e.g. when the 5th card is placed the cards 3&4 can be checked
     //                 0   1  2   3   4     5   6    7
-    public Solution(){}
+    public Solution() {
+    }
 
-    /** Checks whether a candidate with card CardChar is in
+    /**
+     * Checks whether a candidate with card CardChar is in
      * an adjacent position of the board position (row, column)
+     *
      * @param row, column, candidate
      * @return Boolean indicating if cardChar is found.
      * can be used in the methods fits and isCorrect
      */
-    private boolean bordersCard(int row, int column, char cardChar){
+    private boolean bordersCard(int row, int column, char cardChar) {
         ArrayList<Candidate> neighbours = new ArrayList<>();
         int limit = board[row].length;
-        if(row-1 >= 0) {
-            Candidate left = board[row-1][column];
-            if(left != null) neighbours.add(left);
+        if (row - 1 >= 0) {
+            Candidate left = board[row - 1][column];
+            if (left != null) neighbours.add(left);
         }
-        if(row+1 < limit) {
-            Candidate right = board[row+1][column];
-            if(right != null) neighbours.add(right);
+        if (row + 1 < limit) {
+            Candidate right = board[row + 1][column];
+            if (right != null) neighbours.add(right);
         }
-        if(column-1 >= 0) {
-            Candidate down = board[row][column-1];
-            if(down != null) neighbours.add(down);
+        if (column - 1 >= 0) {
+            Candidate down = board[row][column - 1];
+            if (down != null) neighbours.add(down);
         }
-        if(column+1 < limit) {
-            Candidate top = board[row][column+1];
-            if(top != null) neighbours.add(top);
+        if (column + 1 < limit) {
+            Candidate top = board[row][column + 1];
+            if (top != null) neighbours.add(top);
         }
 
-        for(Candidate item : neighbours) {
-            if(item != null && item.getCardChar() == cardChar) {
+        for (Candidate item : neighbours) {
+            if (item != null && item.getCardChar() == cardChar) {
                 System.out.println("Matching card char has been found!");
                 return true;
             }
@@ -79,57 +84,48 @@ public class Solution extends Stack<Candidate>
     /**
      * Checks whether candidate card of same kind.
      * Checks whether by placing candidate the solution sofar still complies with the rules
+     *
      * @param candidate The candidate which should be placed on the board.
      * @return boolean indicating whether this candidate can be put in the
      * next free position.
      */
-    public boolean fits(Candidate candidate){
+    public boolean fits(Candidate candidate) {
         char currentCard = candidate.getCardChar();
         //System.out.println("Current: " + currentCard);
-		for(int i = 0; i < occupiedCardPositions.length; i++)
-		{
+        for (int i = 0; i < occupiedCardPositions.length; i++) {
 
-          if(mustBeAdjacentTo(currentCard) == occupiedCardPositions[i] || currentCard == 'J')
-          {
-             // System.out.println("The current card: " + currentCard + " Must be next to " + mustBeAdjacentTo(currentCard));
-             // System.out.println("The current select is " + occupiedCardPositions[i] + " on: " + row[i] + "," + column[i] );
-              int k = neededIndex(currentCard, i);
-            //  System.out.println(k);
-              if(k >= 0)
-              {
-                  if(occupiedCardPositions[k] == 0 )
-                  {
-                      if(isCorrect(currentCard, k))
-                      {
-                         // System.out.println("Return true");
-                          occupiedCardPositions[k] = currentCard;
-                          System.out.println(currentCard + " - " + row[k] + "," + column[k]);
-                          return true;
-                      }
-                      else{
-                 //         System.out.println("Return false");
-                      }
+            if (mustBeAdjacentTo(currentCard) == occupiedCardPositions[i] || currentCard == 'J') {
+                // System.out.println("The current card: " + currentCard + " Must be next to " + mustBeAdjacentTo(currentCard));
+                // System.out.println("The current select is " + occupiedCardPositions[i] + " on: " + row[i] + "," + column[i] );
+                int k = neededIndex(currentCard, i);
+                //  System.out.println(k);
+                if (k >= 0) {
+                    if (occupiedCardPositions[k] == 0) {
+                        if (isCorrect(currentCard, k)) {
+                            // System.out.println("Return true");
+                            occupiedCardPositions[k] = currentCard;
+                            System.out.println(currentCard + " - " + row[k] + "," + column[k]);
+                            return true;
+                        } else {
+                            //         System.out.println("Return false");
+                        }
 
-                  }
-              }
-              else
-              {
-                 // System.out.println("No valid position");
-              }
-          }
+                    }
+                } else {
+                    // System.out.println("No valid position");
+                }
+            }
 
-		}
+        }
         return false;
-	}
+    }
 
-    private int neededIndex(char card, int j)
-    {
+    private int neededIndex(char card, int j) {
         int localRow = row[j];
         int localColumn = column[j];
         for (int k = 0; k < row.length; k++) {
             if (k != j && occupiedCardPositions[k] == 0) {
                 if (row[k] == localRow && column[k] == localColumn - 1) {
-
                     return k;
 
                 } else if (row[k] == localRow - 1 && column[k] == localColumn) {
@@ -153,55 +149,54 @@ public class Solution extends Stack<Candidate>
 
     /**
      * Adds a candidate to the board.
+     *
      * @param candidate Candidate card which should be added to the board.
      */
-    public void record(Candidate candidate)
-    {
-        int i=this.size(); // i= index in this stack of next for the next candidate
-        board [row[i]] [column[i]] = candidate; //x=row, y=column
+    public void record(Candidate candidate) {
+        int i = this.size(); // i= index in this stack of next for the next candidate
+        board[row[i]][column[i]] = candidate; //x=row, y=column
         this.push(candidate);
 
     }
 
     /**
      * Check if the game has been finished.
+     *
      * @return True if the size of Solution equals 8.
      */
-    public boolean complete()
-    {
-        return this.size()==8;
+    public boolean complete() {
+        return this.size() == 8;
     }
 
     /**
      * Shows the (end) result.
      */
-    public void show()
-    {
+    public void show() {
         System.out.println(this);
     }
 
     /**
      * Erases the candidate of the board and adds the candidate to the list of candidates.
+     *
      * @return The removed candidate.
      */
-    public Candidate eraseRecording()
-    {
-        int i=this.size()-1;           // i= index of the candidate that is removed from this Stack;
-        board[row[i]][column[i]]=null; // remove candidate from board
+    public Candidate eraseRecording() {
+        int i = this.size() - 1;           // i= index of the candidate that is removed from this Stack;
+        board[row[i]][column[i]] = null; // remove candidate from board
         return this.pop();
     }
 
     /**
      * Returns the character of the card which should be adjacent to the input card.
      * This method can be used in isCorrect().
+     *
      * @param card The card of which the adjacent type should be checked.
      * @return The character of the correct adjacent card type.
      */
-    private char mustBeAdjacentTo(char card)
-    {
-        if (card=='A') return 'K';
-        if (card=='K') return 'Q';
-        if (card=='Q') return 'J';
+    private char mustBeAdjacentTo(char card) {
+        if (card == 'A') return 'K';
+        if (card == 'K') return 'Q';
+        if (card == 'Q') return 'J';
         return '?'; //error
     }
 
@@ -212,6 +207,7 @@ public class Solution extends Stack<Candidate>
      * Elke aas (ace) grenst (horizontaal of verticaal) aan een heer (king).
      * Elke heer grenst aan een vrouw (queen).
      * Elke vrouw grenst aan een boer (jack).
+     *
      * @return true if all checks are correct.
      */
     // uses methods borderCard and mustBeAdjacent to
@@ -219,38 +215,26 @@ public class Solution extends Stack<Candidate>
         int localRow = row[i];
         int localColumn = column[i];
         boolean succes = true;
-        for(int k = 0; k < row.length; k++)
-        {
+        for (int k = 0; k < row.length; k++) {
             //if(k != i)
             //{
-                if(row[k] == localRow && column[k] == localColumn -1)
-                {
-                    if(card == occupiedCardPositions[k])
-                    {
-                        succes = false;
-                    }
+            if (row[k] == localRow && column[k] == localColumn - 1) {
+                if (card == occupiedCardPositions[k]) {
+                    succes = false;
                 }
-                else if(row[k] == localRow && column[k] == localColumn +1)
-                {
-                    if(card == occupiedCardPositions[k])
-                    {
-                        succes =  false;
-                    }
+            } else if (row[k] == localRow && column[k] == localColumn + 1) {
+                if (card == occupiedCardPositions[k]) {
+                    succes = false;
                 }
-                else if(row[k] == localRow-1 && column[k] == localColumn )
-                {
-                    if(card == occupiedCardPositions[k])
-                    {
-                        succes = false;
-                    }
+            } else if (row[k] == localRow - 1 && column[k] == localColumn) {
+                if (card == occupiedCardPositions[k]) {
+                    succes = false;
                 }
-                else if(row[k] == localRow+1 && column[k] == localColumn )
-                {
-                    if(card == occupiedCardPositions[k])
-                    {
-                        succes=  false;
-                    }
+            } else if (row[k] == localRow + 1 && column[k] == localColumn) {
+                if (card == occupiedCardPositions[k]) {
+                    succes = false;
                 }
+            }
             //}
 
         }
@@ -261,7 +245,7 @@ public class Solution extends Stack<Candidate>
     /**
      * @return a representation of the solution on the board
      */
-    public String toString(){
+    public String toString() {
         //TODO
         return "";
     }
