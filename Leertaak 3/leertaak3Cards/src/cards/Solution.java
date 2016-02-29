@@ -25,8 +25,6 @@ public class Solution extends Stack<Candidate>
 
 	private Integer [][] occupied = new Integer [8][2];
 
-    private int[][] test = new int[][] {{row[0], column[0]}};
-
     //
     // array with adjacent card positions lower than the card that is placed
     //                        0   1   2       3    4       5    6   7
@@ -45,7 +43,7 @@ public class Solution extends Stack<Candidate>
     }
 
     public static void main(String[] args) {
-        new Solution().bordersCard(1, 1, 'a');
+        System.out.println(new Solution().bordersCard(0, 1, 'a'));
     }
 
 
@@ -58,32 +56,30 @@ public class Solution extends Stack<Candidate>
     private boolean bordersCard(int row, int column, char cardChar){
         ArrayList<Candidate> neighbours = new ArrayList<>();
         int limit = board[row].length;
-        if(row-1 >= 0)
-        {
+        if(row-1 >= 0) {
             Candidate left = board[row-1][column];
-            neighbours.add(left);
+            if(left != null) neighbours.add(left);
         }
-        if(row+1 < limit)
-        {
+        if(row+1 < limit) {
             Candidate right = board[row+1][column];
-            neighbours.add(right);
+            if(right != null) neighbours.add(right);
         }
-        if(column-1 >= 0)
-        {
+        if(column-1 >= 0) {
             Candidate down = board[row][column-1];
-            neighbours.add(down);
+            if(down != null) neighbours.add(down);
         }
-        if(column+1 < limit)
-        {
+        if(column+1 < limit) {
             Candidate top = board[row][column+1];
-            neighbours.add(top);
+            if(top != null) neighbours.add(top);
         }
 
         for(Candidate item : neighbours) {
-            if(item.getCardChar() == cardChar) {
+            if(item != null && item.getCardChar() == cardChar) {
+                System.out.println("Matching card char has been found!");
                 return true;
             }
         }
+        System.out.println("Neighbouring cards do not match requested card char.");
         return false;
     }
 
