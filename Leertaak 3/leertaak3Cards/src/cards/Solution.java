@@ -21,11 +21,11 @@ public class Solution extends Stack<Candidate> {
     // {0,2}, {1,0}. {1,1}
     private int[] row = {0, 1, 1, 1, 2, 2, 2, 3};
     private int[] column = {2, 0, 1, 2, 1, 2, 3, 2};
-    private Integer[][] adjacent = new Integer[8][4];
+   // private Integer[][] adjacent = new Integer[8][4];
     private char[] occupiedCardPositions = new char[8];
     int[][] check = {{}, {}, {1}, {0}, {2}, {3, 4}, {6}, {5, 7}};
 
-
+    int [] [] adjacent  = { {}, {}, {1}, {0,2}, {2},  {3,4}, {5},{5}  };
 
     //
     // array with adjacent card positions lower than the card that is placed
