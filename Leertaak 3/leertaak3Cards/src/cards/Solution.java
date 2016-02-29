@@ -126,37 +126,24 @@ public class Solution extends Stack<Candidate>
     {
         int localRow = row[j];
         int localColumn = column[j];
-        for(int k = 0; k < row.length; k++)
-        {
-            if(k != j)
-            {
-                if(row[k] == localRow && column[k] == localColumn -1)
-                {
-                    if(occupiedCardPositions[k] == 0)
-                    {
-                        return k;
-                    }
-                }
-                else if(row[k] == localRow-1 && column[k] == localColumn )
-                {
-                    if(occupiedCardPositions[k] == 0)
-                    {
-                        return k;
-                    }
-                }
-                else if(row[k] == localRow && column[k] == localColumn +1)
-                {
-                    if(occupiedCardPositions[k] == 0)
-                    {
-                        return k;
-                    }
-                }
-                else if(row[k] == localRow+1 && column[k] == localColumn )
-                {
-                    if(occupiedCardPositions[k] == 0)
-                    {
-                        return k;
-                    }
+        for (int k = 0; k < row.length; k++) {
+            if (k != j && occupiedCardPositions[k] == 0) {
+                if (row[k] == localRow && column[k] == localColumn - 1) {
+
+                    return k;
+
+                } else if (row[k] == localRow - 1 && column[k] == localColumn) {
+
+                    return k;
+
+                } else if (row[k] == localRow && column[k] == localColumn + 1) {
+
+                    return k;
+
+                } else if (row[k] == localRow + 1 && column[k] == localColumn) {
+
+                    return k;
+
                 }
             }
         }
