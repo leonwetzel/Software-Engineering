@@ -87,10 +87,11 @@ public class Solution extends Stack<Candidate>
      */
     public boolean fits(Candidate candidate){
         char currentCard = candidate.getCardChar();
+        //System.out.println("Current: " + currentCard);
 		for(int i = 0; i < occupiedCardPositions.length; i++)
 		{
             //System.out.println("The current card: " + currentCard + " Must be next to " + mustBeAdjacentTo(currentCard));
-            //System.out.println("The current select is " + occupiedCardPositions[i] );
+           //  System.out.println("The current select is " + occupiedCardPositions[i] );
           if(mustBeAdjacentTo(currentCard) == occupiedCardPositions[i] || currentCard == 'J')
           {
               int k = neededIndex(currentCard, i);
@@ -100,12 +101,20 @@ public class Solution extends Stack<Candidate>
                   {
                       if(isCorrect(currentCard, k))
                       {
+                          System.out.println("Return true");
                           occupiedCardPositions[k] = currentCard;
                           System.out.println(currentCard + " - " + row[k] + "," + column[k]);
                           return true;
                       }
+                      else{
+                 //         System.out.println("Return false");
+                      }
 
                   }
+              }
+              else
+              {
+                 // System.out.println("No valid position");
               }
           }
 
@@ -211,42 +220,43 @@ public class Solution extends Stack<Candidate>
     private boolean isCorrect(char card, int i) {
         int localRow = row[i];
         int localColumn = column[i];
+        boolean succes = true;
         for(int k = 0; k < row.length; k++)
         {
             if(k != i)
             {
-                if(row[k] == localRow-1 && column[k] == localColumn -1)
+                if(row[k] == localRow && column[k] == localColumn -1)
                 {
                     if(card == occupiedCardPositions[k])
                     {
-                        return false;
+                        succes = false;
                     }
                 }
-                else if(row[k] == localRow+1 && column[k] == localColumn -1)
+                else if(row[k] == localRow && column[k] == localColumn +1)
                 {
                     if(card == occupiedCardPositions[k])
                     {
-                        return false;
+                        succes =  false;
                     }
                 }
-                else if(row[k] == localRow-1 && column[k] == localColumn +1)
+                else if(row[k] == localRow-1 && column[k] == localColumn )
                 {
                     if(card == occupiedCardPositions[k])
                     {
-                        return false;
+                        succes = false;
                     }
                 }
-                else if(row[k] == localRow+1 && column[k] == localColumn +1)
+                else if(row[k] == localRow+1 && column[k] == localColumn )
                 {
                     if(card == occupiedCardPositions[k])
                     {
-                        return false;
+                        succes=  false;
                     }
                 }
             }
 
         }
-        return true;
+        return succes;
     }
 
 
