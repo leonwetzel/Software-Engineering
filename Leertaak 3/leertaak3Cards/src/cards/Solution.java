@@ -98,12 +98,13 @@ public class Solution extends Stack<Candidate>
               {
                   if(occupiedCardPositions[k] == 0 )
                   {
-                    //  if(isCorrect(currentCard, k))
-                    //  {
+                      if(isCorrect(currentCard, k))
+                      {
                           occupiedCardPositions[k] = currentCard;
                           System.out.println(currentCard + " - " + row[k] + "," + column[k]);
                           return true;
-                    //  }
+                      }
+
                   }
               }
           }
