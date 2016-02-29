@@ -16,7 +16,7 @@ public class Problem
     {
         System.out.println(candidates);
         System.out.println(solution);
-        reader.nextLine();
+        //reader.nextLine();
         int index = 0;
         while (index<candidates.size())
         {
@@ -32,14 +32,12 @@ public class Problem
                 {
                     solve();
                 }
+
+                System.out.println("Hoi!");
                 candidates.add(index, solution.eraseRecording()); //move candidate to candidates
 
             }
             index++;
-            if(index == candidates.size())
-            {
-                index = 0;
-            }
         }
 }
 

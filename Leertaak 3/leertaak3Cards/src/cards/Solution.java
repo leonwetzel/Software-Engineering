@@ -41,14 +41,7 @@ public class Solution extends Stack<Candidate>
     //  indices cards that must be checked.
     //  e.g. when the 5th card is placed the cards 3&4 can be checked
     //                 0   1  2   3   4     5   6    7
-	public Solution(){
-    }
-
-    public static void main(String[] args) {
-        new Solution().bordersCard(1, 1, 'a');
-    }
-
-
+	public Solution(){}
 
     // Checks whether a candidate with card CardChar is in
     // an adjacent position of the board position (row, column)
@@ -107,7 +100,7 @@ public class Solution extends Stack<Candidate>
           }
 
 		}
-        return false;
+        return true;
 	}
 
 
