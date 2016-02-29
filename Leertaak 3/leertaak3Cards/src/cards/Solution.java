@@ -19,7 +19,7 @@ public class Solution extends Stack<Candidate>
     // {0,2}, {1,0}. {1,1}
     private int[] row    = { 0, 1, 1, 1, 2, 2, 2, 3 };
     private int[] column = { 2, 0, 1, 2, 1, 2, 3, 2 };
-	private Integer [][] adjacent = new Integer [8][4];
+	//private Integer [][] adjacent = new Integer [8][4];
 	private char[] occupiedCardNames = new char[8];
 	int [][] check = {{},{},{1},{0},{2},{3,4},{6},{5,7}};
 
@@ -61,7 +61,10 @@ public class Solution extends Stack<Candidate>
         if(row-1 >= 0)
         {
             Candidate left = board[row-1][column];
-            neighbours.add(left);
+            if(left !=null)
+            {
+                neighbours.add(left);
+            }
         }
         if(row+1 < limit)
         {
@@ -98,27 +101,16 @@ public class Solution extends Stack<Candidate>
     public boolean fits(Candidate candidate){
 		Integer[] available = new Integer[2];
 		int k =0;
-		for(Integer [] i: occupied)
+        char currentCard = candidate.getCardChar();
+		for(int i = 0; i < 7; i++)
 		{
-            for(Integer  j : i)
-			{
-				if(j !=null)
-				{
-					available = i;
-					break;
-				}
-			}
-			if(available.length == 2)
-			{	//Do adjacent check
-				if (bordersCard(available[0], available[1], candidate.getCardChar()))
-				{
-					occupiedCardNames[k] = candidate.getCardChar();
-					occupied[k] = available;
-				}
-            }
-            k++;
+          if(mustBeAdjacentTo(currentCard) == occupiedCardNames[i])
+          {
+              return bordersCard(row[i], column[i],currentCard );
+          }
+
 		}
-        return true;
+        return false;
 	}
 
 
