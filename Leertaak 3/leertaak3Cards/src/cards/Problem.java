@@ -12,8 +12,7 @@ public class Problem
     }
 
 
-    public void solve()
-    {
+    public void solve() {
         System.out.println(candidates);
         System.out.println(solution);
       //  reader.nextLine();

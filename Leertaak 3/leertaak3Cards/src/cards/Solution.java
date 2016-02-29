@@ -75,6 +75,7 @@ public class Solution extends Stack<Candidate>
                 return true;
             }
         }
+        System.out.println("No matching card has been found.");
         return false;
     }
 
@@ -102,13 +103,12 @@ public class Solution extends Stack<Candidate>
                       {
                           occupiedCardPositions[k] = currentCard;
                           System.out.println(currentCard + " - " + row[k] + "," + column[k]);
+                          System.out.println(currentCard + " has been placed on " + row[k] + "," + column[k]);
                           return true;
                       }
-
                   }
               }
           }
-
 		}
         return false;
 	}
@@ -150,7 +150,8 @@ public class Solution extends Stack<Candidate>
      */
     public void record(Candidate candidate)
     {
-        int i=this.size(); // i= index in this stack of next for the next candidate
+        int i = this.size(); // i= index in this stack of next for the next candidate
+        System.out.println(row[i] + "," + column[i]);
         board [row[i]] [column[i]] = candidate; //x=row, y=column
         this.push(candidate);
 
