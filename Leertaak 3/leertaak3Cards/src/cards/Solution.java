@@ -75,7 +75,6 @@ public class Solution extends Stack<Candidate>
                 return true;
             }
         }
-        System.out.println("No matching card has been found");
         return false;
     }
 
