@@ -34,7 +34,6 @@ public class Problem
                 candidates.add(index, solution.eraseRecording()); //move candidate to candidates
             }
             index++;
-
         }
     }
 }
