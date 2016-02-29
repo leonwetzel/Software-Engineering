@@ -32,16 +32,11 @@ public class Problem
                 {
                     solve();
                 }
-
-                System.out.println("Hoi!");
+                System.out.println("Removed something");
                 candidates.add(index, solution.eraseRecording()); //move candidate to candidates
-
             }
             index++;
-            if(index == candidates.size())
-            {
-                index = 0;
-            }
+
         }
 }
 

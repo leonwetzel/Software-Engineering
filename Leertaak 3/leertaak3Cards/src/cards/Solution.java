@@ -90,13 +90,23 @@ public class Solution extends Stack<Candidate>
         char currentCard = candidate.getCardChar();
 		for(int i = 0; i < occupiedCardPositions.length; i++)
 		{
+            //System.out.println("The current card: " + currentCard + " Must be next to " + mustBeAdjacentTo(currentCard));
+            //System.out.println("The current select is " + occupiedCardPositions[i] );
           if(mustBeAdjacentTo(currentCard) == occupiedCardPositions[i] || currentCard == 'J')
           {
               int k = neededPosition(currentCard, i);
-              if(occupiedCardPositions[k] == 0 )
+              if(k >= 0)
               {
-                  //Dit is speciaal voor Leon.
-                  return true;
+                  if(occupiedCardPositions[k] == 0 )
+                  {
+                      if(isCorrect(currentCard, k))
+                      {
+                          occupiedCardPositions[k] = currentCard;
+                          System.out.println(currentCard + " Has been placed on " + row[k] + "," + column[k]);
+                          return true;
+                      }
+
+                  }
               }
           }
 
@@ -199,8 +209,45 @@ public class Solution extends Stack<Candidate>
      * @return true if all checks are correct.
      */
     // uses methods borderCard and mustBeAdjacent to
-    private boolean isCorrect() {
-        //TODO
+    private boolean isCorrect(char card, int i) {
+        int localRow = row[i];
+        int localColumn = column[i];
+        for(int k = 0; k < row.length; k++)
+        {
+            if(k != i)
+            {
+                if(row[k] == localRow-1 && column[k] == localColumn -1)
+                {
+                    if(card == occupiedCardPositions[k])
+                    {
+                        return false;
+                    }
+                }
+                else if(row[k] == localRow+1 && column[k] == localColumn -1)
+                {
+                    if(card == occupiedCardPositions[k])
+                    {
+                        return false;
+                    }
+                }
+                else if(row[k] == localRow-1 && column[k] == localColumn +1)
+                {
+                    if(card == occupiedCardPositions[k])
+                    {
+                        return false;
+                    }
+                }
+                else if(row[k] == localRow+1 && column[k] == localColumn +1)
+                {
+                    if(card == occupiedCardPositions[k])
+                    {
+                        return false;
+                    }
+                }
+            }
+
+        }
+
         return true;
     }
 
