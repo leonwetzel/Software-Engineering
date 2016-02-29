@@ -14,9 +14,9 @@ public class Problem
 
     public void solve()
     {
-        //System.out.println(candidates);
-        //System.out.println(solution);
-        //reader.nextLine();
+        System.out.println(candidates);
+        System.out.println(solution);
+        reader.nextLine();
         int index = 0;
         while (index<candidates.size())
         {

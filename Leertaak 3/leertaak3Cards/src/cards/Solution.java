@@ -19,7 +19,7 @@ public class Solution extends Stack<Candidate>
     // {0,2}, {1,0}. {1,1}
     private int[] row    = { 0, 1, 1, 1, 2, 2, 2, 3 };
     private int[] column = { 2, 0, 1, 2, 1, 2, 3, 2 };
-	//private Integer [][] adjacent = new Integer [8][4];
+	private Integer [][] adjacent = new Integer [8][4];
 	private char[] occupiedCardNames = new char[8];
 	int [][] check = {{},{},{1},{0},{2},{3,4},{6},{5,7}};
 
@@ -58,32 +58,26 @@ public class Solution extends Stack<Candidate>
     private boolean bordersCard(int row, int column, char cardChar){
         ArrayList<Candidate> neighbours = new ArrayList<>();
         int limit = board[row].length;
-        if(row-1 >= 0)
-        {
+        if(row-1 >= 0) {
             Candidate left = board[row-1][column];
-            if(left !=null)
-            {
-                neighbours.add(left);
-            }
+            if(left != null) neighbours.add(left);
         }
-        if(row+1 < limit)
-        {
+        if(row+1 < limit) {
             Candidate right = board[row+1][column];
-            neighbours.add(right);
+            if(right != null) neighbours.add(right);
         }
-        if(column-1 >= 0)
-        {
+        if(column-1 >= 0) {
             Candidate down = board[row][column-1];
-            neighbours.add(down);
+            if(down != null) neighbours.add(down);
         }
-        if(column+1 < limit)
-        {
+        if(column+1 < limit) {
             Candidate top = board[row][column+1];
-            neighbours.add(top);
+            if(top != null) neighbours.add(top);
         }
 
         for(Candidate item : neighbours) {
-            if(item.getCardChar() == cardChar) {
+            if(item != null && item.getCardChar() == cardChar) {
+                System.out.println("Matching card char has been found!");
                 return true;
             }
         }
