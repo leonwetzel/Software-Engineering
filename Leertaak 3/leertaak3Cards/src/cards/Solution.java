@@ -20,7 +20,7 @@ public class Solution extends Stack<Candidate>
     private int[] row    = { 0, 1, 1, 1, 2, 2, 2, 3 };
     private int[] column = { 2, 0, 1, 2, 1, 2, 3, 2 };
 	private Integer [][] adjacent = new Integer [8][4];
-	private char[] occupiedCardNames = new char[8];
+	private char[] occupiedCardPositions = new char[8];
 	int [][] check = {{},{},{1},{0},{2},{3,4},{6},{5,7}};
 
 	private Integer [][] occupied = new Integer [8][2];
@@ -74,6 +74,7 @@ public class Solution extends Stack<Candidate>
                 return true;
             }
         }
+        System.out.println("No matching card has been found");
         return false;
     }
 
@@ -86,21 +87,51 @@ public class Solution extends Stack<Candidate>
      */
     public boolean fits(Candidate candidate){
 		Integer[] available = new Integer[2];
-		int k =0;
         char currentCard = candidate.getCardChar();
-		for(int i = 0; i < occupiedCardNames.length; i++)
+		for(int i = 0; i < occupiedCardPositions.length; i++)
 		{
-          if(mustBeAdjacentTo(currentCard) == occupiedCardNames[i] || currentCard == 'J')
+          if(mustBeAdjacentTo(currentCard) == occupiedCardPositions[i] || currentCard == 'J')
           {
-              if(bordersCard(row[i], column[i],currentCard ))
+              int k = neededPosition(currentCard, i);
+              if(occupiedCardPositions[k] == '' )
               {
-                  return true;
+
               }
           }
 
 		}
-        return true;
+        return false;
 	}
+
+    private int neededPosition(char card, int j)
+    {
+        int localRow = row[j];
+        int localColumn = column[j];
+        for(int k = 0; k < row.length; k++)
+        {
+            if(k != j)
+            {
+                if(row[k] == localRow-1 && column[k] == localColumn -1)
+                {
+                    return k;
+                }
+                else if(row[k] == localRow+1 && column[k] == localColumn -1)
+                {
+                    return k;
+                }
+                else if(row[k] == localRow-1 && column[k] == localColumn +1)
+                {
+                    return k;
+                }
+                else if(row[k] == localRow+1 && column[k] == localColumn +1)
+                {
+                    return k;
+                }
+            }
+
+        }
+        return -1;
+    }
 
 
     public void record(Candidate candidate)
