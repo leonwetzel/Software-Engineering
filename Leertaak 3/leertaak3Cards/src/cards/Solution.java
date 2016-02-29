@@ -1,11 +1,13 @@
 package cards;
+
 import java.util.ArrayList;
 import java.util.Stack;
-/** the solution is a sequence of cards placed on the board according to the card positions
- example without border
+
+/**
+ * the solution is a sequence of cards placed on the board according to the card positions
+ * example without border
  */
-public class Solution extends Stack<Candidate>
-{
+public class Solution extends Stack<Candidate> {
     // The board is an 2D array.
     // 0123
     // 0..-.
@@ -17,13 +19,13 @@ public class Solution extends Stack<Candidate>
     // card positions on the board
     // the first card position on the board are
     // {0,2}, {1,0}. {1,1}
-    private int[] row    = { 0, 1, 1, 1, 2, 2, 2, 3 };
-    private int[] column = { 2, 0, 1, 2, 1, 2, 3, 2 };
-    private Integer [][] adjacent = new Integer [8][4];
+    private int[] row = {0, 1, 1, 1, 2, 2, 2, 3};
+    private int[] column = {2, 0, 1, 2, 1, 2, 3, 2};
+   // private Integer[][] adjacent = new Integer[8][4];
     private char[] occupiedCardPositions = new char[8];
-    int [][] check = {{},{},{1},{0},{2},{3,4},{6},{5,7}};
+    int[][] check = {{}, {}, {1}, {0}, {2}, {3, 4}, {6}, {5, 7}};
 
-    private Integer [][] occupied = new Integer [8][2];
+    int [] [] adjacent  = { {}, {}, {1}, {0,2}, {2},  {3,4}, {5},{5}  };
 
     //
     // array with adjacent card positions lower than the card that is placed
@@ -41,30 +43,32 @@ public class Solution extends Stack<Candidate>
     //                 0   1  2   3   4     5   6    7
     public Solution() {}
 
-    /** Checks whether a candidate with card CardChar is in
+    /**
+     * Checks whether a candidate with card CardChar is in
      * an adjacent position of the board position (row, column)
+     *
      * @param row, column, candidate
      * @return Boolean indicating if cardChar is found.
      * can be used in the methods fits and isCorrect
      */
-    private boolean bordersCard(int row, int column, char cardChar){
+    private boolean bordersCard(int row, int column, char cardChar) {
         ArrayList<Candidate> neighbours = new ArrayList<>();
         int limit = board[row].length;
-        if(row-1 >= 0) {
-            Candidate left = board[row-1][column];
-            if(left != null) neighbours.add(left);
+        if (row - 1 >= 0) {
+            Candidate left = board[row - 1][column];
+            if (left != null) neighbours.add(left);
         }
-        if(row+1 < limit) {
-            Candidate right = board[row+1][column];
-            if(right != null) neighbours.add(right);
+        if (row + 1 < limit) {
+            Candidate right = board[row + 1][column];
+            if (right != null) neighbours.add(right);
         }
-        if(column-1 >= 0) {
-            Candidate down = board[row][column-1];
-            if(down != null) neighbours.add(down);
+        if (column - 1 >= 0) {
+            Candidate down = board[row][column - 1];
+            if (down != null) neighbours.add(down);
         }
-        if(column+1 < limit) {
-            Candidate top = board[row][column+1];
-            if(top != null) neighbours.add(top);
+        if (column + 1 < limit) {
+            Candidate top = board[row][column + 1];
+            if (top != null) neighbours.add(top);
         }
 
         for(Candidate item : neighbours) {
@@ -80,11 +84,12 @@ public class Solution extends Stack<Candidate>
     /**
      * Checks whether candidate card of same kind.
      * Checks whether by placing candidate the solution sofar still complies with the rules
+     *
      * @param candidate The candidate which should be placed on the board.
      * @return boolean indicating whether this candidate can be put in the
      * next free position.
      */
-    public boolean fits(Candidate candidate){
+    public boolean fits(Candidate candidate) {
         char currentCard = candidate.getCardChar();
         for(int i = 0; i < occupiedCardPositions.length; i++)
         {
@@ -103,8 +108,7 @@ public class Solution extends Stack<Candidate>
         return false;
     }
 
-    private int neededIndex(char card, int j)
-    {
+    private int neededIndex(char card, int j) {
         int localRow = row[j];
         int localColumn = column[j];
         for (int k = 0; k < row.length; k++) {
@@ -125,6 +129,7 @@ public class Solution extends Stack<Candidate>
 
     /**
      * Adds a candidate to the board.
+     *
      * @param candidate Candidate card which should be added to the board.
      */
     public void record(Candidate candidate)
@@ -137,6 +142,7 @@ public class Solution extends Stack<Candidate>
 
     /**
      * Check if the game has been finished.
+     *
      * @return True if the size of Solution equals 8.
      */
     public boolean complete() {
@@ -153,6 +159,7 @@ public class Solution extends Stack<Candidate>
 
     /**
      * Erases the candidate of the board and adds the candidate to the list of candidates.
+     *
      * @return The removed candidate.
      */
     public Candidate eraseRecording() {
@@ -165,6 +172,7 @@ public class Solution extends Stack<Candidate>
     /**
      * Returns the character of the card which should be adjacent to the input card.
      * This method can be used in isCorrect().
+     *
      * @param card The card of which the adjacent type should be checked.
      * @return The character of the correct adjacent card type.
      */
@@ -182,6 +190,7 @@ public class Solution extends Stack<Candidate>
      * Elke aas (ace) grenst (horizontaal of verticaal) aan een heer (king).
      * Elke heer grenst aan een vrouw (queen).
      * Elke vrouw grenst aan een boer (jack).
+     *
      * @return true if all checks are correct.
      */
     // uses methods borderCard and mustBeAdjacent to
