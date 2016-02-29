@@ -77,7 +77,6 @@ public class Solution extends Stack<Candidate>
         return false;
     }
 
-
     /**
      * Checks whether candidate card of same kind.
      * Checks whether by placing candidate the solution sofar still complies with the rules
@@ -89,9 +88,9 @@ public class Solution extends Stack<Candidate>
 		Integer[] available = new Integer[2];
 		int k =0;
         char currentCard = candidate.getCardChar();
-		for(int i = 0; i < 7; i++)
+		for(int i = 0; i < occupiedCardNames.length; i++)
 		{
-          if(mustBeAdjacentTo(currentCard) == occupiedCardNames[i])
+          if(mustBeAdjacentTo(currentCard) == occupiedCardNames[i] || currentCard == 'J')
           {
               if(bordersCard(row[i], column[i],currentCard ))
               {

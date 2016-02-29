@@ -16,7 +16,7 @@ public class Problem
     {
         System.out.println(candidates);
         System.out.println(solution);
-        //reader.nextLine();
+      //  reader.nextLine();
         int index = 0;
         while (index<candidates.size())
         {
@@ -38,6 +38,10 @@ public class Problem
 
             }
             index++;
+            if(index == candidates.size())
+            {
+                index = 0;
+            }
         }
 }
 
