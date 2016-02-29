@@ -86,7 +86,6 @@ public class Solution extends Stack<Candidate>
      * next free position.
      */
     public boolean fits(Candidate candidate){
-		Integer[] available = new Integer[2];
         char currentCard = candidate.getCardChar();
 		for(int i = 0; i < occupiedCardPositions.length; i++)
 		{
@@ -94,7 +93,7 @@ public class Solution extends Stack<Candidate>
             //System.out.println("The current select is " + occupiedCardPositions[i] );
           if(mustBeAdjacentTo(currentCard) == occupiedCardPositions[i] || currentCard == 'J')
           {
-              int k = neededPosition(currentCard, i);
+              int k = neededIndex(currentCard, i);
               if(k >= 0)
               {
                   if(occupiedCardPositions[k] == 0 )
@@ -102,7 +101,7 @@ public class Solution extends Stack<Candidate>
                       if(isCorrect(currentCard, k))
                       {
                           occupiedCardPositions[k] = currentCard;
-                          System.out.println(currentCard + " Has been placed on " + row[k] + "," + column[k]);
+                          System.out.println(currentCard + " - " + row[k] + "," + column[k]);
                           return true;
                       }
 
@@ -114,7 +113,7 @@ public class Solution extends Stack<Candidate>
         return false;
 	}
 
-    private int neededPosition(char card, int j)
+    private int neededIndex(char card, int j)
     {
         int localRow = row[j];
         int localColumn = column[j];
@@ -247,7 +246,6 @@ public class Solution extends Stack<Candidate>
             }
 
         }
-
         return true;
     }
 
