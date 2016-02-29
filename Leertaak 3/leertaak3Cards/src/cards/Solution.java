@@ -25,8 +25,6 @@ public class Solution extends Stack<Candidate>
 
 	private Integer [][] occupied = new Integer [8][2];
 
-    private int[][] test = new int[][] {{row[0], column[0]}};
-
     //
     // array with adjacent card positions lower than the card that is placed
     //                        0   1   2       3    4       5    6   7
@@ -90,18 +88,20 @@ public class Solution extends Stack<Candidate>
         //System.out.println("Current: " + currentCard);
 		for(int i = 0; i < occupiedCardPositions.length; i++)
 		{
-            //System.out.println("The current card: " + currentCard + " Must be next to " + mustBeAdjacentTo(currentCard));
-           //  System.out.println("The current select is " + occupiedCardPositions[i] );
+
           if(mustBeAdjacentTo(currentCard) == occupiedCardPositions[i] || currentCard == 'J')
           {
+             // System.out.println("The current card: " + currentCard + " Must be next to " + mustBeAdjacentTo(currentCard));
+             // System.out.println("The current select is " + occupiedCardPositions[i] + " on: " + row[i] + "," + column[i] );
               int k = neededIndex(currentCard, i);
+            //  System.out.println(k);
               if(k >= 0)
               {
                   if(occupiedCardPositions[k] == 0 )
                   {
                       if(isCorrect(currentCard, k))
                       {
-                          System.out.println("Return true");
+                         // System.out.println("Return true");
                           occupiedCardPositions[k] = currentCard;
                           System.out.println(currentCard + " - " + row[k] + "," + column[k]);
                           return true;
@@ -132,22 +132,33 @@ public class Solution extends Stack<Candidate>
             {
                 if(row[k] == localRow && column[k] == localColumn -1)
                 {
-                    return k;
+                    if(occupiedCardPositions[k] == 0)
+                    {
+                        return k;
+                    }
                 }
                 else if(row[k] == localRow-1 && column[k] == localColumn )
                 {
-                    return k;
+                    if(occupiedCardPositions[k] == 0)
+                    {
+                        return k;
+                    }
                 }
                 else if(row[k] == localRow && column[k] == localColumn +1)
                 {
-                    return k;
+                    if(occupiedCardPositions[k] == 0)
+                    {
+                        return k;
+                    }
                 }
                 else if(row[k] == localRow+1 && column[k] == localColumn )
                 {
-                    return k;
+                    if(occupiedCardPositions[k] == 0)
+                    {
+                        return k;
+                    }
                 }
             }
-
         }
         return -1;
     }
@@ -223,8 +234,8 @@ public class Solution extends Stack<Candidate>
         boolean succes = true;
         for(int k = 0; k < row.length; k++)
         {
-            if(k != i)
-            {
+            //if(k != i)
+            //{
                 if(row[k] == localRow && column[k] == localColumn -1)
                 {
                     if(card == occupiedCardPositions[k])
@@ -253,7 +264,7 @@ public class Solution extends Stack<Candidate>
                         succes=  false;
                     }
                 }
-            }
+            //}
 
         }
         return succes;
