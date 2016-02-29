@@ -93,9 +93,9 @@ public class Solution extends Stack<Candidate>
           if(mustBeAdjacentTo(currentCard) == occupiedCardPositions[i] || currentCard == 'J')
           {
               int k = neededPosition(currentCard, i);
-              if(occupiedCardPositions[k] == '' )
+              if(occupiedCardPositions[k] == 0 )
               {
-
+                  return true;
               }
           }
 
