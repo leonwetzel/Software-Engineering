@@ -19,11 +19,13 @@ public class Solution extends Stack<Candidate>
     // {0,2}, {1,0}. {1,1}
     private int[] row    = { 0, 1, 1, 1, 2, 2, 2, 3 };
     private int[] column = { 2, 0, 1, 2, 1, 2, 3, 2 };
-    private Integer [][] adjacent = new Integer [8][4];
-    private char[] occupiedCardNames = new char[8];
-    int [][] check = {{},{},{1},{0},{2},{3,4},{6},{5,7}};
+	private Integer [][] adjacent = new Integer [8][4];
+	private char[] occupiedCardPositions = new char[8];
+	int [][] check = {{},{},{1},{0},{2},{3,4},{6},{5,7}};
 
-    private Integer [][] occupied = new Integer [8][2];
+	private Integer [][] occupied = new Integer [8][2];
+
+    private int[][] test = new int[][] {{row[0], column[0]}};
 
     //
     // array with adjacent card positions lower than the card that is placed
@@ -73,7 +75,7 @@ public class Solution extends Stack<Candidate>
                 return true;
             }
         }
-        System.out.println("No matching card has been found.");
+        System.out.println("No matching card has been found");
         return false;
     }
 
@@ -85,21 +87,51 @@ public class Solution extends Stack<Candidate>
      * next free position.
      */
     public boolean fits(Candidate candidate){
-        Integer[] available = new Integer[2];
-        int k =0;
+		Integer[] available = new Integer[2];
         char currentCard = candidate.getCardChar();
-        for(int i = 0; i < occupiedCardNames.length; i++)
+		for(int i = 0; i < occupiedCardPositions.length; i++)
+		{
+          if(mustBeAdjacentTo(currentCard) == occupiedCardPositions[i] || currentCard == 'J')
+          {
+              int k = neededPosition(currentCard, i);
+              if(occupiedCardPositions[k] == '' )
+              {
+
+              }
+          }
+
+		}
+        return false;
+	}
+
+    private int neededPosition(char card, int j)
+    {
+        int localRow = row[j];
+        int localColumn = column[j];
+        for(int k = 0; k < row.length; k++)
         {
-            if(mustBeAdjacentTo(currentCard) == occupiedCardNames[i] || currentCard == 'J')
+            if(k != j)
             {
-                if(bordersCard(row[i], column[i],currentCard ))
+                if(row[k] == localRow-1 && column[k] == localColumn -1)
                 {
-                    return true;
+                    return k;
+                }
+                else if(row[k] == localRow+1 && column[k] == localColumn -1)
+                {
+                    return k;
+                }
+                else if(row[k] == localRow-1 && column[k] == localColumn +1)
+                {
+                    return k;
+                }
+                else if(row[k] == localRow+1 && column[k] == localColumn +1)
+                {
+                    return k;
                 }
             }
 
         }
-        return true;
+        return -1;
     }
 
 
