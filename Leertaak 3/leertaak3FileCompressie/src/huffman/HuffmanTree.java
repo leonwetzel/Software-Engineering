@@ -81,7 +81,8 @@ public class HuffmanTree
 	  */
 	 public int getChar( String code )
 	 {
-	     // TODO = opdracht           
+	     // TODO = opdracht
+         return -1;
 	 }
 	 
 	 /**

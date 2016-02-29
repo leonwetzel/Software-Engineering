@@ -2,17 +2,16 @@ package cards;
 import java.util.LinkedList;
 import java.util.Iterator;
 
-public class Candidates extends LinkedList<Candidate>
-{
-
-    public Candidates()
-    {
+public class Candidates extends LinkedList<Candidate> {
+    public Candidates() {
         super.add(new Candidate('A',2)); //Ace
         super.add(new Candidate('K',2)); //King
         super.add(new Candidate('Q',2)); //Queen
         super.add(new Candidate('J',2)); //Jack
     }
-    public Candidate remove(int index) //overwrites super.remove
+
+    @Override
+    public Candidate remove(int index)
     {
         Candidate candidate=get(index);
         candidate.takeOne();
@@ -24,7 +23,8 @@ public class Candidates extends LinkedList<Candidate>
         return candidate;
     }
 
-    public void add(int index, Candidate candidate) //overwrites super.add
+    @Override
+    public void add(int index, Candidate candidate)
     {
         candidate.addOne();
         //System.out.println("add index "+ index + " "+ candidate);
@@ -34,6 +34,7 @@ public class Candidates extends LinkedList<Candidate>
         }
     }
 
+    @Override
     public String toString()
     {
         Iterator it = iterator();
@@ -44,7 +45,6 @@ public class Candidates extends LinkedList<Candidate>
         }
         return rS;
     }
-
 }
 
     

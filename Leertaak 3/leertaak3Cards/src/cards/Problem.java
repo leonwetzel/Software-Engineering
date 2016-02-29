@@ -11,13 +11,12 @@ public class Problem
         new Problem().solve();
     }
 
-
     public void solve() {
         System.out.println(candidates);
         System.out.println(solution);
-      //  reader.nextLine();
+        // reader.nextLine();
         int index = 0;
-        while (index<candidates.size())
+        while (index < candidates.size())
         {
             if (solution.fits(candidates.get(index)))
             {
@@ -31,13 +30,12 @@ public class Problem
                 {
                     solve();
                 }
-                System.out.println("Removed something");
+
                 candidates.add(index, solution.eraseRecording()); //move candidate to candidates
             }
             index++;
         }
-}
-
+    }
 }
         
           

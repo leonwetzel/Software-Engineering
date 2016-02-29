@@ -13,9 +13,9 @@ class TicTacToe
 	public  static final int COMPUTER_WIN = 3;
 
 	private int [ ] [ ] board = new int[ 3 ][ 3 ];
-    private Random random=new Random();  
-	private int side=random.nextInt(2);  
-	private int position=UNCLEAR;
+    private Random random = new Random();
+	private int side = random.nextInt(2);
+	private int position = UNCLEAR;
 	private char computerChar,humanChar;
 
 	// Constructor

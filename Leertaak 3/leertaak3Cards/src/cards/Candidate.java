@@ -1,6 +1,5 @@
 package cards;
-public class Candidate
-{
+public class Candidate {
     private char cardChar;
     private int available;
     
@@ -38,10 +37,6 @@ public class Candidate
     public String toString()
     {
        return ""+cardChar+"("+available+") ";
-    }
-
-    public void test() {
-        System.out.println("test");
     }
     
 
