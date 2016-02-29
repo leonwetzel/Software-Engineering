@@ -95,6 +95,7 @@ public class Solution extends Stack<Candidate>
               int k = neededPosition(currentCard, i);
               if(occupiedCardPositions[k] == 0 )
               {
+                  //Dit is speciaal voor Leon.
                   return true;
               }
           }
