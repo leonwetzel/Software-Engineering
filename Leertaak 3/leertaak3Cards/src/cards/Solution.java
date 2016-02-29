@@ -98,13 +98,12 @@ public class Solution extends Stack<Candidate>
               {
                   if(occupiedCardPositions[k] == 0 )
                   {
-                      if(isCorrect(currentCard, k))
-                      {
+                    //  if(isCorrect(currentCard, k))
+                    //  {
                           occupiedCardPositions[k] = currentCard;
                           System.out.println(currentCard + " - " + row[k] + "," + column[k]);
                           return true;
-                      }
-
+                    //  }
                   }
               }
           }
@@ -121,19 +120,19 @@ public class Solution extends Stack<Candidate>
         {
             if(k != j)
             {
-                if(row[k] == localRow-1 && column[k] == localColumn -1)
+                if(row[k] == localRow && column[k] == localColumn -1)
                 {
                     return k;
                 }
-                else if(row[k] == localRow+1 && column[k] == localColumn -1)
+                else if(row[k] == localRow-1 && column[k] == localColumn )
                 {
                     return k;
                 }
-                else if(row[k] == localRow-1 && column[k] == localColumn +1)
+                else if(row[k] == localRow && column[k] == localColumn +1)
                 {
                     return k;
                 }
-                else if(row[k] == localRow+1 && column[k] == localColumn +1)
+                else if(row[k] == localRow+1 && column[k] == localColumn )
                 {
                     return k;
                 }
