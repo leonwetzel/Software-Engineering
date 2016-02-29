@@ -41,13 +41,14 @@ public class Solution extends Stack<Candidate>
     //  indices cards that must be checked.
     //  e.g. when the 5th card is placed the cards 3&4 can be checked
     //                 0   1  2   3   4     5   6    7
-	public Solution(){}
+    public Solution(){}
 
-    // Checks whether a candidate with card CardChar is in
-    // an adjacent position of the board position (row, column)
-    // @param row, column, candidate
-    // @return Boolean indicating if cardChar is found.
-    // can be used in the methods fits and isCorrect
+    /** Checks whether a candidate with card CardChar is in
+     * an adjacent position of the board position (row, column)
+     * @param row, column, candidate
+     * @return Boolean indicating if cardChar is found.
+     * can be used in the methods fits and isCorrect
+     */
     private boolean bordersCard(int row, int column, char cardChar){
         ArrayList<Candidate> neighbours = new ArrayList<>();
         int limit = board[row].length;
@@ -74,14 +75,13 @@ public class Solution extends Stack<Candidate>
                 return true;
             }
         }
-        System.out.println("No matching card has been found");
         return false;
     }
 
     /**
      * Checks whether candidate card of same kind.
      * Checks whether by placing candidate the solution sofar still complies with the rules
-     * @param candidate
+     * @param candidate The candidate which should be placed on the board.
      * @return boolean indicating whether this candidate can be put in the
      * next free position.
      */
@@ -134,6 +134,10 @@ public class Solution extends Stack<Candidate>
     }
 
 
+    /**
+     * Adds a candidate to the board.
+     * @param candidate Candidate card which should be added to the board.
+     */
     public void record(Candidate candidate)
     {
         int i=this.size(); // i= index in this stack of next for the next candidate
@@ -142,16 +146,27 @@ public class Solution extends Stack<Candidate>
 
     }
 
+    /**
+     * Check if the game has been finished.
+     * @return True if the size of Solution equals 8.
+     */
     public boolean complete()
     {
         return this.size()==8;
     }
 
+    /**
+     * Shows the (end) result.
+     */
     public void show()
     {
         System.out.println(this);
     }
 
+    /**
+     * Erases the candidate of the board and adds the candidate to the list of candidates.
+     * @return The removed candidate.
+     */
     public Candidate eraseRecording()
     {
         int i=this.size()-1;           // i= index of the candidate that is removed from this Stack;
@@ -159,7 +174,12 @@ public class Solution extends Stack<Candidate>
         return this.pop();
     }
 
-    // can be used in method isCorrect
+    /**
+     * Returns the character of the card which should be adjacent to the input card.
+     * This method can be used in isCorrect().
+     * @param card The card of which the adjacent type should be checked.
+     * @return The character of the correct adjacent card type.
+     */
     private char mustBeAdjacentTo(char card)
     {
         if (card=='A') return 'K';
