@@ -3,39 +3,32 @@ public class Candidate {
     private char cardChar;
     private int available;
     
-    public Candidate(char cardChar, int available)
-    {
+    public Candidate(char cardChar, int available) {
         this.cardChar=cardChar;
         this.available=available;
     }
     
-    public Candidate(char cardName)
-    {
+    public Candidate(char cardName) {
          this(cardName,1); 
     }
     
-    public char getCardChar()
-    {
+    public char getCardChar() {
         return cardChar;
     }
     
-    public int getAvailable()
-    {
+    public int getAvailable() {
         return available;    
     }
     
-    public void addOne()
-    {
+    public void addOne() {
         available++;
     }
     
-    public void takeOne()
-    {
+    public void takeOne() {
         available--;    
     }
     
-    public String toString()
-    {
+    public String toString() {
        return ""+cardChar+"("+available+") ";
     }
     

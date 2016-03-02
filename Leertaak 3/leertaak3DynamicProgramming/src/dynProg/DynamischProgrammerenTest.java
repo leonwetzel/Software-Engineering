@@ -13,7 +13,6 @@ public class DynamischProgrammerenTest {
 	public void testRecursive(){
 		solver = new RecursiveSolver();
 		doTest();
-		
 	}
 	
 	@Test

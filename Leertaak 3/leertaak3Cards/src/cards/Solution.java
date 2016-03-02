@@ -132,8 +132,7 @@ public class Solution extends Stack<Candidate> {
      *
      * @param candidate Candidate card which should be added to the board.
      */
-    public void record(Candidate candidate)
-    {
+    public void record(Candidate candidate) {
         int i=this.size(); // i= index in this stack of next for the next candidate
         board [row[i]] [column[i]] = candidate; //x=row, y=column
         System.out.println(candidate.getCardChar() + " -> " + row[i] + "," + column[i]);
@@ -202,22 +201,17 @@ public class Solution extends Stack<Candidate> {
         // boolean hasMatchingChar = bordersCard(row[i], column[i], mustBeAdjacentTo(card));
 
         boolean success = true;
-        for(int k = 0; k < row.length; k++)
-        {
-            if(row[k] == localRow && column[k] == localColumn -1)
-            {
+        for(int k = 0; k < row.length; k++) {
+            if(row[k] == localRow && column[k] == localColumn -1) {
                 if(card == occupiedCardPositions[k] && !bordersCard(localRow, localColumn, mustBeAdjacentTo(card))) success = false;
             }
-            else if(row[k] == localRow && column[k] == localColumn +1)
-            {
+            else if(row[k] == localRow && column[k] == localColumn +1) {
                 if(card == occupiedCardPositions[k] && !bordersCard(localRow, localColumn, mustBeAdjacentTo(card))) success = false;
             }
-            else if(row[k] == localRow-1 && column[k] == localColumn )
-            {
+            else if(row[k] == localRow-1 && column[k] == localColumn ) {
                 if(card == occupiedCardPositions[k] && !bordersCard(localRow, localColumn, mustBeAdjacentTo(card))) success = false;
             }
-            else if(row[k] == localRow+1 && column[k] == localColumn )
-            {
+            else if(row[k] == localRow+1 && column[k] == localColumn ) {
                 if(card == occupiedCardPositions[k] && !bordersCard(localRow, localColumn, mustBeAdjacentTo(card))) success = false;
             }
         }
