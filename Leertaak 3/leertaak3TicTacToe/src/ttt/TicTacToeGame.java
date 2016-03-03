@@ -1,9 +1,11 @@
 package ttt;
 
-import javax.xml.soap.Node;
-import java.lang.reflect.Array;
-import java.util.*;
+import junit.framework.TestCase;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Random;
 class TicTacToe
 {
 	private static final int HUMAN        = 0; 
@@ -16,41 +18,36 @@ class TicTacToe
 	public  static final int COMPUTER_WIN = 3;
 
 	private int [ ] [ ] board = new int[ 3 ][ 3 ];
-    private Random random=new Random();  
-	private int side=random.nextInt(2);  
-	private int position=UNCLEAR;
-	private char computerChar,humanChar;
+    private Random random = new Random();
+	private int side = random.nextInt(2);
+	private int position = UNCLEAR;
+	private char computerChar, humanChar;
 
-	private ArrayList<int[]> conditions = new ArrayList<int[]>();
+	private static ArrayList<int[]> winConditions = new ArrayList<>();
 
 	// Constructor
-	public TicTacToe( )
-	{
+	public TicTacToe( ) {
 		clearBoard( );
 		createConditions();
 		initSide();
 	}
 	
-	private void initSide()
-	{
+	private void initSide() {
 	    if (this.side==COMPUTER) { computerChar='X'; humanChar='O'; }
 		else                     { computerChar='O'; humanChar='X'; }
     }
     
-    public void setComputerPlays()
-    {
+    public void setComputerPlays() {
         this.side=COMPUTER;
         initSide();
     }
     
-    public void setHumanPlays()
-    {
+    public void setHumanPlays() {
         this.side=HUMAN;
         initSide();
     }
 
-	public boolean computerPlays()
-	{
+	public boolean computerPlays() {
 	    return side==COMPUTER;
 	}
 
@@ -78,7 +75,7 @@ class TicTacToe
 		int MaxMoves = 0;
 		int bestMove = 0;
 		HashMap<Integer, Integer> log = new HashMap<Integer, Integer>();
-		for(int[] i : conditions)
+		for(int[] i : winConditions)
 		{
 			for(int j: i)
 			{
@@ -138,25 +135,19 @@ class TicTacToe
 
    
     //check if move ok
-    public boolean moveOk(int move)
-    {
- 		return ( move>=0 && move <=8 && returnBoardValue(move) == EMPTY );
- 		//return true;
+    public boolean moveOk(int move) {
+ 		return (move>=0 && move <=8 && getBoardValue(move) == EMPTY);
     }
     
     // play move
-    public void playMove(int move)
-    {
-		if(moveOk(move))
-		{
-			board[move/3][ move%3] = this.side;
+    public void playMove(int move) {
+		if(moveOk(move)) {
+			board[move/3][move%3] = this.side;
 			if (side==COMPUTER) this.side=HUMAN;  else this.side=COMPUTER;
 		}
-		else
-		{
+		else {
 			System.out.println("Illegal move");
 		}
-
 	}
 
 
@@ -168,16 +159,15 @@ class TicTacToe
 		Arrays.fill(board[2], 2);
 	}
 
-
-	private boolean boardIsFull( )
-	{
+	/**
+	 * Checks if board is full.
+	 * @return Boolean indicating if board is full or not.
+	 */
+	private boolean boardIsFull( ) {
 		boolean boardIsFull = true;
-		for(int i = 0; i < board.length; i++)
-		{
-			for(int j = 0; j < board.length; j++)
-			{
-				if(squareIsEmpty(i, j))
-				{
+		for(int i = 0; i < board.length; i++) {
+			for(int j = 0; j < board.length; j++) {
+				if(squareIsEmpty(i, j)) {
 					boardIsFull = false;
 					break;
 				}
@@ -186,60 +176,78 @@ class TicTacToe
 		return boardIsFull;
 	}
 
-	// Returns whether 'side' has won in this position
-	private boolean isAWin( int side )
-	{
-	    for(int[] i: conditions)
-		{
-			if(returnBoardValue(i[0]) == side &&  returnBoardValue(i[1]) == side && returnBoardValue(i[2]) == side)
-			{
+	/**
+	 * 	Returns whether 'side' has won in this position.
+	 * 	@param side The side which should be checked.
+	 */
+	private boolean isAWin(int side) {
+	    for(int[] condition: winConditions) {
+			if(getBoardValue(condition[0]) == side &&  getBoardValue(condition[1]) == side && getBoardValue(condition[2]) == side) {
 				return true;
 			}
 		}
 	    return false;
     }
 
-	// Play a move, possibly clearing a square
-	private void place( int row, int column, int piece )
-	{
-		board[ row ][ column ] = piece;
+	/**
+	 * 	Play a move, possibly clearing a square.
+	 */
+	private void place( int row, int column, int piece ) {
+		board[row][column] = piece;
 	}
 
-	private boolean squareIsEmpty( int row, int column )
-	{
-		return board[ row ][ column ] == EMPTY;
+	/**
+	 * Checks if a spot on the board is empty or not.
+	 * @param row Row coordinate
+	 * @param column Column coordinate
+	 * @return
+	 */
+	private boolean squareIsEmpty(int row, int column) {
+		return board[row][column] == EMPTY;
 	}
 
 	// Compute static value of current position (win, draw, etc.)
-	private int positionValue( )
-	{
+	private int positionValue() {
 		// TODO:
 		return UNCLEAR;
 	}
 	
 	
-	public String toString()
-	{
+	public String toString() {
 	    //TODO:
 		return "...\n...\n...\n";   
 	}  
 	
-	public boolean gameOver()
-	{
-	    this.position=positionValue();
-	    return this.position!=UNCLEAR;
+	public boolean gameOver() {
+	    this.position = positionValue();
+	    return this.position != UNCLEAR;
     }
     
-    public String winner()
-    {
+    public String winner() {
         if      (this.position==COMPUTER_WIN) return "computer";
         else if (this.position==HUMAN_WIN   ) return "human";
         else                                  return "nobody";
     }
-    
+
+	private void createConditions() {
+		//Horizontaal
+		winConditions.add(new int[]{0,1,2});
+		winConditions.add(new int[]{3,4,5});
+		winConditions.add(new int[]{6,7,8});
+		//Verticaal
+		winConditions.add(new int[]{0,3,6});
+		winConditions.add(new int[]{1,4,7});
+		winConditions.add(new int[]{2,5,8});
+		// Diagonaal
+		winConditions.add(new int[]{0,4,8});
+		winConditions.add(new int[]{2,4,6});
+	}
+
+	private int getBoardValue(int coordinate) {
+		return board[coordinate/3 ][ coordinate%3 ];
+	}
 	
-	private class Best
-    {
+	private class Best {
        int row;
        int column;
        int val;
@@ -251,27 +259,25 @@ class TicTacToe
         { val = v; row = r; column = c; }
     }
 
-	private void createConditions()
-	{
-		//Horizontaal
-		conditions.add(new int[]{0,1,2});
-		conditions.add(new int[]{3,4,5});
-		conditions.add(new int[]{6,7,8});
-		//Vertiaal
-		conditions.add(new int[]{0,3,6});
-		conditions.add(new int[]{1,4,7});
-		conditions.add(new int[]{2,5,8});
-		//
-		conditions.add(new int[]{0,4,8});
-		conditions.add(new int[]{2,4,6});
+	class Test extends TestCase {
+		private TicTacToe ttt = new TicTacToe();
+
+		public Test() {
+		}
+
+		private int testChooseMove() {
+
+			return 0;
+		}
+
+		private boolean testIsAWin() {
+			return false;
+		}
+
+		private int testPositionValue() {
+			return -1;
+		}
+
 	}
-
-	private int returnBoardValue(int coordinaat)
-	{
-		return board[coordinaat/3 ][ coordinaat%3 ];
-	}
-
-
-	
 }
 

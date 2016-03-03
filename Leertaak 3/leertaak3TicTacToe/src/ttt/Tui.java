@@ -32,7 +32,7 @@ class Tui
     {
         if (t.computerPlays())
         {
-            int compMove=t.chooseMove();
+            int compMove = t.chooseMove();
             System.out.println("Computer Move = " + compMove);
             return compMove;
         }
