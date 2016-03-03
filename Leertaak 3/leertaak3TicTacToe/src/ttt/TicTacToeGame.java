@@ -3,6 +3,7 @@ package ttt;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Random;
 class TicTacToe
 {
@@ -27,6 +28,7 @@ class TicTacToe
 	public TicTacToe( )
 	{
 		clearBoard( );
+		createConditions();
 		initSide();
 	}
 	
@@ -56,8 +58,8 @@ class TicTacToe
 	public int chooseMove()
 	{
 	    Best best=chooseMove(COMPUTER);
-	    return best.row*3+best.column;
-	   // return 0;
+	    //return best.row*3+best.column;
+	    return 0;
     }
     
     // Find optimal move
@@ -74,6 +76,37 @@ class TicTacToe
 			return new Best( simpleEval );
 
 		// TODO: implementeren m.b.v. recursie/backtracking
+		int zero = 0;
+		int one = 0;
+		int two = 0;
+		int three = 0;
+		int four = 0;
+		int five = 0;
+		int six = 0;
+		int seven = 0;
+		int eigh = 0;
+		int nine = 0;
+		//HashMap<integer, integer> log = new HashMap<integer, integer>();
+		for(int[] i : conditions)
+		{
+			for(int j: i)
+			{
+				switch(j)
+				{
+					case 0:
+
+					case 1:
+
+					case 2:
+					case 3:
+					case 4:
+					case 5:
+					case 6:
+					case 7:
+					case 8:
+				}
+			}
+		}
 	    return null;
     }
 
@@ -104,7 +137,9 @@ class TicTacToe
 	// Simple supporting routines
 	private void clearBoard( )
 	{
-		Arrays.fill(board, 2);
+		Arrays.fill(board[0], 2);
+		Arrays.fill(board[1], 2);
+		Arrays.fill(board[2], 2);
 	}
 
 
