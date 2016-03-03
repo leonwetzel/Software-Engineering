@@ -62,7 +62,11 @@ class TicTacToe
 	    //return best.row*3+best.column;
 		if(findWin(COMPUTER) >= 0)
 		{
-			return chooseMove(COMPUTER);
+			return findWin(COMPUTER);
+		}
+		if(findWin(HUMAN) >= 0)
+		{
+			return findWin(HUMAN);
 		}
 		return chooseMove(COMPUTER);
     }
