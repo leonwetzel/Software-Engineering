@@ -215,7 +215,11 @@ class TicTacToe
 		String plate = "";
 		for(int[] row : board) {
 			for(int value : row) {
-				plate += value + " ";
+				if(value == 2) {
+					plate += ". ";
+				} else {
+					plate += value + " ";
+				}
 			}
 			plate += "\n";
 		}
