@@ -1,15 +1,13 @@
 package ttt;
 
-import junit.framework.TestCase;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
 class TicTacToe
 {
-	private static final int HUMAN        = 0; 
-	private static final int COMPUTER     = 1; 
+	public  static final int HUMAN        = 0;
+	public  static final int COMPUTER     = 1;
 	public  static final int EMPTY        = 2;
 
 	public  static final int HUMAN_WIN    = 0;
@@ -17,7 +15,7 @@ class TicTacToe
 	public  static final int UNCLEAR      = 2;
 	public  static final int COMPUTER_WIN = 3;
 
-	private int [ ] [ ] board = new int[ 3 ][ 3 ];
+	private int[][] board = new int[ 3 ][ 3 ];
     private Random random = new Random();
 	private int side = random.nextInt(2);
 	private int position = UNCLEAR;
@@ -72,7 +70,7 @@ class TicTacToe
     }
     
     // Find optimal move
-	private int chooseMove( int side )
+	private int chooseMove(int side)
 	{
 	//	int opp;              // The other side
 	//	Best reply;           // Opponent's best reply
@@ -199,24 +197,25 @@ class TicTacToe
 			log.put(move, currentCount);
 		}
 	}
-   
-    //check if move ok
+
+	/**
+	 * 	check if move ok
+	 */
     public boolean moveOk(int move) {
  		return (move>=0 && move <=8 && getBoardValue(move) == EMPTY);
     }
-    
-    // play move
+
+	/**
+	 * 	play move
+ 	 */
     public void playMove(int move) {
 		if(moveOk(move)) {
 			board[move/3][move%3] = this.side;
 			if (side==COMPUTER) this.side=HUMAN;  else this.side=COMPUTER;
-		}
-		else {
+		} else {
 			System.out.println("Illegal move");
 		}
-
 	}
-
 
 	// Simple supporting routines
 	private void clearBoard( )
@@ -247,7 +246,7 @@ class TicTacToe
 	 * 	Returns whether 'side' has won in this position.
 	 * 	@param side The side which should be checked.
 	 */
-	private boolean isAWin(int side) {
+	public boolean isAWin(int side) {
 	    for(int[] condition: winConditions) {
 			if(getBoardValue(condition[0]) == side &&  getBoardValue(condition[1]) == side && getBoardValue(condition[2]) == side) {
 				return true;
@@ -265,23 +264,27 @@ class TicTacToe
 
 	/**
 	 * Checks if a spot on the board is empty or not.
-	 * @param row Row coordinate
-	 * @param column Column coordinate
-	 * @return
+	 * @param row Row coordinate.
+	 * @param column Column coordinate.
+	 * @return Boolean indicating if square is empty or not.
 	 */
 	private boolean squareIsEmpty(int row, int column) {
 		return board[row][column] == EMPTY;
 	}
 
-	// Compute static value of current position (win, draw, etc.)
-	private int positionValue() {
-		// TODO:
-		return UNCLEAR;
+	/**
+	 * 	Compute static value of current position (win, draw, etc.)
+	 * 	@return Position
+	 */
+	public int positionValue() {
+		return position;
 	}
-	
-	
+
+	/**
+	 * Displays the state of the board.
+	 * @return State of the board.
+	 */
 	public String toString() {
-	    //TODO:
 		String plate = "";
 		for(int[] row : board) {
 			for(int value : row) {
@@ -294,7 +297,6 @@ class TicTacToe
 			plate += "\n";
 		}
 		return plate;
-		//return "...\n...\n...\n";
 	}  
 	
 	public boolean gameOver() {
@@ -324,11 +326,11 @@ class TicTacToe
     }
 
 	private void createConditions() {
-		//Horizontaal
+		// Horizontaal
 		winConditions.add(new int[]{0,1,2});
 		winConditions.add(new int[]{3,4,5});
 		winConditions.add(new int[]{6,7,8});
-		//Verticaal
+		// Verticaal
 		winConditions.add(new int[]{0,3,6});
 		winConditions.add(new int[]{1,4,7});
 		winConditions.add(new int[]{2,5,8});
@@ -339,11 +341,11 @@ class TicTacToe
 
 	private int returnBoardValue(int coordinaat)
 	{
-		return board[coordinaat/3 ][ coordinaat%3 ];
+		return board[coordinaat/3][coordinaat%3];
 	}
 
 	private int getBoardValue(int move) {
-		return board[move/3 ][ move%3 ];
+		return board[move/3][move%3];
 	}
 	
 	private class Best {
@@ -357,27 +359,5 @@ class TicTacToe
        public Best( int v, int r, int c )
         { val = v; row = r; column = c; }
     }
-
-	class Test extends TestCase {
-		private TicTacToe ttt = new TicTacToe();
-
-		public Test() {
-		}
-
-
-		private int testChooseMove() {
-
-			return 0;
-		}
-
-		private boolean testIsAWin() {
-			return false;
-		}
-
-		private int testPositionValue() {
-			return -1;
-		}
-
-	}
 }
 
