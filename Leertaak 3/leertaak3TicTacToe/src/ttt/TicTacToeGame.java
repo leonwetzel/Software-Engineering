@@ -1,5 +1,6 @@
 package ttt;
 
+import java.util.Arrays;
 import java.util.Random;
 class TicTacToe
 {
@@ -12,10 +13,10 @@ class TicTacToe
 	public  static final int UNCLEAR      = 2;
 	public  static final int COMPUTER_WIN = 3;
 
-	private int [ ] [ ] board = new int[ 3 ][ 3 ];
-    private Random random = new Random();
-	private int side = random.nextInt(2);
-	private int position = UNCLEAR;
+	private Integer [ ] [ ] board = new Integer[ 3 ][ 3 ];
+    private Random random=new Random();  
+	private int side=random.nextInt(2);  
+	private int position=UNCLEAR;
 	private char computerChar,humanChar;
 
 	// Constructor
@@ -50,9 +51,9 @@ class TicTacToe
 
 	public int chooseMove()
 	{
-	    //Best best=chooseMove(COMPUTER);
-	    //return best.row*3+best.column;
-	    return 0;
+	    Best best=chooseMove(COMPUTER);
+	    return best.row*3+best.column;
+	   // return 0;
     }
     
     // Find optimal move
@@ -76,29 +77,48 @@ class TicTacToe
     //check if move ok
     public boolean moveOk(int move)
     {
- 	//return ( move>=0 && move <=8 && board[move/3 ][ move%3 ] == EMPTY );
- 	return true;
+ 		return ( move>=0 && move <=8 && board[move/3 ][ move%3 ] == EMPTY );
+ 		//return true;
     }
     
     // play move
     public void playMove(int move)
     {
-		board[move/3][ move%3] = this.side;
-		if (side==COMPUTER) this.side=HUMAN;  else this.side=COMPUTER;
+		if(moveOk(move))
+		{
+			board[move/3][ move%3] = this.side;
+			if (side==COMPUTER) this.side=HUMAN;  else this.side=COMPUTER;
+		}
+		else
+		{
+			System.out.println("Illegal move");
+		}
+
 	}
 
 
 	// Simple supporting routines
 	private void clearBoard( )
 	{
-		//TODO:
+		Arrays.fill(board, null);
 	}
 
 
 	private boolean boardIsFull( )
 	{
-		//TODO:
-		return true;
+		boolean boardIsFull = true;
+		for(int i = 0; i < board.length; i++)
+		{
+			for(int j = 0; j < board.length; j++)
+			{
+				if(squareIsEmpty(i, j))
+				{
+					boardIsFull = false;
+					break;
+				}
+			}
+		}
+		return boardIsFull;
 	}
 
 	// Returns whether 'side' has won in this position
