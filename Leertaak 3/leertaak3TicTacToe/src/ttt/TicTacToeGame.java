@@ -1,5 +1,7 @@
 package ttt;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 class TicTacToe
@@ -13,11 +15,13 @@ class TicTacToe
 	public  static final int UNCLEAR      = 2;
 	public  static final int COMPUTER_WIN = 3;
 
-	private Integer [ ] [ ] board = new Integer[ 3 ][ 3 ];
+	private int [ ] [ ] board = new int[ 3 ][ 3 ];
     private Random random=new Random();  
 	private int side=random.nextInt(2);  
 	private int position=UNCLEAR;
 	private char computerChar,humanChar;
+
+	private ArrayList<int[]> conditions = new ArrayList<int[]>();
 
 	// Constructor
 	public TicTacToe( )
@@ -77,7 +81,7 @@ class TicTacToe
     //check if move ok
     public boolean moveOk(int move)
     {
- 		return ( move>=0 && move <=8 && board[move/3 ][ move%3 ] == EMPTY );
+ 		return ( move>=0 && move <=8 && returnBoardValue(move) == EMPTY );
  		//return true;
     }
     
@@ -100,7 +104,7 @@ class TicTacToe
 	// Simple supporting routines
 	private void clearBoard( )
 	{
-		Arrays.fill(board, null);
+		Arrays.fill(board, 2);
 	}
 
 
@@ -124,8 +128,14 @@ class TicTacToe
 	// Returns whether 'side' has won in this position
 	private boolean isAWin( int side )
 	{
-	    //TODO:
-	    return true;
+	    for(int[] i: conditions)
+		{
+			if(returnBoardValue(i[0]) == side &&  returnBoardValue(i[1]) == side && returnBoardValue(i[2]) == side)
+			{
+				return true;
+			}
+		}
+	    return false;
     }
 
 	// Play a move, possibly clearing a square
@@ -178,8 +188,28 @@ class TicTacToe
       
        public Best( int v, int r, int c )
         { val = v; row = r; column = c; }
-    } 
-	
+    }
+
+	private void createConditions()
+	{
+		//Horizontaal
+		conditions.add(new int[]{0,1,2});
+		conditions.add(new int[]{3,4,5});
+		conditions.add(new int[]{6,7,8});
+		//Vertiaal
+		conditions.add(new int[]{0,3,6});
+		conditions.add(new int[]{1,4,7});
+		conditions.add(new int[]{2,5,8});
+		//
+		conditions.add(new int[]{0,4,8});
+		conditions.add(new int[]{2,4,6});
+	}
+
+	private int returnBoardValue(int coordinaat)
+	{
+		return board[coordinaat/3 ][ coordinaat%3 ];
+	}
+
 	
 }
 
