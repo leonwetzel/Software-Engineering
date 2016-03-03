@@ -1,9 +1,9 @@
 package ttt;
 
+import javax.xml.soap.Node;
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
+import java.util.*;
+
 class TicTacToe
 {
 	private static final int HUMAN        = 0; 
@@ -27,6 +27,7 @@ class TicTacToe
 	public TicTacToe( )
 	{
 		clearBoard( );
+		createConditions();
 		initSide();
 	}
 	
@@ -55,27 +56,85 @@ class TicTacToe
 
 	public int chooseMove()
 	{
-	    Best best=chooseMove(COMPUTER);
-	    return best.row*3+best.column;
-	   // return 0;
+	    //Best best=chooseMove(COMPUTER);
+	    //return best.row*3+best.column;
+	    return chooseMove(COMPUTER);
     }
     
     // Find optimal move
-	private Best chooseMove( int side )
+	private int chooseMove( int side )
 	{
-		int opp;              // The other side
-		Best reply;           // Opponent's best reply
-		int simpleEval;       // Result of an immediate evaluation
-		int bestRow = 0;
-		int bestColumn = 0;
-		int value;
+	//	int opp;              // The other side
+	//	Best reply;           // Opponent's best reply
+	//	int simpleEval;       // Result of an immediate evaluation
+	//	int bestRow = 0;
+	//	int bestColumn = 0;
+	//	int value;
 
-		if( ( simpleEval = positionValue( ) ) != UNCLEAR )
-			return new Best( simpleEval );
+		//if( ( simpleEval = positionValue( ) ) != UNCLEAR )
+		//	return new Best( simpleEval );
 
 		// TODO: implementeren m.b.v. recursie/backtracking
-	    return null;
+		int MaxMoves = 0;
+		int bestMove = 0;
+		HashMap<Integer, Integer> log = new HashMap<Integer, Integer>();
+		for(int[] i : conditions)
+		{
+			for(int j: i)
+			{
+				switch(j)
+				{
+					case 0:
+						incrementInHashMap(log, j);
+					case 1:
+						incrementInHashMap(log, j);
+					case 2:
+						incrementInHashMap(log, j);
+					case 3:
+						incrementInHashMap(log, j);
+					case 4:
+						incrementInHashMap(log, j);
+					case 5:
+						incrementInHashMap(log, j);
+					case 6:
+						incrementInHashMap(log, j);
+					case 7:
+						incrementInHashMap(log, j);
+					case 8:
+						incrementInHashMap(log, j);
+				}
+				if(log.containsKey(j))
+				{
+					if(log.get(j) > MaxMoves )
+					{
+						bestMove = j;
+						MaxMoves = log.get(j);
+					}
+				}
+			}
+		}
+	    return bestMove;
     }
+
+
+
+	private void incrementInHashMap(HashMap<Integer, Integer> log, int move)
+	{
+		int currentCount = 0;
+		if(moveOk(move))
+		{
+			if(log.containsKey(move))
+			{
+				currentCount = log.get(move);
+				currentCount++;
+			}
+			else
+			{
+				currentCount++;
+			}
+			log.put(move, currentCount);
+		}
+	}
 
    
     //check if move ok
@@ -104,7 +163,9 @@ class TicTacToe
 	// Simple supporting routines
 	private void clearBoard( )
 	{
-		Arrays.fill(board, 2);
+		Arrays.fill(board[0], 2);
+		Arrays.fill(board[1], 2);
+		Arrays.fill(board[2], 2);
 	}
 
 
@@ -209,6 +270,7 @@ class TicTacToe
 	{
 		return board[coordinaat/3 ][ coordinaat%3 ];
 	}
+
 
 	
 }
