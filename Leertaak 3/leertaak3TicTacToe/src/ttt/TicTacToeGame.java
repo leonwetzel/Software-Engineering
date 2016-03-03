@@ -60,7 +60,11 @@ class TicTacToe
 	{
 	    //Best best=chooseMove(COMPUTER);
 	    //return best.row*3+best.column;
-	    return chooseMove(COMPUTER);
+		if(findWin(COMPUTER) >= 0)
+		{
+			return chooseMove(COMPUTER);
+		}
+		return chooseMove(COMPUTER);
     }
     
     // Find optimal move
@@ -82,7 +86,8 @@ class TicTacToe
 		HashMap<Integer, Integer> log = new HashMap<>();
 		for(int[] i : winConditions)
 		{
-			if(conditionIsValid(i, side)) {
+			if(conditionIsValid(i, side))
+			{
 				for (int j : i) {
 					switch (j) {
 						case 0:
@@ -113,18 +118,58 @@ class TicTacToe
 				}
 			}
 		}
+		if(log.size() == 0)
+		{
+			return fillHole();
+		}
 	    return bestMove;
     }
 
+	private int fillHole()
+	{
+		for(int i = 0; i <board.length ;i++)
+		{
+			for(int j = 0;j < board.length; j++)
+			{
+				if(board[i][j] == EMPTY)
+				{
+
+					return (3*i)+j;
+				}
+			}
+		}
+		System.out.println("No holes found");
+		return 0;
+	}
+
+	private int findWin(int side)
+	{
+		int win = -1;
+		for(int[] i: winConditions)
+		{
+			int value1 = returnBoardValue(i[0]);
+			int value2 = returnBoardValue(i[1]);
+			int value3 = returnBoardValue(i[2]);
+			if(value1 == side && value2 == side && value3 == EMPTY)
+			{
+				return i[2];
+			}else if(value1 == side && value2 == EMPTY && value3 == side)
+			{
+				return i[1];
+			}else if(value1 == EMPTY && value2 == side && value3 == side)
+			{
+				return i[0];
+			}
+		}
+		return win;
+	}
 	private boolean conditionIsValid(int[] condition, int side)
 	{
-		//returnBoardValue
 		if(returnBoardValue(condition[0]) != side && returnBoardValue(condition[0]) !=EMPTY )
 		{
 			return false;
 		}else if(returnBoardValue(condition[1]) != side && returnBoardValue(condition[1]) !=EMPTY )
 		{
-			System.out.println("False on position " + condition[1]);
 			return false;
 		}else if(returnBoardValue(condition[2]) != side &&  returnBoardValue(condition[2]) !=EMPTY )
 		{
@@ -249,6 +294,21 @@ class TicTacToe
 	}  
 	
 	public boolean gameOver() {
+		if(isAWin(COMPUTER))
+		{
+			System.out.println("The Computer has won");
+			return true;
+		}
+		if(isAWin(HUMAN))
+		{
+			System.out.println("You won");
+			return true;
+		}
+		if(boardIsFull())
+		{
+			System.out.println("Draw");
+			return true;
+		}
 	    this.position = positionValue();
 	    return this.position != UNCLEAR;
     }

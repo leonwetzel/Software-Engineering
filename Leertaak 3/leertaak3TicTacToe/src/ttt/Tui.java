@@ -22,7 +22,6 @@ class Tui
                t.playMove(move());
                System.out.println(t);
             }
-            System.out.println("Game over " + t.winner() + " wins");
         } while (nextGame());
     }
     
