@@ -30,7 +30,6 @@ public class Problem
                 {
                     solve();
                 }
-
                 candidates.add(index, solution.eraseRecording()); //move candidate to candidates
             }
             index++;

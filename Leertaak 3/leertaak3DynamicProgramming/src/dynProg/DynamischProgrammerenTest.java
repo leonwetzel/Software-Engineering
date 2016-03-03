@@ -1,10 +1,6 @@
 package dynProg;
 
 import org.junit.*;
-
-import dynProg.solvers.BottomUpSolver;
-import dynProg.solvers.RecursiveSolver;
-import dynProg.solvers.TopDownSolver;
 import static org.junit.Assert.*;
 
 
