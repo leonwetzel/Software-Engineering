@@ -26,28 +26,33 @@ class TicTacToe
 	private static ArrayList<int[]> winConditions = new ArrayList<>();
 
 	// Constructor
-	public TicTacToe( ) {
-		clearBoard();
+	public TicTacToe( )
+	{
+		clearBoard( );
 		createConditions();
 		initSide();
 	}
 	
-	private void initSide() {
+	private void initSide()
+	{
 	    if (this.side==COMPUTER) { computerChar='X'; humanChar='O'; }
 		else                     { computerChar='O'; humanChar='X'; }
     }
     
-    public void setComputerPlays() {
+    public void setComputerPlays()
+    {
         this.side=COMPUTER;
         initSide();
     }
     
-    public void setHumanPlays() {
+    public void setHumanPlays()
+    {
         this.side=HUMAN;
         initSide();
     }
 
-	public boolean computerPlays() {
+	public boolean computerPlays()
+	{
 	    return side==COMPUTER;
 	}
 
@@ -77,41 +82,56 @@ class TicTacToe
 		HashMap<Integer, Integer> log = new HashMap<>();
 		for(int[] i : winConditions)
 		{
-			for(int j: i)
-			{
-				switch(j)
-				{
-					case 0:
-						incrementInHashMap(log, j);
-					case 1:
-						incrementInHashMap(log, j);
-					case 2:
-						incrementInHashMap(log, j);
-					case 3:
-						incrementInHashMap(log, j);
-					case 4:
-						incrementInHashMap(log, j);
-					case 5:
-						incrementInHashMap(log, j);
-					case 6:
-						incrementInHashMap(log, j);
-					case 7:
-						incrementInHashMap(log, j);
-					case 8:
-						incrementInHashMap(log, j);
-				}
-				if(log.containsKey(j))
-				{
-					if(log.get(j) > MaxMoves )
-					{
-						bestMove = j;
-						MaxMoves = log.get(j);
+			if(conditionIsValid(i, side)) {
+				for (int j : i) {
+					switch (j) {
+						case 0:
+							incrementInHashMap(log, j);
+						case 1:
+							incrementInHashMap(log, j);
+						case 2:
+							incrementInHashMap(log, j);
+						case 3:
+							incrementInHashMap(log, j);
+						case 4:
+							incrementInHashMap(log, j);
+						case 5:
+							incrementInHashMap(log, j);
+						case 6:
+							incrementInHashMap(log, j);
+						case 7:
+							incrementInHashMap(log, j);
+						case 8:
+							incrementInHashMap(log, j);
+					}
+					if (log.containsKey(j)) {
+						if (log.get(j) > MaxMoves) {
+							bestMove = j;
+							MaxMoves = log.get(j);
+						}
 					}
 				}
 			}
 		}
 	    return bestMove;
     }
+
+	private boolean conditionIsValid(int[] condition, int side)
+	{
+		//returnBoardValue
+		if(returnBoardValue(condition[0]) != side && returnBoardValue(condition[0]) !=EMPTY )
+		{
+			return false;
+		}else if(returnBoardValue(condition[1]) != side && returnBoardValue(condition[1]) !=EMPTY )
+		{
+			System.out.println("False on position " + condition[1]);
+			return false;
+		}else if(returnBoardValue(condition[2]) != side &&  returnBoardValue(condition[2]) !=EMPTY )
+		{
+			return false;
+		}
+		return true;
+	}
 
 	private void incrementInHashMap(HashMap<Integer, Integer> log, int move)
 	{
@@ -145,6 +165,7 @@ class TicTacToe
 		else {
 			System.out.println("Illegal move");
 		}
+
 	}
 
 
@@ -252,6 +273,11 @@ class TicTacToe
 		winConditions.add(new int[]{2,4,6});
 	}
 
+	private int returnBoardValue(int coordinaat)
+	{
+		return board[coordinaat/3 ][ coordinaat%3 ];
+	}
+
 	private int getBoardValue(int move) {
 		return board[move/3 ][ move%3 ];
 	}
@@ -273,6 +299,7 @@ class TicTacToe
 
 		public Test() {
 		}
+
 
 		private int testChooseMove() {
 
