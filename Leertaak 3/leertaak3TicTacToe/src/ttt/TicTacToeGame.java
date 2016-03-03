@@ -27,7 +27,7 @@ class TicTacToe
 
 	// Constructor
 	public TicTacToe( ) {
-		clearBoard( );
+		clearBoard();
 		createConditions();
 		initSide();
 	}
@@ -74,7 +74,7 @@ class TicTacToe
 		// TODO: implementeren m.b.v. recursie/backtracking
 		int MaxMoves = 0;
 		int bestMove = 0;
-		HashMap<Integer, Integer> log = new HashMap<Integer, Integer>();
+		HashMap<Integer, Integer> log = new HashMap<>();
 		for(int[] i : winConditions)
 		{
 			for(int j: i)
@@ -113,8 +113,6 @@ class TicTacToe
 	    return bestMove;
     }
 
-
-
 	private void incrementInHashMap(HashMap<Integer, Integer> log, int move)
 	{
 		int currentCount = 0;
@@ -132,7 +130,6 @@ class TicTacToe
 			log.put(move, currentCount);
 		}
 	}
-
    
     //check if move ok
     public boolean moveOk(int move) {
@@ -215,7 +212,15 @@ class TicTacToe
 	
 	public String toString() {
 	    //TODO:
-		return "...\n...\n...\n";   
+		String plate = "";
+		for(int[] row : board) {
+			for(int value : row) {
+				plate += value + " ";
+			}
+			plate += "\n";
+		}
+		return plate;
+		//return "...\n...\n...\n";
 	}  
 	
 	public boolean gameOver() {
@@ -243,8 +248,8 @@ class TicTacToe
 		winConditions.add(new int[]{2,4,6});
 	}
 
-	private int getBoardValue(int coordinate) {
-		return board[coordinate/3 ][ coordinate%3 ];
+	private int getBoardValue(int move) {
+		return board[move/3 ][ move%3 ];
 	}
 	
 	private class Best {
