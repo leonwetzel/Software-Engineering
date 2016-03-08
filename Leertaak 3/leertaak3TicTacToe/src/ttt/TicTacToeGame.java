@@ -135,7 +135,6 @@ class TicTacToe
 			{
 				if(board[i][j] == EMPTY)
 				{
-
 					return (3*i)+j;
 				}
 			}
@@ -152,29 +151,23 @@ class TicTacToe
 			int value1 = returnBoardValue(i[0]);
 			int value2 = returnBoardValue(i[1]);
 			int value3 = returnBoardValue(i[2]);
-			if(value1 == side && value2 == side && value3 == EMPTY)
-			{
+			if(value1 == side && value2 == side && value3 == EMPTY) {
 				return i[2];
-			}else if(value1 == side && value2 == EMPTY && value3 == side)
-			{
+			} else if(value1 == side && value2 == EMPTY && value3 == side) {
 				return i[1];
-			}else if(value1 == EMPTY && value2 == side && value3 == side)
-			{
+			} else if(value1 == EMPTY && value2 == side && value3 == side) {
 				return i[0];
 			}
 		}
 		return win;
 	}
-	private boolean conditionIsValid(int[] condition, int side)
-	{
-		if(returnBoardValue(condition[0]) != side && returnBoardValue(condition[0]) !=EMPTY )
-		{
+
+	private boolean conditionIsValid(int[] condition, int side) {
+		if(returnBoardValue(condition[0]) != side && returnBoardValue(condition[0]) !=EMPTY ) {
 			return false;
-		}else if(returnBoardValue(condition[1]) != side && returnBoardValue(condition[1]) !=EMPTY )
-		{
+		} else if(returnBoardValue(condition[1]) != side && returnBoardValue(condition[1]) !=EMPTY ) {
 			return false;
-		}else if(returnBoardValue(condition[2]) != side &&  returnBoardValue(condition[2]) !=EMPTY )
-		{
+		} else if(returnBoardValue(condition[2]) != side &&  returnBoardValue(condition[2]) !=EMPTY ) {
 			return false;
 		}
 		return true;

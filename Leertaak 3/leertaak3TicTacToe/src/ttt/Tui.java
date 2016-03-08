@@ -13,7 +13,7 @@ class Tui
     {
         do
         {
-            System.out.println("*** new Game ***\n");
+            System.out.println("*** New Game ***\n");
             t = new TicTacToe();
             if (t.computerPlays()) System.out.println("I start:\n");
             else                   System.out.println("You start:\n");
@@ -57,7 +57,7 @@ class Tui
         Character yn;
         do 
         {
-            System.out.print("next Game? enter Y/N: ");
+            System.out.print("Next game? Enter Y/N: ");
             yn=(reader.next()).charAt(0);
             System.out.println(""+yn);
         } 
