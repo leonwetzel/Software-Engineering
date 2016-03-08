@@ -11,32 +11,27 @@ public class Candidates extends LinkedList<Candidate> {
     }
 
     @Override
-    public Candidate remove(int index)
-    {
+    public Candidate remove(int index) {
         Candidate candidate=get(index);
         candidate.takeOne();
         //System.out.println("remove index "+index +" "+ candidate);
-        if (candidate.getAvailable()==0)
-        {
+        if (candidate.getAvailable()==0) {
             candidate = super.remove(index);
         }
         return candidate;
     }
 
     @Override
-    public void add(int index, Candidate candidate)
-    {
+    public void add(int index, Candidate candidate) {
         candidate.addOne();
         //System.out.println("add index "+ index + " "+ candidate);
-        if (candidate.getAvailable()==1)
-        {
+        if (candidate.getAvailable()==1) {
             super.add(index,candidate);
         }
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         Iterator it = iterator();
         String rS="";
         while (it.hasNext())

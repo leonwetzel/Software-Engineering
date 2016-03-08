@@ -18,7 +18,6 @@ import java.util.Arrays;
  * 1.0:
  */
 public class RecursiveSolver implements Solver {
-
     public static void main(String[] args) {
         int[] numbers = { 8, 3, 6, 15};
         int sum = 23;
@@ -45,7 +44,7 @@ public class RecursiveSolver implements Solver {
             } else if(numbers[k] > 0) {
                 if(numbers[k] <= sum) {
                     cache[k] = 0;
-                    if(solve(cache, sum - numbers[k])) {
+                    if(solve(cache, sum-numbers[k])) {
                         return true;
                     }
                 }

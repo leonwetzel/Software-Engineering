@@ -94,7 +94,7 @@ public class Solution extends Stack<Candidate> {
         for(int i = 0; i < occupiedCardPositions.length; i++)
         {
             if(mustBeAdjacentTo(currentCard) == occupiedCardPositions[i] || currentCard == 'J') {
-                int k = neededIndex(currentCard, i);
+                int k = getIndex(i);
                 if(k >= 0) {
                     if(occupiedCardPositions[k] == 0) {
                         if(isCorrect(currentCard, k)) {
@@ -108,11 +108,16 @@ public class Solution extends Stack<Candidate> {
         return false;
     }
 
-    private int neededIndex(char card, int j) {
-        int localRow = row[j];
-        int localColumn = column[j];
+	/**
+     * Returns the current index of a position.
+     * @param current The current index.
+     * @return The corresponding index.
+     */
+    private int getIndex(int current) {
+        int localRow = row[current];
+        int localColumn = column[current];
         for (int k = 0; k < row.length; k++) {
-            if (k != j && occupiedCardPositions[k] == 0) {
+            if (k != current && occupiedCardPositions[k] == 0) {
                 if (row[k] == localRow && column[k] == localColumn - 1) {
                     return k;
                 } else if (row[k] == localRow - 1 && column[k] == localColumn) {
@@ -193,12 +198,17 @@ public class Solution extends Stack<Candidate> {
      * @return true if all checks are correct.
      */
     // uses methods borderCard and mustBeAdjacent to
-    private boolean isCorrect(char card, int i) {
-        int localRow = row[i];
-        int localColumn = column[i];
+    private boolean isCorrect(char card, int index) {
+        int localRow = row[index];
+        int localColumn = column[index];
 
         // checks if neighbouring card is the correct neighbouring type.
         // boolean hasMatchingChar = bordersCard(row[i], column[i], mustBeAdjacentTo(card));
+
+        // Grenst kaart aan dezelfde kaart? Dat mag niet!
+        if(bordersCard(localRow, localColumn, card)) {
+            return false;
+        }
 
         boolean success = true;
         for(int k = 0; k < row.length; k++) {
