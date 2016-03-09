@@ -16,7 +16,7 @@ public class Problem
         System.out.println(solution);
         // reader.nextLine();
         int index = 0;
-        while (index < candidates.size()) {
+        while (index < 8 ) {//candidates.size()) {
             if (solution.fits(candidates.get(index))) {
                 solution.record(candidates.remove(index)); //move candidate to solution
                 if (solution.complete()) {

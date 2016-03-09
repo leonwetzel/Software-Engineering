@@ -27,7 +27,7 @@ public class Solution extends Stack<Candidate>
     //
     // array with all adjacent card positions
     //                         0    1        2        3      4          5     6   7
-    //int [] [] adjacent  = { {3}, {2}, {1,3,4}, {0,2,5}, {2,5},  {3,4,6,7}, {5},{5}  };
+    int [] [] adjacent  = { {3}, {2}, {1,3,4}, {0,2,5}, {2,5},  {3,4,6,7}, {5},{5}  };
     //
     // array with positions to check for bordering
     //
@@ -46,9 +46,28 @@ public class Solution extends Stack<Candidate>
     // @param row, column, candidate
     // @return Boolean indicating if cardChar is found.
     // can be used in the methods fits and isCorrect
-    private boolean bordersCard(int row, int column, char cardChar){
-        //TODO
-        return true;
+    private boolean bordersCard(int index, char cardChar){
+        if(mustBeAdjacentTo(cardChar) == '?')
+        {
+            return true;
+        }
+        boolean k = false;
+        for(int i : adjacent[index])
+        {
+            if(board[row[i]][column[i]] != null)
+            {
+                char card = board[row[i]][column[i]].getCardChar();
+                if(card == cardChar )
+                {
+                    System.out.println(cardChar + " mag niet aan het zelfde grenzen");
+                    return false;
+                } else if (card == mustBeAdjacentTo(cardChar))
+                {
+                    k = true;
+                }
+            }
+        }
+        return k;
     }
 
 
@@ -60,15 +79,26 @@ public class Solution extends Stack<Candidate>
      * next free position.
      */
     public boolean fits(Candidate candidate){
-        //TODO
-        return true;
+        char currentCard = candidate.getCardChar();
+        for(int i = 0; i < row.length;i++)
+        {
+            if(bordersCard(i, currentCard))
+            {
+                board[row[i]][column[i]] = candidate;
+                System.out.println(candidate.getCardChar() + " - " + row[i] +  "," + column[i]);
+                return true;
+            }
+        }
+        return false;
     }
 
     public void record(Candidate candidate)
     {
         int i=this.size(); // i= index in this stack of next for the next candidate
         board [row[i]] [column[i]] = candidate; //x=row, y=column
+        System.out.println(candidate.getCardChar() + " -> (" + row[i] + "," + column[i] + ")");
         this.push(candidate);
+
 
     }
 
@@ -86,6 +116,7 @@ public class Solution extends Stack<Candidate>
     {
         int i=this.size()-1;           // i= index of the candidate that is removed from this Stack;
         board[row[i]][column[i]]=null; // remove candidate from board
+        System.out.println("Truncated (" + row[i] + "," + column[i] + ")");
         return this.pop();
     }
 
