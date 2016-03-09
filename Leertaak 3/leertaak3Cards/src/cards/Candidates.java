@@ -12,7 +12,7 @@ public class Candidates extends LinkedList<Candidate> {
 
     @Override
     public Candidate remove(int index) {
-        Candidate candidate=get(index);
+        Candidate candidate = get(index);
         candidate.takeOne();
         //System.out.println("remove index "+index +" "+ candidate);
         if (candidate.getAvailable()==0) {
