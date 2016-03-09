@@ -37,8 +37,7 @@ public class Solution extends Stack<Candidate>
     int [][] check = {{},{},{1},{0},{2},{3,4},{6},{5,7}};
 
 
-    public Solution() {
-    }
+    public Solution() {}
 
 
     // Checks whether a candidate with card CardChar is in
@@ -135,7 +134,6 @@ public class Solution extends Stack<Candidate>
         //TODO
         // check of kaart grenst aan zichzelf...
 
-
         // check of kaart grenst aan gewenste kaart... (mustBeAdjacentTo())
         return true;
     }
@@ -166,6 +164,4 @@ public class Solution extends Stack<Candidate>
         }
         return -1;
     }
-
-
 }
