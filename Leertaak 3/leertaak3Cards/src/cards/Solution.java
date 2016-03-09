@@ -37,7 +37,7 @@ public class Solution extends Stack<Candidate>
     int [][] check = {{},{},{1},{0},{2},{3,4},{6},{5,7}};
 
 
-    public Solution(){
+    public Solution() {
     }
 
 
@@ -50,28 +50,25 @@ public class Solution extends Stack<Candidate>
         if(mustBeAdjacentTo(cardChar) == '?') {
             return true;
         }
-        if(board[row[index]][column[index]] != null)
-        {
+
+        if(board[row[index]][column[index]] != null) {
             return false;
         }
+
         boolean k = false;
         for(int i : adjacent[index]) {
-            if(board[row[i]][column[i]] != null)
-            {
+            if(board[row[i]][column[i]] != null) {
                 char card = board[row[i]][column[i]].getCardChar();
-                if(card == cardChar )
-                {
-                    System.out.println(cardChar + " mag niet aan het zelfde grenzen");
+                if(card == cardChar ) {
                     return false;
-                } else if (card == mustBeAdjacentTo(cardChar))
-                {
+                } else if (card == mustBeAdjacentTo(cardChar)) {
+                    System.out.println("Borders correctly :D");
                     k = true;
                 }
             }
         }
         return k;
     }
-
 
     /**
      * Checks whether candidate card of same kind.
@@ -87,7 +84,7 @@ public class Solution extends Stack<Candidate>
             if(bordersCard(i, currentCard))
             {
                 board[row[i]][column[i]] = candidate;
-               // System.out.println(candidate.getCardChar() + " - " + row[i] +  "," + column[i]);
+                // System.out.println(candidate.getCardChar() + " - " + row[i] +  "," + column[i]);
                 return true;
             }
         }
@@ -101,18 +98,15 @@ public class Solution extends Stack<Candidate>
         this.push(candidate);
     }
 
-    public boolean complete()
-    {
-        return this.size()==8;
+    public boolean complete() {
+        return this.size() == 8;
     }
 
-    public void show()
-    {
+    public void show() {
         System.out.println(this);
     }
 
-    public Candidate eraseRecording()
-    {
+    public Candidate eraseRecording() {
         int i = this.size()-1;           // i= index of the candidate that is removed from this Stack;
         board[row[i]][column[i]] = null; // remove candidate from board
         System.out.println("Truncated (" + row[i] + "," + column[i] + ")");
@@ -120,8 +114,7 @@ public class Solution extends Stack<Candidate>
     }
 
     // can be used in method isCorrect
-    private char mustBeAdjacentTo(char card)
-    {
+    private char mustBeAdjacentTo(char card) {
         if (card=='A') return 'K';
         if (card=='K') return 'Q';
         if (card=='Q') return 'J';
