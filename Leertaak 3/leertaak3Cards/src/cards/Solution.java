@@ -51,6 +51,10 @@ public class Solution extends Stack<Candidate>
         {
             return true;
         }
+        if(board[row[index]][column[index]] != null)
+        {
+            return false;
+        }
         boolean k = false;
         for(int i : adjacent[index])
         {
@@ -85,7 +89,7 @@ public class Solution extends Stack<Candidate>
             if(bordersCard(i, currentCard))
             {
                 board[row[i]][column[i]] = candidate;
-                System.out.println(candidate.getCardChar() + " - " + row[i] +  "," + column[i]);
+               // System.out.println(candidate.getCardChar() + " - " + row[i] +  "," + column[i]);
                 return true;
             }
         }
