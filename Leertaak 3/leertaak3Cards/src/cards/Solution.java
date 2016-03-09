@@ -135,6 +135,7 @@ public class Solution extends Stack<Candidate>
         //TODO
         // check of kaart grenst aan zichzelf...
 
+
         // check of kaart grenst aan gewenste kaart... (mustBeAdjacentTo())
         return true;
     }
@@ -150,5 +151,21 @@ public class Solution extends Stack<Candidate>
         }
         return s;
     }
+
+	/**
+     * Gets index by row and column number.
+     * @param row Row coordinate.
+     * @param col Column coordinate.
+     * @return Index number.
+     */
+    private int getIndexByRowAndCol(int row, int col) {
+        for(int i = 0; i < board.length; i++) {
+            if(this.row[i] == row && column[i] == col) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
 
 }
