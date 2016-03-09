@@ -16,18 +16,13 @@ public class Problem
         System.out.println(solution);
         // reader.nextLine();
         int index = 0;
-        while (index < candidates.size())
-        {
-            if (solution.fits(candidates.get(index)))
-            {
+        while (index < candidates.size()) {
+            if (solution.fits(candidates.get(index))) {
                 solution.record(candidates.remove(index)); //move candidate to solution
-                if (solution.complete())
-                {
+                if (solution.complete()) {
                     solution.show();
                     break;
-                }
-                else
-                {
+                } else {
                     solve();
                 }
                 candidates.add(index, solution.eraseRecording()); //move candidate to candidates
