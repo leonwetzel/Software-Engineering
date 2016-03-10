@@ -96,7 +96,8 @@ public class MainFrame extends JFrame {
 		this.setJMenuBar(menuBar);
 		this.add(left);
 		this.add(right);
-
+		//This comment is purely for testing
+		//Another test
 		left.validate();
 		right.validate();
 		left.setVisible(true);
