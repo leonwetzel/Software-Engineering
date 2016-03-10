@@ -24,7 +24,6 @@ import model.environment.Environment;
 import model.virtualmap.OccupancyMap;
 
 import javax.swing.*;
-
 import java.awt.*;
 
 
