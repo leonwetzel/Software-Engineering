@@ -45,14 +45,6 @@ public class MainFrame extends JFrame {
 		//this class was originally named: TestApplication
 	}
 
-	private static void test() {
-		System.out.println("Jet fuel cannot melt steel beams.");
-		/*
-		ignore this cause it's important!!!!!
-		 */
-	}
-
-
 	public void init() {
 		if (this.isVisible()) {
 			this.setContentPane(new JPanel());
