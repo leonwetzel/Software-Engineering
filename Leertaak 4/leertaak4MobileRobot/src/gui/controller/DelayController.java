@@ -26,8 +26,6 @@ import java.awt.event.ActionListener;
  */
 
 public class DelayController extends JMenu implements ActionListener {
-
-
 	private final Environment environment;
 
 	private JTextField txtDelay;
