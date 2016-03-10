@@ -47,6 +47,9 @@ public class MainFrame extends JFrame {
 
 	private static void test() {
 		System.out.println("Jet fuel cannot melt steel beams.");
+		/*
+		ignore this cause it's important!!!!!
+		 */
 	}
 
 
