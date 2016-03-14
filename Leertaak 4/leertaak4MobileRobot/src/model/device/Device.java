@@ -94,6 +94,7 @@ public abstract class Device implements Runnable {
 		} else {
 			System.out.println(this.name + " output not initialized");
 		}
+		System.out.println(data);
 	}
 
 

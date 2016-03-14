@@ -72,20 +72,14 @@ public class MobileRobot {
 				0L, TimeUnit.MILLISECONDS,
 				new LinkedBlockingQueue<Runnable>());
 		this.executor.execute(platform);
-
 		for (Device sensor : sensors) {
 			this.executor.execute(sensor);
-
 		}
 		this.executor.execute(this.intelligence);
-
-
-
 	}
 
 	public void quit(){
 		this.executor.shutdownNow();
-
 	}
 
 	public boolean sendCommand(String p_command) {

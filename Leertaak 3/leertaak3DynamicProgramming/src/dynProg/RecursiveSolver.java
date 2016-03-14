@@ -19,8 +19,8 @@ import java.util.Arrays;
  */
 public class RecursiveSolver implements Solver {
     public static void main(String[] args) {
-        int[] numbers = { 8, 3, 6, 15};
-        int sum = 23;
+        int[] numbers = { 3,5,10,9,11};
+        int sum = 30405;
         System.out.println(new RecursiveSolver().solve(numbers, sum));
     }
 
