@@ -65,6 +65,8 @@ public class MobileRobotAI implements Runnable {
 				result = input.readLine();
 				parseMeasures(result, measures);
 				map.drawLaserScan(position, measures);
+
+				addCommandToRobot(result,measures);
 /*
 				robot.sendCommand("P1.MOVEFW 10");
 				result = input.readLine();
@@ -244,5 +246,42 @@ public class MobileRobotAI implements Runnable {
 		}
 	}
 
+	private void addCommandToRobot(String value, double measures[]) {
+		for (int i = 0; i < 360; i++) {
+			measures[i] = 100.0;
+		}
+		if (value.length() >= 5) {
+			value = value.substring(5);  // removes the "SCAN " keyword
+
+			StringTokenizer tokenizer = new StringTokenizer(value, " ");
+			boolean addedCommand = false;
+			double distance;
+			int direction;
+			while (tokenizer.hasMoreTokens()) {
+				distance = Double.parseDouble(tokenizer.nextToken().substring(2));
+				direction = (int) Math.round(Math.toDegrees(Double.parseDouble(tokenizer.nextToken().substring(2))));
+				if (direction == 360) {
+					direction = 0;
+				}
+				measures[direction] = distance;
+				// Printing out all the degrees and what it encountered.
+				//System.out.println("direction = " + direction + " distance = " + distance);
+				if(distance <=10)
+				{
+					if((direction >= 0  && direction <= 20)|| (direction > 340) )
+					{
+						System.out.println("Added command");
+						addedCommand = true;
+
+					}
+				}
+			}
+			if(!addedCommand)
+			{
+				System.out.print("Moving Forward");
+				robot.sendCommand("P1.MOVEFW 10");
+			}
+		}
+	}
 
 }

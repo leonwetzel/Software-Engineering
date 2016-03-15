@@ -176,52 +176,11 @@ public class Laser extends Device {
 			this.commands.add("GETMEASURES");
 			this.executingCommand = true;
 		} else if (command.equalsIgnoreCase("GETMEASURES")) {
-			boolean addedCommand = false;
-			boolean somethingInFrontOfRobot = false;
 			LaserMeasurement measure;
 			String measures = "SCAN";
 			for (LaserMeasurement scanMeasure : scanMeasurements) {
 				measure = scanMeasure;
-				double turnDirection = -1;
-				String direction = "";
 				measures += " d=" + measure.distance + " t=" + measure.direction;
-				if(scanMeasure.distance <= 10 && !addedCommand && somethingInFrontOfRobot)
-				{
-					addedCommand = true;
-					if(scanMeasure.direction >180)
-					{
-						 turnDirection = scanMeasure.direction - 180;
-						direction="RIGHT";
-						System.out.println("Rotating Right");
-					}else if(scanMeasure.direction <180)
-					{
-						System.out.println("Rotating left");
-						direction = "LEFT";
-						turnDirection = scanMeasure.direction + 180;
-					}
-				}
-				if( (scanMeasure.direction <= 70 || scanMeasure.direction >= 290) && scanMeasure.distance <=10)
-				{
-					somethingInFrontOfRobot = true;
-				}
-				if(somethingInFrontOfRobot && addedCommand)
-				{
-					if(direction == "RIGHT")
-					{
-						robot.getPlatform().sendCommand("ROTATERIGHT" + turnDirection);
-						//ROTATERIGHT
-					}else if(direction == "LEFT")
-					{
-						robot.getPlatform().sendCommand("ROTATELEFT"+turnDirection);
-					}else
-					{
-						robot.sendCommand("MOVEFW"+10);
-					}
-				}
-			}
-			if(!somethingInFrontOfRobot)
-			{
-				robot.getPlatform().sendCommand("MOVEFW"+10);
 			}
 			writeOut(measures);
 		} else if (command.equalsIgnoreCase("DETECT")) {
