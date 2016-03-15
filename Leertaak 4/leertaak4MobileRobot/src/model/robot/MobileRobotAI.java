@@ -32,7 +32,6 @@ public class MobileRobotAI implements Runnable {
 	public MobileRobotAI(MobileRobot robot, OccupancyMap map) {
 		this.map = map;
 		this.robot = robot;
-
 	}
 
 	/**
@@ -55,7 +54,7 @@ public class MobileRobotAI implements Runnable {
 
 				robot.setOutput(output);
 
-//      ases where a variable value is never used after its assignment, i.e.:
+				//ases where a variable value is never used after its assignment, i.e.:
 				System.out.println("intelligence running");
 
 				robot.sendCommand("R1.GETPOS");
@@ -66,19 +65,19 @@ public class MobileRobotAI implements Runnable {
 				result = input.readLine();
 				parseMeasures(result, measures);
 				map.drawLaserScan(position, measures);
-
-				robot.sendCommand("P1.MOVEBW 60");
+/*
+				robot.sendCommand("P1.MOVEFW 10");
 				result = input.readLine();
 
 				robot.sendCommand("R1.GETPOS");
 				result = input.readLine();
 				parsePosition(result, position);
-
+				System.out.println("Before Crash");
 				robot.sendCommand("L1.SCAN");
 				result = input.readLine();
 				parseMeasures(result, measures);
 				map.drawLaserScan(position, measures);
-
+				System.out.println("After Crash");
 				robot.sendCommand("P1.ROTATERIGHT 90");
 				result = input.readLine();
 
@@ -94,25 +93,10 @@ public class MobileRobotAI implements Runnable {
 				parseMeasures(result, measures);
 				map.drawLaserScan(position, measures);
 
-				robot.sendCommand("P1.ROTATELEFT 45");
+				//robot.sendCommand("P1.ROTATELEFT 45");
 				result = input.readLine();
 
-				robot.sendCommand("P1.MOVEFW 70");
-				result = input.readLine();
-
-				robot.sendCommand("R1.GETPOS");
-				result = input.readLine();
-				parsePosition(result, position);
-
-				robot.sendCommand("L1.SCAN");
-				result = input.readLine();
-				parseMeasures(result, measures);
-				map.drawLaserScan(position, measures);
-
-				robot.sendCommand("P1.MOVEFW 70");
-				result = input.readLine();
-
-				robot.sendCommand("P1.ROTATERIGHT 45");
+				//robot.sendCommand("P1.MOVEFW 70");
 				result = input.readLine();
 
 				robot.sendCommand("R1.GETPOS");
@@ -124,7 +108,10 @@ public class MobileRobotAI implements Runnable {
 				parseMeasures(result, measures);
 				map.drawLaserScan(position, measures);
 
-				robot.sendCommand("P1.MOVEFW 90");
+				//robot.sendCommand("P1.MOVEFW 70");
+				result = input.readLine();
+
+				//robot.sendCommand("P1.ROTATERIGHT 45");
 				result = input.readLine();
 
 				robot.sendCommand("R1.GETPOS");
@@ -136,10 +123,7 @@ public class MobileRobotAI implements Runnable {
 				parseMeasures(result, measures);
 				map.drawLaserScan(position, measures);
 
-				robot.sendCommand("P1.ROTATERIGHT 45");
-				result = input.readLine();
-
-				robot.sendCommand("P1.MOVEFW 90");
+				//robot.sendCommand("P1.MOVEFW 90");
 				result = input.readLine();
 
 				robot.sendCommand("R1.GETPOS");
@@ -151,10 +135,40 @@ public class MobileRobotAI implements Runnable {
 				parseMeasures(result, measures);
 				map.drawLaserScan(position, measures);
 
-				robot.sendCommand("P1.ROTATERIGHT 45");
+				//robot.sendCommand("P1.ROTATERIGHT 45");
 				result = input.readLine();
 
-				robot.sendCommand("P1.MOVEFW 100");
+				//robot.sendCommand("P1.MOVEFW 90");
+				result = input.readLine();
+
+				//robot.sendCommand("R1.GETPOS");
+				result = input.readLine();
+				parsePosition(result, position);
+
+				//robot.sendCommand("L1.SCAN");
+				result = input.readLine();
+				parseMeasures(result, measures);
+				map.drawLaserScan(position, measures);
+
+				//robot.sendCommand("P1.ROTATERIGHT 45");
+				result = input.readLine();
+
+				//robot.sendCommand("P1.MOVEFW 100");
+				result = input.readLine();
+
+				//robot.sendCommand("R1.GETPOS");
+				result = input.readLine();
+				parsePosition(result, position);
+
+				robot.sendCommand("L1.SCAN");
+				result = input.readLine();
+				parseMeasures(result, measures);
+				map.drawLaserScan(position, measures);
+
+				//robot.sendCommand("P1.ROTATERIGHT 90");
+				result = input.readLine();
+
+				//robot.sendCommand("P1.MOVEFW 80");
 				result = input.readLine();
 
 				robot.sendCommand("R1.GETPOS");
@@ -166,10 +180,7 @@ public class MobileRobotAI implements Runnable {
 				parseMeasures(result, measures);
 				map.drawLaserScan(position, measures);
 
-				robot.sendCommand("P1.ROTATERIGHT 90");
-				result = input.readLine();
-
-				robot.sendCommand("P1.MOVEFW 80");
+				robot.sendCommand("P1.MOVEFW 10");
 				result = input.readLine();
 
 				robot.sendCommand("R1.GETPOS");
@@ -180,19 +191,7 @@ public class MobileRobotAI implements Runnable {
 				result = input.readLine();
 				parseMeasures(result, measures);
 				map.drawLaserScan(position, measures);
-
-				robot.sendCommand("P1.MOVEFW 100");
-				result = input.readLine();
-
-				robot.sendCommand("R1.GETPOS");
-				result = input.readLine();
-				parsePosition(result, position);
-
-				robot.sendCommand("L1.SCAN");
-				result = input.readLine();
-				parseMeasures(result, measures);
-				map.drawLaserScan(position, measures);
-				this.running = false;
+				//this.running = false; */
 			} catch (IOException ioe) {
 				System.err.println("execution stopped");
 				running = false;

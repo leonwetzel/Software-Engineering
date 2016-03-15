@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MobileRobot {
 
-    public static int delay;
+    public static int delay = 5;
 
     private final String name;
 	private final Position position;
