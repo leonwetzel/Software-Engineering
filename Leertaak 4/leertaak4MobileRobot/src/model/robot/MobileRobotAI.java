@@ -45,10 +45,10 @@ public class MobileRobotAI implements Runnable {
 		this.running = true;
 		double position[] = new double[3];
 		double measures[] = new double[360];
-
+		int i = 0;
 		while (running) {
 			try {
-
+				System.out.println("");
 				PipedInputStream pipeIn = new PipedInputStream();
 				BufferedReader input = new BufferedReader(new InputStreamReader(pipeIn));
 				PrintWriter output = new PrintWriter(new PipedOutputStream(pipeIn), true);
@@ -62,19 +62,25 @@ public class MobileRobotAI implements Runnable {
 				parsePosition(result, position);
 
 				robot.sendCommand("L1.SCAN");
+
+
+				System.out.println(running);
 				result = input.readLine();
+				System.out.println("READ LINE DONE");
 				try
 				{
 					if(result.substring(0, 4).equalsIgnoreCase("SCAN"))
 					{
 						parseMeasures(result, measures);
 						addCommandToRobot(result,measures);
+						System.out.println("ADDED COMMANDS");
 					}
 				}catch(Exception e)
 				{
-					System.out.println(e.getMessage());
+					System.err.println(e.getMessage());
 				}
 				map.drawLaserScan(position, measures);
+				System.out.println("END OF LOOP");
 			} catch (IOException ioe) {
 				System.err.println("execution stopped");
 				running = false;
