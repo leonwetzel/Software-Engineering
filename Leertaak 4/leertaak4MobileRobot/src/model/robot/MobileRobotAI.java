@@ -63,10 +63,28 @@ public class MobileRobotAI implements Runnable {
 
 				robot.sendCommand("L1.SCAN");
 				result = input.readLine();
-				parseMeasures(result, measures);
+				try
+				{
+					if(result.substring(0, 4).equalsIgnoreCase("SCAN"))
+					{
+						parseMeasures(result, measures);
+					}
+				}catch(Exception e)
+				{
+					System.out.println(e.getMessage());
+				}
+
 				map.drawLaserScan(position, measures);
 
-				addCommandToRobot(result,measures);
+				try{
+					if(result.substring(0, 4).equalsIgnoreCase("SCAN")){
+						addCommandToRobot(result,measures);
+					}
+				}catch(Exception e)
+				{
+					System.out.println(e.getMessage());
+				}
+
 /*
 				robot.sendCommand("P1.MOVEFW 10");
 				result = input.readLine();
@@ -215,7 +233,7 @@ public class MobileRobotAI implements Runnable {
 		indexInit = value.indexOf("Y=");
 		parameter = value.substring(indexInit + 2);
 		indexEnd = parameter.indexOf(' ');
-		position[1] = Double.parseDouble(parameter.substring(0, indexEnd));
+ 		position[1] = Double.parseDouble(parameter.substring(0, indexEnd));
 
 		indexInit = value.indexOf("DIR=");
 		parameter = value.substring(indexInit + 4);
@@ -252,9 +270,8 @@ public class MobileRobotAI implements Runnable {
 		}
 		if (value.length() >= 5) {
 			value = value.substring(5);  // removes the "SCAN " keyword
-
 			StringTokenizer tokenizer = new StringTokenizer(value, " ");
-			boolean addedCommand = false;
+			boolean somethingInFrontOfRobot = false;
 			double distance;
 			int direction;
 			while (tokenizer.hasMoreTokens()) {
@@ -266,17 +283,36 @@ public class MobileRobotAI implements Runnable {
 				measures[direction] = distance;
 				// Printing out all the degrees and what it encountered.
 				//System.out.println("direction = " + direction + " distance = " + distance);
-				if(distance <=10)
+				if(distance <=10 && !somethingInFrontOfRobot)
 				{
 					if((direction >= 0  && direction <= 20)|| (direction > 340) )
 					{
-						System.out.println("Added command");
-						addedCommand = true;
+						somethingInFrontOfRobot = true;
 
+					}
+				}else if(somethingInFrontOfRobot)
+				{
+					if(distance <=10)
+					{
+						if(direction >= 45 && direction <= 135)
+						{
+							//Go left
+							System.out.println("Going Left");
+							robot.sendCommand("P1.ROTATELEFT 45");
+							break;
+						}else if(direction >= 225 && direction <= 305)
+						{
+							//Go Right
+							System.out.println("Going Right");
+							robot.sendCommand("P1.ROTATERIGHT 45");
+						}
+					}else{
+						System.out.println("GO RIGHT");
+						robot.sendCommand("P1.ROTATERIGHT 45");
 					}
 				}
 			}
-			if(!addedCommand)
+			if(!somethingInFrontOfRobot)
 			{
 				System.out.print("Moving Forward");
 				robot.sendCommand("P1.MOVEFW 10");
