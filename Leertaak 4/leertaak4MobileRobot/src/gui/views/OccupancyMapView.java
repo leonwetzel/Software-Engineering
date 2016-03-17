@@ -39,7 +39,6 @@ public class OccupancyMapView extends JPanel implements ActionListener {
 
 	private final OccupancyMap model;
 
-
 	public OccupancyMapView(OccupancyMap model) {
 		this.model = model;
 		this.width = model.getMapWidth();

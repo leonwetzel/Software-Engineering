@@ -19,8 +19,6 @@ import javax.swing.JMenu;
  * this class represents the menuBar that's visible on the mainframe
  */
 public class MenuBarController extends JMenuBar {
-
-
 	/**
 	 * Constructor
 	 * will add all JMenu items in menus to this menuBar

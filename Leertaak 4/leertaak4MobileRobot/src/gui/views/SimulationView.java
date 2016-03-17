@@ -50,7 +50,7 @@ public class SimulationView extends JPanel implements ActionListener {
 	 */
 	public SimulationView(Environment model) {
 		this.model = model;
-		this.obstacles = new ArrayList<Obstacle>();
+		this.obstacles = new ArrayList<>();
 
 		this.setLayout(new BorderLayout());
 		this.setBackground(SystemColor.window);
