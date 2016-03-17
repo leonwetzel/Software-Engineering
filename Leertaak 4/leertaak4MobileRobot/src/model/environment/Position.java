@@ -31,10 +31,10 @@ public class Position {
         this.x += da * Math.cos(this.t) - db * Math.sin(this.t);
         this.y += da * Math.sin(this.t) + db * Math.cos(this.t);
         this.t += Math.toRadians(dt);
-        while (this.t > 2.0 * Math.PI){
+        while (this.t > 2.0 * Math.PI) {
             this.t -= 2.0 * Math.PI;
         }
-        while (this.t < 0.0)  {
+        while (this.t < 0.0) {
             this.t += 2.0 * Math.PI;
         }
     }

@@ -117,7 +117,6 @@ public class MainFrame extends JFrame {
 	 * @param args String[]
 	 */
 	public static void main(String[] args) {
-
 		MainFrame runner = new MainFrame();
 		runner.init();
 	}

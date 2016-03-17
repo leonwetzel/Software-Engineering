@@ -43,10 +43,7 @@ public class OccupancyMap {
 				grid[i][j] = UNKNOWN;
 			}
 		}
-
-		this.actionListenerList = new ArrayList<ActionListener>();
-
-
+		this.actionListenerList = new ArrayList<>();
 	}
 
 	public void drawLaserScan(double position[], double measures[]) {

@@ -21,7 +21,6 @@ import java.util.StringTokenizer;
  * @author Davide Brugali       (2002)
  * @version 2.0
  */
-
 public class MobileRobotAI implements Runnable {
 
 	private final OccupancyMap map;
@@ -45,10 +44,10 @@ public class MobileRobotAI implements Runnable {
 		this.running = true;
 		double position[] = new double[3];
 		double measures[] = new double[360];
-		int i = 0;
+
 		while (running) {
 			try {
-				System.out.println("");
+
 				PipedInputStream pipeIn = new PipedInputStream();
 				BufferedReader input = new BufferedReader(new InputStreamReader(pipeIn));
 				PrintWriter output = new PrintWriter(new PipedOutputStream(pipeIn), true);
@@ -62,25 +61,19 @@ public class MobileRobotAI implements Runnable {
 				parsePosition(result, position);
 
 				robot.sendCommand("L1.SCAN");
-
-
-				System.out.println(running);
 				result = input.readLine();
-				System.out.println("READ LINE DONE");
 				try
 				{
 					if(result.substring(0, 4).equalsIgnoreCase("SCAN"))
 					{
 						parseMeasures(result, measures);
 						addCommandToRobot(result,measures);
-						System.out.println("ADDED COMMANDS");
 					}
 				}catch(Exception e)
 				{
-					System.err.println(e.getMessage());
+					System.out.println(e.getMessage());
 				}
 				map.drawLaserScan(position, measures);
-				System.out.println("END OF LOOP");
 			} catch (IOException ioe) {
 				System.err.println("execution stopped");
 				running = false;
@@ -289,31 +282,27 @@ public class MobileRobotAI implements Runnable {
 						somethingInFrontOfRobot = true;
 
 					}
-				}else if(somethingInFrontOfRobot)
+				} else if(somethingInFrontOfRobot)
 				{
-
-						if(direction >= 45 && direction <= 135 && distance <=10)
-						{
-							//Go left
-							System.out.println("Going Left");
-							robot.sendCommand("P1.ROTATELEFT 45");
-							break;
-						}else if(direction >= 225 && direction <= 305 && distance <=10)
-						{
-							//Go Right
-							System.out.println("Going Right");
-							robot.sendCommand("P1.ROTATERIGHT 45");
-							break;
-						}
-						else
-						{
-							System.out.println("GO RIGHT");
-							robot.sendCommand("P1.ROTATERIGHT 45");
-							break;
-						}
-
-
-
+					if(direction >= 45 && direction <= 135 && distance <=10)
+					{
+						//Go left
+						System.out.println("Going Left");
+						robot.sendCommand("P1.ROTATELEFT 45");
+						break;
+					}else if(direction >= 225 && direction <= 305 && distance <=10)
+					{
+						//Go Right
+						System.out.println("Going Right");
+						robot.sendCommand("P1.ROTATERIGHT 45");
+						break;
+					}
+					else
+					{
+						System.out.println("GO RIGHT");
+						robot.sendCommand("P1.ROTATERIGHT 45");
+						break;
+					}
 				}
 			}
 			if(!somethingInFrontOfRobot)
