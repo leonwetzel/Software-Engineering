@@ -295,33 +295,44 @@ public class MobileRobotAI implements Runnable {
 			}
 		}
 		System.out.println("Looking to sides");
-		j = 315;
-		for(int i = 0; i< 135; i++, j--)
-		{
-
-		}
-		if(tobeAnalysed.containsKey(150) && tobeAnalysed.containsKey(50))
-		{
-
-		}else
+		if(!tobeAnalysed.containsKey(150) && !tobeAnalysed.containsKey(50))
 		{
 			if( !tobeAnalysed.containsKey(50) )
 			{
 				if(tobeAnalysed.containsKey(90))
 				{
-					if(tobeAnalysed.get(90) > 15)
+					if(tobeAnalysed.get(90) > 15 && tobeAnalysed.containsKey(135))
 					{
-						return robotGoRight();
+						if(tobeAnalysed.get(135) >= 10 && tobeAnalysed.get(135) <= 35)
+						{
+							robot.sendCommand("P1.ROTATERIGHT 90");
+							return true;
+						}
 					}
-				}else
+				}/*else
 				{
 					return robotGoRight();
-				}
+				}*/
 			}
 		}
-		if(tobeAnalysed.containsKey(300) & tobeAnalysed.containsKey(210))
+		if(!tobeAnalysed.containsKey(300) & !tobeAnalysed.containsKey(210))
 		{
-
+			if( !tobeAnalysed.containsKey(210) )
+			{
+				if(tobeAnalysed.containsKey(270))
+				{
+					if(tobeAnalysed.get(270) > 15 && tobeAnalysed.containsKey(225))
+					{
+						if(tobeAnalysed.get(225) >= 10 && tobeAnalysed.get(225) <= 20)
+						{
+							return robotGoLeft();
+						}
+					}
+				}/*else
+				{
+					return robotGoRight();
+				}*/
+			}
 		}
 		return false;
 	}
