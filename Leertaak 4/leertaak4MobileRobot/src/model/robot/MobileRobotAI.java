@@ -238,6 +238,12 @@ public class MobileRobotAI implements Runnable {
 		position[2] = Double.parseDouble(parameter);
 	}
 
+	/**
+	 * yay
+	 * @param value
+	 * @param measures
+	 * @return
+	 */
 	private HashMap<Integer, Double> parseMeasures(String value, double measures[]) {
 		records.clear();
 		for (int i = 0; i < 360; i++) {
