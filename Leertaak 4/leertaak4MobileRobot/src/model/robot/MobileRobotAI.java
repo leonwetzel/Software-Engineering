@@ -239,7 +239,7 @@ public class MobileRobotAI implements Runnable {
 	}
 
 	private HashMap<Integer, Double> parseMeasures(String value, double measures[]) {
-
+		records.clear();
 		for (int i = 0; i < 360; i++) {
 			measures[i] = 100.0;
 		}
@@ -274,20 +274,16 @@ public class MobileRobotAI implements Runnable {
 		{
 			if(tobeAnalysed.containsKey(i))
 			{
-				if(tobeAnalysed.get(i) <= 10 )
+				if(tobeAnalysed.get(i) <= 15 )
 				{
-					robot.sendCommand("P1.ROTATELEFT 45");
-					System.out.println(1);
-					return  true;
+					return robotGoLeft();
 				}
 			}
 			if(tobeAnalysed.containsKey(j))
 			{
-				if(tobeAnalysed.get(j) <= 10 )
+				if(tobeAnalysed.get(j) <= 15 )
 				{
-					robot.sendCommand("P1.ROTATERIGHT 45");
-					System.out.println(2);
-					return true;
+					return robotGoRight();
 				}
 			}
 		}
@@ -295,12 +291,45 @@ public class MobileRobotAI implements Runnable {
 		j = 315;
 		for(int i = 0; i< 135; i++, j--)
 		{
-			//if(i = )
-		}
 
+		}
+		if(tobeAnalysed.containsKey(150) && tobeAnalysed.containsKey(50))
+		{
+
+		}else
+		{
+			if( !tobeAnalysed.containsKey(50) )
+			{
+				if(tobeAnalysed.containsKey(90))
+				{
+					if(tobeAnalysed.get(90) > 15)
+					{
+						return robotGoRight();
+					}
+				}else
+				{
+					return robotGoRight();
+				}
+			}
+		}
+		if(tobeAnalysed.containsKey(300) & tobeAnalysed.containsKey(210))
+		{
+
+		}
 		return false;
 	}
 
+	private boolean robotGoRight()
+	{
+		robot.sendCommand("P1.ROTATERIGHT 45");
+		return true;
+	}
+
+	private boolean robotGoLeft()
+	{
+		robot.sendCommand("P1.ROTATELEFT 45");
+		return true;
+	}
 	private boolean goRightOrLeft(HashMap<Integer, Double> tobeAnalysed)
 	{
 		boolean searching = true;
