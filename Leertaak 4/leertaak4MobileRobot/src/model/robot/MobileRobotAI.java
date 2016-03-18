@@ -78,6 +78,7 @@ public class MobileRobotAI implements Runnable {
 					System.err.println(e.getMessage());
 				}
 				map.drawLaserScan(position, measures);
+				pipeIn.close();
 			} catch (IOException ioe) {
 				System.err.println("IOE! :(");
 				System.err.println("execution stopped");
