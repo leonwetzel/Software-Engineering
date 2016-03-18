@@ -78,7 +78,11 @@ public class MobileRobotAI implements Runnable {
 					System.err.println(e.getMessage());
 				}
 				map.drawLaserScan(position, measures);
+
 				pipeIn.close();
+				input.close();
+				output.close();
+
 			} catch (IOException ioe) {
 				System.err.println("IOE! :(");
 				System.err.println("execution stopped");
@@ -239,12 +243,6 @@ public class MobileRobotAI implements Runnable {
 		position[2] = Double.parseDouble(parameter);
 	}
 
-	/**
-	 * yay
-	 * @param value
-	 * @param measures
-	 * @return
-	 */
 	private HashMap<Integer, Double> parseMeasures(String value, double measures[]) {
 		records.clear();
 		for (int i = 0; i < 360; i++) {
