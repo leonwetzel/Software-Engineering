@@ -26,9 +26,10 @@ public class MobileRobotAI implements Runnable {
 
 	private final OccupancyMap map;
 	private final MobileRobot robot;
+	private final static Object lock = new Object();
 
 	private boolean running;
-	HashMap<Integer, Double> records = new HashMap<Integer, Double>();
+	HashMap<Integer, Double> records = new HashMap<>();
 	public MobileRobotAI(MobileRobot robot, OccupancyMap map) {
 		this.map = map;
 		this.robot = robot;
@@ -48,7 +49,6 @@ public class MobileRobotAI implements Runnable {
 
 		while (running) {
 			try {
-
 				PipedInputStream pipeIn = new PipedInputStream();
 				BufferedReader input = new BufferedReader(new InputStreamReader(pipeIn));
 				PrintWriter output = new PrintWriter(new PipedOutputStream(pipeIn), true);
@@ -63,30 +63,30 @@ public class MobileRobotAI implements Runnable {
 
 				robot.sendCommand("L1.SCAN");
 				result = input.readLine();
-				try
-				{
-					if(result.substring(0, 4).equalsIgnoreCase("SCAN"))
-					{
-					;
+
+				try {
+					if (result.substring(0, 4).equalsIgnoreCase("SCAN")) {
 						//addCommandToRobot(result,measures);
-						if(!addCommand(	parseMeasures(result, measures))) //If it doesn't add any command go forward
+						if (!addCommand(parseMeasures(result, measures))) //If it doesn't add any command go forward
 						{
-							System.out.println("Move forward");
-							robot.sendCommand("P1.MOVEFW 10");
+							System.err.println("System has not executed command...");
+							robot.sendCommand("P1.MOVEFW 15");
 						}
 					}
-				}catch(Exception e)
-				{
-					System.out.println(e.getMessage());
+				} catch (Exception e) {
+					System.err.println("E! :(");
+					System.err.println(e.getMessage());
 				}
 				map.drawLaserScan(position, measures);
 			} catch (IOException ioe) {
+				System.err.println("IOE! :(");
 				System.err.println("execution stopped");
 				running = false;
 			}
 		}
-
 	}
+
+	@Deprecated
 	private void oldCode()
 	{
 		/*
@@ -309,7 +309,7 @@ public class MobileRobotAI implements Runnable {
 		int left = 360;
 		while(searching)
 		{
-			if(tobeAnalysed.get(right) != tobeAnalysed.get(left)) {
+			if(tobeAnalysed.get(right).equals(tobeAnalysed.get(left))) {
 				if (tobeAnalysed.get(right) < tobeAnalysed.get(left)) {
 					robot.sendCommand("P1.ROTATERIGHT 15");
 				} else {
