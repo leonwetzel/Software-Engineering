@@ -2,6 +2,7 @@ package model.robot;
 
 import model.virtualmap.OccupancyMap;
 
+import java.awt.*;
 import java.io.PipedInputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -9,6 +10,9 @@ import java.io.PrintWriter;
 import java.io.PipedOutputStream;
 import java.io.IOException;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 /**
@@ -233,6 +237,7 @@ public class MobileRobotAI implements Runnable {
 	}
 
 	private void parseMeasures(String value, double measures[]) {
+		HashMap<Integer, Double> records = new HashMap<Integer, Double>();
 		for (int i = 0; i < 360; i++) {
 			measures[i] = 100.0;
 		}
@@ -251,9 +256,73 @@ public class MobileRobotAI implements Runnable {
 				}
 				measures[direction] = distance;
 				// Printing out all the degrees and what it encountered.
-				System.out.println("direction = " + direction + " distance = " + distance);
+				//System.out.println("direction = " + direction + " distance = " + distance);
+				records.put(direction, distance);
+			}
+			//analyseHashMap(records);
+		}
+	}
+
+	private boolean analyseHashMap (HashMap<Integer, Double> tobeAnalysed)
+	{
+		/*
+		Iterator it = tobeAnalysed.entrySet().iterator();
+		while (it.hasNext()) {
+			Map.Entry pair = (tobeAnalysed.Entry)it.next();
+			if()
+			//System.out.println(pair.getKey() + " = " + pair.getValue());
+			it.remove(); // avoids a ConcurrentModificationException
+		}*/
+		int j = 360;
+		for(int i = 0 ; i < 45; i++, j--)
+		{
+			if(tobeAnalysed.get(i) <= 10)
+			{
+				if(tobeAnalysed.get(i) < tobeAnalysed.get(j))
+				{
+					robot.sendCommand("P1.ROTATELEFT 15");
+					return  true;
+				}else
+				{
+					robot.sendCommand("P1.ROTATERIGHT 15");
+					return true;
+				}
+			}else if(tobeAnalysed.get(j) <= 10)
+			{
+				robot.sendCommand("P1.ROTATELEFT 15");
 			}
 		}
+		j = 315;
+		for(int i = 0; i< 135; i++, j--)
+		{
+			//if(i = )
+		}
+		return false;
+	}
+
+	private boolean goRightOrLeft(HashMap<Integer, Double> tobeAnalysed)
+	{
+		boolean searching = true;
+		double closestPoint = 5000;
+		int right = 0;
+		int left = 360;
+		while(searching)
+		{
+			if(tobeAnalysed.get(right) != tobeAnalysed.get(left)) {
+				if (tobeAnalysed.get(right) < tobeAnalysed.get(left)) {
+					robot.sendCommand("P1.ROTATERIGHT 15");
+				} else {
+					robot.sendCommand("P1.ROTATELEFT 15");
+				}
+			}
+			right++;
+			left++;
+		}
+		if(closestPoint != 5000)
+		{
+			return true;
+		}
+		return false;
 	}
 
 	private void addCommandToRobot(String value, double measures[]) {
@@ -282,7 +351,7 @@ public class MobileRobotAI implements Runnable {
 						somethingInFrontOfRobot = true;
 
 					}
-				} else if(somethingInFrontOfRobot)
+				} else //if(somethingInFrontOfRobot)
 				{
 					if(direction >= 45 && direction <= 135 && distance <=10)
 					{
@@ -296,6 +365,20 @@ public class MobileRobotAI implements Runnable {
 						System.out.println("Going Right");
 						robot.sendCommand("P1.ROTATERIGHT 45");
 						break;
+					}
+					else if(direction >=135 && direction <= 225)
+					{
+						if(distance <=10)
+						{
+							if(direction <= 180 && direction >= 135)
+							{
+								robot.sendCommand("P1.ROTATELEFT 45");
+							}else if(direction > 180 && direction <= 225)
+							{
+								robot.sendCommand("P1.ROTATERIGHT 45");
+							}
+							break;
+						}
 					}
 					else
 					{

@@ -101,7 +101,7 @@ public abstract class Device implements Runnable {
 		this.output = output;
 	}
 
-	public void run() {
+	public  void run() {
 		System.out.println("Device " + this.name + " running");
 
 		do {

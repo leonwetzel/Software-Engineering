@@ -139,7 +139,7 @@ public class Laser extends Device {
 		return minDistance;
 	}
 
-	public void executeCommand(String command) {
+	public void  executeCommand(String command) {
 		if (command.contains("ROTATETO")) {
 			this.rotStep = 4.0;
 			double direction = Math.abs(Double.parseDouble(command.trim().substring(9).trim()));
