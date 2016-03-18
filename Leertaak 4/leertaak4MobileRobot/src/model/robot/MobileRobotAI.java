@@ -2,7 +2,6 @@ package model.robot;
 
 import model.virtualmap.OccupancyMap;
 
-import java.awt.*;
 import java.io.PipedInputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -11,8 +10,6 @@ import java.io.PipedOutputStream;
 import java.io.IOException;
 
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 /**
@@ -31,7 +28,7 @@ public class MobileRobotAI implements Runnable {
 	private final MobileRobot robot;
 
 	private boolean running;
-
+	HashMap<Integer, Double> records = new HashMap<Integer, Double>();
 	public MobileRobotAI(MobileRobot robot, OccupancyMap map) {
 		this.map = map;
 		this.robot = robot;
@@ -70,8 +67,13 @@ public class MobileRobotAI implements Runnable {
 				{
 					if(result.substring(0, 4).equalsIgnoreCase("SCAN"))
 					{
-						parseMeasures(result, measures);
-						addCommandToRobot(result,measures);
+					;
+						//addCommandToRobot(result,measures);
+						if(!addCommand(	parseMeasures(result, measures))) //If it doesn't add any command go forward
+						{
+							System.out.println("Move forward");
+							robot.sendCommand("P1.MOVEFW 10");
+						}
 					}
 				}catch(Exception e)
 				{
@@ -236,8 +238,8 @@ public class MobileRobotAI implements Runnable {
 		position[2] = Double.parseDouble(parameter);
 	}
 
-	private void parseMeasures(String value, double measures[]) {
-		HashMap<Integer, Double> records = new HashMap<Integer, Double>();
+	private HashMap<Integer, Double> parseMeasures(String value, double measures[]) {
+
 		for (int i = 0; i < 360; i++) {
 			measures[i] = 100.0;
 		}
@@ -256,47 +258,46 @@ public class MobileRobotAI implements Runnable {
 				}
 				measures[direction] = distance;
 				// Printing out all the degrees and what it encountered.
-				//System.out.println("direction = " + direction + " distance = " + distance);
+				System.out.println("direction = " + direction + " distance = " + distance);
 				records.put(direction, distance);
 			}
-			//analyseHashMap(records);
 		}
+		System.out.println("The HashMap has " + records.size() + " records");
+		return records;
 	}
 
-	private boolean analyseHashMap (HashMap<Integer, Double> tobeAnalysed)
+	private boolean addCommand(HashMap<Integer, Double> tobeAnalysed)
 	{
-		/*
-		Iterator it = tobeAnalysed.entrySet().iterator();
-		while (it.hasNext()) {
-			Map.Entry pair = (tobeAnalysed.Entry)it.next();
-			if()
-			//System.out.println(pair.getKey() + " = " + pair.getValue());
-			it.remove(); // avoids a ConcurrentModificationException
-		}*/
 		int j = 360;
+		System.out.println("Looking infront");
 		for(int i = 0 ; i < 45; i++, j--)
 		{
-			if(tobeAnalysed.get(i) <= 10)
+			if(tobeAnalysed.containsKey(i))
 			{
-				if(tobeAnalysed.get(i) < tobeAnalysed.get(j))
+				if(tobeAnalysed.get(i) <= 10 )
 				{
-					robot.sendCommand("P1.ROTATELEFT 15");
+					robot.sendCommand("P1.ROTATELEFT 45");
+					System.out.println(1);
 					return  true;
-				}else
+				}
+			}
+			if(tobeAnalysed.containsKey(j))
+			{
+				if(tobeAnalysed.get(j) <= 10 )
 				{
-					robot.sendCommand("P1.ROTATERIGHT 15");
+					robot.sendCommand("P1.ROTATERIGHT 45");
+					System.out.println(2);
 					return true;
 				}
-			}else if(tobeAnalysed.get(j) <= 10)
-			{
-				robot.sendCommand("P1.ROTATELEFT 15");
 			}
 		}
+		System.out.println("Looking to sides");
 		j = 315;
 		for(int i = 0; i< 135; i++, j--)
 		{
 			//if(i = )
 		}
+
 		return false;
 	}
 

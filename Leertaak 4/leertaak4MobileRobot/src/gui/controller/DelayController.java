@@ -40,7 +40,7 @@ public class DelayController extends JMenu implements ActionListener {
 		super("Delay");
 
 		this.environment = environment;
-		this.delay = 10;
+		this.delay = 5;
 
 		JPanel pnlDelay = new JPanel();
 		pnlDelay.setLayout(new GridBagLayout());
