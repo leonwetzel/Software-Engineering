@@ -299,7 +299,7 @@ public class MobileRobotAI implements Runnable {
 			{
 				if(tobeAnalysed.containsKey(90))
 				{
-					if(tobeAnalysed.get(90) > 15 && tobeAnalysed.containsKey(135))
+					if(tobeAnalysed.get(90) > 15 )
 					{
 						if(tobeAnalysed.get(135) >= 10 && tobeAnalysed.get(135) <= 35)
 						{
@@ -307,15 +307,18 @@ public class MobileRobotAI implements Runnable {
 							return true;
 						}
 					}
-				}/*else
+				}else
 				{
 					return robotGoRight();
-				}*/
+				}
 			}
-		}
-		if(!tobeAnalysed.containsKey(300) & !tobeAnalysed.containsKey(210))
+		}else if(!tobeAnalysed.containsKey(90))
 		{
-			if( !tobeAnalysed.containsKey(210) )
+			return robotGoRight();
+		}
+		if(!tobeAnalysed.containsKey(330) & !tobeAnalysed.containsKey(210))
+		{
+			if( !tobeAnalysed.containsKey(330) )
 			{
 				if(tobeAnalysed.containsKey(270))
 				{
