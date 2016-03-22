@@ -62,6 +62,7 @@ public class MobileRobotAI implements Runnable {
 				parsePosition(result, position);
 
 				robot.sendCommand("L1.SCAN");
+				//robot.sendCommand("S1.SCAN");
 				result = input.readLine();
 
 				try {

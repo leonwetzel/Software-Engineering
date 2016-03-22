@@ -184,7 +184,6 @@ public class Laser extends Device {
 			}
 			writeOut(measures);
 		} else if (command.equalsIgnoreCase("DETECT")) {
-			System.out.print("Detect!");
 			detect = true;
 			rotStep = 8.0;
 			if (detectMeasure != null) {
