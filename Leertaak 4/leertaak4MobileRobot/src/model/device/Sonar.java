@@ -134,6 +134,7 @@ public class Sonar extends Device {
             this.executingCommand = false;
             if (!detect && !scan) {
                 writeOut("LASER ARRIVED");
+                //fuck dit
             }
 
         }
