@@ -60,17 +60,23 @@ public class MobileRobotAI implements Runnable {
 				robot.sendCommand("R1.GETPOS");
 				result = input.readLine();
 				parsePosition(result, position);
-
+				records.clear();
 				robot.sendCommand("L1.SCAN");
-				//robot.sendCommand("S1.SCAN");
 				result = input.readLine();
-
+				if (result.substring(0, 4).equalsIgnoreCase("SCAN")) {
+					parseMeasures(result, measures);
+				}
+				robot.sendCommand("S1.SCAN");
+				result = input.readLine();
+				if (result.substring(0, 4).equalsIgnoreCase("SCAN")) {
+					parseMeasures(result, measures);
+				}
 				try {
 					if (result.substring(0, 4).equalsIgnoreCase("SCAN")) {
 						//addCommandToRobot(result,measures);
-						if (!addCommand(parseMeasures(result, measures))) //If it doesn't add any command go forward
+						//parseMeasures(result, measures);
+						if (!addCommand()) //If it doesn't add any command go forward
 						{
-							System.err.println("System has not executed command...");
 							robot.sendCommand("P1.MOVEFW 15");
 						}
 					}
@@ -244,8 +250,7 @@ public class MobileRobotAI implements Runnable {
 		position[2] = Double.parseDouble(parameter);
 	}
 
-	private HashMap<Integer, Double> parseMeasures(String value, double measures[]) {
-		records.clear();
+	private void parseMeasures(String value, double measures[]) {
 		for (int i = 0; i < 360; i++) {
 			measures[i] = 100.0;
 		}
@@ -264,45 +269,52 @@ public class MobileRobotAI implements Runnable {
 				}
 				measures[direction] = distance;
 				// Printing out all the degrees and what it encountered.
-				System.out.println("direction = " + direction + " distance = " + distance);
-				records.put(direction, distance);
+				//System.out.println("direction = " + direction + " distance = " + distance);
+				if(records.containsKey(direction)) {
+					if(distance  <records.get(direction) ) {
+						records.replace(direction, distance); /*Doesn't really matter that it's replace instead of put
+						but we should be aware we are replacing something instead of putting something in the HashMap*/
+					}
+				}else{
+					records.put(direction, distance);
+				}
+
 			}
 		}
 		System.out.println("The HashMap has " + records.size() + " records");
-		return records;
 	}
 
-	private boolean addCommand(HashMap<Integer, Double> tobeAnalysed)
+	private boolean addCommand()
 	{
 		int j = 360;
 		System.out.println("Looking infront");
 		for(int i = 0 ; i < 45; i++, j--)
 		{
-			if(tobeAnalysed.containsKey(i))
+			if(records.containsKey(i))
 			{
-				if(tobeAnalysed.get(i) <= 15 )
+				if(records.get(i) <= 15 )
 				{
 					return robotGoLeft();
 				}
 			}
-			if(tobeAnalysed.containsKey(j))
+			if(records.containsKey(j))
 			{
-				if(tobeAnalysed.get(j) <= 15 )
+				if(records.get(j) <= 15 )
 				{
 					return robotGoRight();
 				}
 			}
 		}
 		System.out.println("Looking to sides");
-		if(!tobeAnalysed.containsKey(150) && !tobeAnalysed.containsKey(50))
+		if(!records.containsKey(150) && !records.containsKey(50))
 		{
-			if( !tobeAnalysed.containsKey(50) )
+			if( !records.containsKey(50) )
 			{
-				if(tobeAnalysed.containsKey(90))
+				if(records.containsKey(90))
 				{
-					if(tobeAnalysed.get(90) > 15 )
+					if(records.get(90) > 15 )
 					{
-						if(tobeAnalysed.get(135) >= 10 && tobeAnalysed.get(135) <= 35)
+						if(records.get(135) >= 10 && records.get(135) <= 35)
 						{
 							robot.sendCommand("P1.ROTATERIGHT 90");
 							return true;
@@ -313,19 +325,19 @@ public class MobileRobotAI implements Runnable {
 					return robotGoRight();
 				}
 			}
-		}else if(!tobeAnalysed.containsKey(90))
+		}else if(!records.containsKey(90))
 		{
 			return robotGoRight();
 		}
-		if(!tobeAnalysed.containsKey(330) & !tobeAnalysed.containsKey(210))
+		if(!records.containsKey(330) & !records.containsKey(210))
 		{
-			if( !tobeAnalysed.containsKey(330) )
+			if( !records.containsKey(330) )
 			{
-				if(tobeAnalysed.containsKey(270))
+				if(records.containsKey(270))
 				{
-					if(tobeAnalysed.get(270) > 15 && tobeAnalysed.containsKey(225))
+					if(records.get(270) > 15 && records.containsKey(225))
 					{
-						if(tobeAnalysed.get(225) >= 10 && tobeAnalysed.get(225) <= 20)
+						if(records.get(225) >= 10 && records.get(225) <= 20)
 						{
 							return robotGoLeft();
 						}
